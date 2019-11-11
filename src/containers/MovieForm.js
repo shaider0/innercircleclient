@@ -15,13 +15,23 @@ class MovieForm extends Component {
 
   handleNewMovie = event => {
     event.preventDefault();
-    this.props.postNewMovie(this.state.title);
+
+    const newMovie = {
+      title: this.state.title,
+      availableOn: this.state.availableOn,
+      impressions: this.state.impressions,
+      status: this.state.status,
+    }
+
+    this.props.postNewMovie(newMovie);
     this.setState({ 
       title: "",
       availableOn: "",
       impressions: "",
       status: "",
     });
+    console.log(newMovie);
+
     this.props.history.push("/");
   };
 

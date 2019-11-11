@@ -3,12 +3,12 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 
-const MessageItem = ({
+const MovieItem = ({
   date,
   profileImageUrl,
   text,
   username,
-  removeMessage,
+  removeMovie,
   isCorrectUser
 }) => (
   <div>
@@ -20,7 +20,7 @@ const MessageItem = ({
         width="100"
         className="timeline-image"
       />
-      <div className="message-area">
+      <div className="movie-area">
         <Link to="/">@{username} &nbsp;</Link>
         <span className="text-muted">
           <Moment className="text-muted" format="Do MMM YYYY">
@@ -29,7 +29,7 @@ const MessageItem = ({
         </span>
         <p>{text}</p>
         {isCorrectUser && (
-          <a className="btn btn-danger" onClick={removeMessage}>
+          <a className="btn btn-danger" onClick={removeMovie}>
             Delete
           </a>
         )}
@@ -38,4 +38,4 @@ const MessageItem = ({
   </div>
 );
 
-export default MessageItem;
+export default MovieItem;

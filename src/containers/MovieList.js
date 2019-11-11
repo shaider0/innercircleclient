@@ -13,7 +13,10 @@ class MovieList extends Component {
       <MovieItem
         key={m._id}
         date={m.createAt}
-        text={m.text}
+        title={m.title}
+        availableOn={m.availableOn}
+        impressions={m.impressions}
+        status={m.status}
         username={m.user.username}
         profileImageUrl={m.user.profileImageUrl}
         removeMovie={removeMovie.bind(this, m.user._id, m._id)}

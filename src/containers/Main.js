@@ -53,7 +53,7 @@ const Main = props => {
         />
         <Route
           path="/users/:id/movies/new"
-          component={withAuth(MovieForm)}
+          component={MovieForm}
         />
       </Switch>
     </div>

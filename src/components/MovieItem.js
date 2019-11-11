@@ -6,7 +6,10 @@ import DefaultProfileImg from "../images/default-profile-image.jpg";
 const MovieItem = ({
   date,
   profileImageUrl,
-  text,
+  title,
+  availableOn,
+  impressions,
+  status,
   username,
   removeMovie,
   isCorrectUser
@@ -27,7 +30,10 @@ const MovieItem = ({
             {date}
           </Moment>
         </span>
-        <p>{text}</p>
+        <p>Movie Title: {title}</p>
+        <p>Availability: {availableOn}</p>
+        <p>Impressions: {impressions}</p>
+        <p>Status: {status}</p>
         {isCorrectUser && (
           <a className="btn btn-danger" onClick={removeMovie}>
             Delete

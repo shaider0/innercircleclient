@@ -34,10 +34,10 @@ export const fetchMovies = () => {
   };
 };
 
-export const postNewMovie = text => (dispatch, getState) => {
+export const postNewMovie = title => (dispatch, getState) => {
   let { currentUser } = getState();
   const id = currentUser.user.id;
-  return apiCall("post", `/api/users/${id}/movies`, { text })
+  return apiCall("post", `/api/users/${id}/movies`, { title })
     .then(res => {})
     .catch(err => addError(err.movie));
 };

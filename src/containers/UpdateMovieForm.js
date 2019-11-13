@@ -1,22 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { postNewMovie } from "../store/actions/movies";
+import { updateMovie } from "../store/actions/movies";
 
-class MovieForm extends Component {
+class UpdateMovieForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      availableOn: "",
-      impressions: "",
-      status: "",
-    }
+      title: this.props.location.state.title,
+      availableOn: this.props.location.state.availableOn,
+      impressions: this.props.location.state.impressions,
+      status: this.props.location.state.status,
+      userId: this.props.location.state.userId,
+      movieId: this.props.location.state.movieId
+    };
   }
 
-  handleNewMovie = event => {
+  handleUpdatedMovie = event => {
     event.preventDefault();
+    this.props.updateMovie(this.state);
 
-    this.props.postNewMovie(this.state);
     this.setState({
       title: "",
       availableOn: "",
@@ -29,7 +31,7 @@ class MovieForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleNewMovie}>
+      <form onSubmit={this.handleUpdatedMovie}>
         {this.props.errors.message && (
           <div className="alert alert-danger">{this.props.errors.message}</div>
         )}
@@ -62,7 +64,7 @@ class MovieForm extends Component {
           onChange={e => this.setState({ status: e.target.value })}
         />
         <button type="submit" className="btn btn-success">
-          Add a new Movie!
+          Save Updates
         </button>
       </form>
     );
@@ -75,4 +77,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { postNewMovie })(MovieForm);
+export default connect(mapStateToProps, { updateMovie })(UpdateMovieForm);

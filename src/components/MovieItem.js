@@ -10,8 +10,11 @@ const MovieItem = ({
   availableOn,
   impressions,
   status,
+  movieId,
   username,
+  userId,
   removeMovie,
+  updateMovie,
   isCorrectUser
 }) => (
   <div>
@@ -38,6 +41,21 @@ const MovieItem = ({
           <a className="btn btn-danger" onClick={removeMovie}>
             Delete
           </a>
+        )}
+        {isCorrectUser && (
+          <Link to={{
+            pathname: `/users/${userId}/movies/${movieId}/update`,
+            state: {
+              title,
+              availableOn,
+              impressions,
+              status,
+              userId,
+              movieId
+            }
+          }} className="btn btn-primary">
+            Update
+          </Link>
         )}
       </div>
     </li>

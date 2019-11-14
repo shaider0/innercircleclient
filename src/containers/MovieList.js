@@ -7,6 +7,11 @@ class MovieList extends Component {
   componentDidMount() {
     this.props.fetchMovies();
   }
+
+  componentDidUpdate() {
+    this.props.fetchMovies()
+  }
+  
   render() {
     const { movies, removeMovie, updateMovie, currentUser } = this.props;
     let movieList = movies.map(m => (

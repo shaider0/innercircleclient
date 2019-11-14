@@ -33,8 +33,8 @@ const MovieItem = ({
             {date}
           </Moment>
         </span>
-        <p>Movie Title: {title}</p>
-        <p>Availability: {availableOn}</p>
+        <p>Movie: {title}</p>
+        <p>Available On: {availableOn}</p>
         <p>Impressions: {impressions}</p>
         <p>Status: {status}</p>
         {isCorrectUser && (

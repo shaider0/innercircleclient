@@ -33,34 +33,47 @@ class MovieForm extends Component {
         {this.props.errors.message && (
           <div className="alert alert-danger">{this.props.errors.message}</div>
         )}
-        <label>Movie Title</label>
         <input
           type="text"
+          placeholder="Movie Title"
           className="form-control"
           value={this.state.title}
           onChange={e => this.setState({ title: e.target.value })}
         />
-        <label>Where is it available?</label>
         <input
+          placeholder="Where did you watch it?"
           type="text"
+          list="availableOn"
           className="form-control"
           value={this.state.availableOn}
           onChange={e => this.setState({ availableOn: e.target.value })}
         />
-        <label>What did you think about it?</label>
+        <datalist id="availableOn">
+          <option value="Amazon Prime Video"/>
+          <option value="Cinemax"/>
+          <option value="Disney Plus"/>
+          <option value="HBO"/>
+          <option value="Hulu"/>
+          <option value="Movie Theater"/>
+          <option value="Netflix"/>
+          <option value="Showtime"/>
+          <option value="Starz"/>
+        </datalist>
         <input
           type="text"
+          placeholder="What were your impressions?"
           className="form-control"
           value={this.state.impressions}
           onChange={e => this.setState({ impressions: e.target.value })}
         />
-        <label>Status</label>
-        <input
-          type="text"
+        <select
           className="form-control"
           value={this.state.status}
           onChange={e => this.setState({ status: e.target.value })}
-        />
+        >
+          <option>Favorite</option>
+          <option>Want To Watch</option>
+        </select>
         <button type="submit" className="btn btn-success">
           Add a new Movie!
         </button>

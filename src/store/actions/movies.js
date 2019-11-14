@@ -12,11 +12,6 @@ export const remove = id => ({
   id
 });
 
-export const update = id => ({
-  type: UPDATE_MOVIE,
-  id
-});
-
 export const removeMovie = (user_id, movie_id) => {
   return dispatch => {
     return apiCall("delete", `/api/users/${user_id}/movies/${movie_id}`)
@@ -37,7 +32,7 @@ export const updateMovie = (props) => {
   }
   return dispatch => {
     return apiCall("patch", `/api/users/${props.userId}/movies/${props.movieId}`, updatedMovie)
-      .then(() => dispatch(update(updatedMovie)))
+      .then(document.location.href="/")
       .catch(err => {
         addError(err.message);
       });

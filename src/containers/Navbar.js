@@ -8,7 +8,9 @@ class Navbar extends Component {
   logout = e => {
     e.preventDefault();
     this.props.logout();
+    document.location.href="/"
   };
+
   render() {
     return (
       <nav className="navbar navbar-expand">
@@ -28,7 +30,7 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li>
-                <a onClick={this.logout}>Log out</a>
+                  <a onClick={this.logout}>Log out</a>
               </li>
             </ul>
           ) : (

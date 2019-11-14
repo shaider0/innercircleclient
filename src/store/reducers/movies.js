@@ -6,6 +6,8 @@ const movie = (state = [], action) => {
       return [...action.movies];
     case REMOVE_MOVIE:
       return state.filter(movie => movie._id !== action.id)
+    case UPDATE_MOVIE:
+      return state.filter(movie => movie._id !== action.id)
     default:
       return state;
   }

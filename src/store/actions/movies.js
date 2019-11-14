@@ -28,6 +28,7 @@ export const removeMovie = (user_id, movie_id) => {
 };
 
 export const updateMovie = (props) => {
+  console.log(props)
   const updatedMovie = {
     title: props.title,
     availableOn: props.availableOn,

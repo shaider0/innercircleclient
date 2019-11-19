@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import Feed from "./Feed";
+import Feed from "./Feed";
 import MovieTimeline from "./MovieTimeline";
 import TvshowTimeline from "./TvshowTimeline";
+import UserAside from "./UserAside";
 
 const Homepage = ({ currentUser }) => {
   if (!currentUser.isAuthenticated) {
@@ -17,6 +20,14 @@ const Homepage = ({ currentUser }) => {
   }
   return (
     <div>
+      <UserAside
+        profileImageUrl={currentUser.user.profileImageUrl}
+        username={currentUser.user.username}
+      />
+      <Feed
+        profileImageUrl={currentUser.user.profileImageUrl}
+        username={currentUser.user.username}
+      />
       <MovieTimeline
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}
@@ -25,6 +36,7 @@ const Homepage = ({ currentUser }) => {
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}
       />
+
     </div>
   );
 };

@@ -9,6 +9,5 @@ export function configureStore() {
       applyMiddleware(thunk)
     )
   );
-  console.log('store is', store)
   return store;
 }

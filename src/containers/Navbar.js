@@ -29,6 +29,11 @@ class Navbar extends Component {
                 >
                   New Movie
                 </Link>
+                <Link
+                  to={`/users/${this.props.currentUser.user.id}/tvshows/new`}
+                >
+                  New TV Show
+                </Link>
               </li>
               <li>
                   <a onClick={this.logout}>Log out</a>

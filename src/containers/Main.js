@@ -8,6 +8,8 @@ import { removeError } from "../store/actions/errors";
 import withAuth from "../hocs/withAuth";
 import MovieForm from "../containers/MovieForm";
 import UpdateMovieForm from "../containers/UpdateMovieForm";
+import TvshowForm from "../containers/TvshowForm";
+import UpdateTvshowForm from "../containers/UpdateTvshowForm";
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
@@ -60,6 +62,14 @@ const Main = props => {
         <Route
           path="/users/:id/movies/:id/update"
           component={UpdateMovieForm}
+        />
+        <Route
+          path="/users/:id/tvshows/new"
+          component={TvshowForm}
+        />
+        <Route
+          path="/users/:id/tvshows/:id/update"
+          component={UpdateTvshowForm}
         />
       </Switch>
     </div>

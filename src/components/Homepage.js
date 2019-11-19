@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MovieTimeline from "./MovieTimeline";
+import TvshowTimeline from "./TvshowTimeline";
 
 const Homepage = ({ currentUser }) => {
   if (!currentUser.isAuthenticated) {
@@ -17,6 +18,10 @@ const Homepage = ({ currentUser }) => {
   return (
     <div>
       <MovieTimeline
+        profileImageUrl={currentUser.user.profileImageUrl}
+        username={currentUser.user.username}
+      />
+      <TvshowTimeline
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}
       />

@@ -9,7 +9,6 @@ import jwtDecode from "jwt-decode";
 
 const store = configureStore();
 
-console.log('local storage is', localStorage)
 if (localStorage.jwtToken) {
   setAuthorizationToken(localStorage.jwtToken);
   // prevent someone from manually tampering with the key of jwtToken in localStorage

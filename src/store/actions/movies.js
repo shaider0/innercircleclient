@@ -32,10 +32,13 @@ export const updateMovie = (props) => {
   }
   return dispatch => {
     return apiCall("patch", `/api/users/${props.userId}/movies/${props.movieId}`, updatedMovie)
-      .then(document.location.href="/")
+      .then(()=> apiCall("GET", "/api/movies"))
+      .then(res => {
+        dispatch(loadMovies(res));
+      })
       .catch(err => {
-        addError(err.message);
-      });
+        dispatch(addError(err.message))
+      })
   };
 };
 

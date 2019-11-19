@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Feed from "./Feed";
-import Feed from "./Feed";
 import MovieTimeline from "./MovieTimeline";
 import TvshowTimeline from "./TvshowTimeline";
+import FeedTimeline from "./FeedTimeline";
 import UserAside from "./UserAside";
 
 const Homepage = ({ currentUser }) => {
@@ -24,19 +23,10 @@ const Homepage = ({ currentUser }) => {
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}
       />
-      <Feed
+      <FeedTimeline
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}
       />
-      <MovieTimeline
-        profileImageUrl={currentUser.user.profileImageUrl}
-        username={currentUser.user.username}
-      />
-      <TvshowTimeline
-        profileImageUrl={currentUser.user.profileImageUrl}
-        username={currentUser.user.username}
-      />
-
     </div>
   );
 };

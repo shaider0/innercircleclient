@@ -33,7 +33,7 @@ const TvshowItem = ({
             {date}
           </Moment>
         </span>
-        <p>Tvshow: {title}</p>
+        <p>Tv Show: {title}</p>
         <p>Available On: {availableOn}</p>
         <p>Impressions: {impressions}</p>
         <p>Status: {status}</p>

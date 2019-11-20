@@ -5,17 +5,20 @@ import { fetchTvshows, removeTvshow, updateTvshow } from "../store/actions/tvsho
 import MovieItem from "../components/MovieItem";
 import TvshowItem from "../components/TvshowItem";
 
-class FeedList extends Component {
+class UserList extends Component {
+
   componentDidMount() {
     this.props.fetchMovies();
     this.props.fetchTvshows();
   }
 
   render() {
+
     const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, currentUser } = this.props;
     let feedItems = [...movies, ...tvshows]
-    feedItems = feedItems.sort((a, b) => (a.title > b.title) ? 1 : -1)
-    let feedList = feedItems.map(m => {
+    let userItems = feedItems.filter(item => item.user._id === currentUser)
+    userItems = userItems.sort((a, b) => (a.title > b.title) ? 1 : -1)
+    let userList = userItems.map(m => {
       if (m.category == 'tvshow'){
       return (<TvshowItem
           key={m._id}
@@ -57,7 +60,7 @@ class FeedList extends Component {
       <div className="row col-sm-8">
         <div className="offset-1 col-sm-10">
           <ul className="list-group">
-            {feedList}
+            {userList}
           </ul>
         </div>
       </div>
@@ -74,5 +77,5 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { fetchMovies, removeMovie, updateMovie, fetchTvshows, removeTvshow, updateTvshow })(
-  FeedList
+  UserList
 );

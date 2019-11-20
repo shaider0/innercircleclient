@@ -10,6 +10,7 @@ import MovieForm from "../containers/MovieForm";
 import UpdateMovieForm from "../containers/UpdateMovieForm";
 import TvshowForm from "../containers/TvshowForm";
 import UpdateTvshowForm from "../containers/UpdateTvshowForm";
+import UserTimeline from "../components/UserTimeline"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
@@ -54,6 +55,10 @@ const Main = props => {
               />
             );
           }}
+        />
+        <Route
+          path="/users/:id/stuff"
+          component={UserTimeline}
         />
         <Route
           path="/users/:id/movies/new"

@@ -10,7 +10,7 @@ const Homepage = ({ currentUser }) => {
     return (
       <div className="home-hero">
         <h1>What's Happening?</h1>
-        <h4>New to Warbler?</h4>
+        <h4>New to Inner Circle?</h4>
         <Link to="/signup" className="btn btn-primary">
           Sign up here
         </Link>

@@ -1,10 +1,10 @@
 import React from "react";
-import UserList from "../containers/UserList";
+import UsersOwnContent from "../containers/UsersOwnContent";
 
 const UserTimeline = props => {
   return (
     <div className="row">
-      <UserList />
+      <UsersOwnContent />
     </div>
   );
 };

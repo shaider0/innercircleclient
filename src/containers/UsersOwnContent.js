@@ -5,7 +5,7 @@ import { fetchTvshows, removeTvshow, updateTvshow } from "../store/actions/tvsho
 import MovieItem from "../components/MovieItem";
 import TvshowItem from "../components/TvshowItem";
 
-class UserList extends Component {
+class UsersOwnContent extends Component {
 
   componentDidMount() {
     this.props.fetchMovies();
@@ -77,5 +77,5 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { fetchMovies, removeMovie, updateMovie, fetchTvshows, removeTvshow, updateTvshow })(
-  UserList
+  UsersOwnContent
 );

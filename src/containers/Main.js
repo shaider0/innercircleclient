@@ -10,11 +10,10 @@ import MovieForm from "../containers/MovieForm";
 import UpdateMovieForm from "../containers/UpdateMovieForm";
 import TvshowForm from "../containers/TvshowForm";
 import UpdateTvshowForm from "../containers/UpdateTvshowForm";
-import UserTimeline from "../components/UserTimeline"
+import UsersOwnContent from "../containers/UsersOwnContent"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
-  console.log('currentUser is', currentUser)
   return (
     <div className="container">
       <Switch>
@@ -58,19 +57,11 @@ const Main = props => {
         />
         <Route
           path="/users/:id/stuff"
-          component={UserTimeline}
-        />
-        <Route
-          path="/users/:id/movies/new"
-          component={MovieForm}
+          component={UsersOwnContent}
         />
         <Route
           path="/users/:id/movies/:id/update"
           component={UpdateMovieForm}
-        />
-        <Route
-          path="/users/:id/tvshows/new"
-          component={TvshowForm}
         />
         <Route
           path="/users/:id/tvshows/:id/update"

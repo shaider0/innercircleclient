@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MovieTimeline from "./MovieTimeline";
-import TvshowTimeline from "./TvshowTimeline";
-import FeedTimeline from "./FeedTimeline";
+import RecommendationsFeed from "./RecommendationsFeed";
 import UserAside from "./UserAside";
+import CreateRecommendation from "../containers/CreateRecommendation"
 
 const Homepage = ({ currentUser }) => {
   if (!currentUser.isAuthenticated) {
@@ -23,7 +22,8 @@ const Homepage = ({ currentUser }) => {
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}
       />
-      <FeedTimeline
+      <CreateRecommendation />
+      <RecommendationsFeed
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}
       />

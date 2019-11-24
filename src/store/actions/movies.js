@@ -1,15 +1,20 @@
 import { apiCall } from "../../services/api";
 import { addError } from "./errors";
-import { LOAD_MOVIES, REMOVE_MOVIE, UPDATE_MOVIE } from "../actionTypes";
+import { LOAD_MOVIES, REMOVE_MOVIE, UPDATE_MOVIE, ADD_MOVIE } from "../actionTypes";
 
 export const loadMovies = movies => ({
   type: LOAD_MOVIES,
-  movies
+  movies: movies
 });
 
 export const remove = id => ({
   type: REMOVE_MOVIE,
   id
+});
+
+export const addMovie = movie => ({
+  type: ADD_MOVIE,
+  movie
 });
 
 export const removeMovie = (user_id, movie_id) => {
@@ -58,6 +63,8 @@ export const postNewMovie = newMovie => (dispatch, getState) => {
   let { currentUser } = getState();
   const id = currentUser.user.id;
   return apiCall("post", `/api/users/${id}/movies`, newMovie)
-    .then(res => {})
+    .then(res => {
+      dispatch(addMovie(res))
+    })
     .catch(err => addError(err.movie));
 };

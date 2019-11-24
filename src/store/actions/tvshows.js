@@ -1,6 +1,6 @@
 import { apiCall } from "../../services/api";
 import { addError } from "./errors";
-import { LOAD_TVSHOWS, REMOVE_TVSHOW, UPDATE_TVSHOW } from "../actionTypes";
+import { LOAD_TVSHOWS, REMOVE_TVSHOW, UPDATE_TVSHOW, ADD_TVSHOW } from "../actionTypes";
 
 export const loadTvshows = tvshows => ({
   type: LOAD_TVSHOWS,
@@ -10,6 +10,11 @@ export const loadTvshows = tvshows => ({
 export const remove = id => ({
   type: REMOVE_TVSHOW,
   id
+});
+
+export const addTvshow = tvshow => ({
+  type: ADD_TVSHOW,
+  tvshow
 });
 
 export const removeTvshow = (user_id, tvshow_id) => {
@@ -58,6 +63,8 @@ export const postNewTvshow = newTvshow => (dispatch, getState) => {
   let { currentUser } = getState();
   const id = currentUser.user.id;
   return apiCall("post", `/api/users/${id}/tvshows`, newTvshow)
-    .then(res => {})
+    .then(res => {
+      dispatch(addTvshow(res))
+    })
     .catch(err => addError(err.tvshow));
 };

@@ -9,7 +9,7 @@ class TvshowForm extends Component {
       title: "",
       availableOn: "",
       impressions: "",
-      status: "",
+      status: "favorite",
     }
   }
 
@@ -21,10 +21,8 @@ class TvshowForm extends Component {
       title: "",
       availableOn: "",
       impressions: "",
-      status: "",
+      status: "favorite",
     });
-
-    this.props.history.push("/");
   };
 
   render() {
@@ -71,11 +69,11 @@ class TvshowForm extends Component {
           value={this.state.status}
           onChange={e => this.setState({ status: e.target.value })}
         >
-          <option>Favorite</option>
-          <option>Want To Watch</option>
+          <option value="favorite">Favorite</option>
+          <option value="want to watch">Want To Watch</option>
         </select>
         <button type="submit" className="btn btn-success">
-          Add a new Tvshow!
+          Add Recommendation!
         </button>
       </form>
     );

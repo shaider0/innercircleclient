@@ -1,4 +1,4 @@
-import { LOAD_TVSHOWS, REMOVE_TVSHOW } from "../actionTypes";
+import { LOAD_TVSHOWS, REMOVE_TVSHOW, ADD_TVSHOW } from "../actionTypes";
 
 const tvshow = (state = [], action) => {
   switch (action.type) {
@@ -6,6 +6,8 @@ const tvshow = (state = [], action) => {
       return [...action.tvshows];
     case REMOVE_TVSHOW:
       return state.filter(tvshow => tvshow._id !== action.id)
+    case ADD_TVSHOW:
+      return [...state, action.tvshow]
     default:
       return state;
   }

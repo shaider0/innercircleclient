@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { searchForUser } from "../store/actions/users"
+import DefaultProfileImg from "../images/default-profile-image.jpg";
 
 class SearchForUser extends Component {
   constructor(props) {
@@ -19,12 +20,21 @@ class SearchForUser extends Component {
   render() {
     const { user } = this.props
     let result = <div></div>
+    if (user.message === "user not found") {
+      result = <div>User not found</div>
+    }
     if (Object.keys(user).includes("username")) {
       result =
         <div>
           User Found!
+          <img
+            src={user.profileImageUrl || DefaultProfileImg}
+            alt={user.username}
+            height="100"
+            width="100"
+            className="timeline-image"
+          />
           <p>Username: {user.username}</p>
-          <p>Email: {user.email} </p>
         </div>
     }
 

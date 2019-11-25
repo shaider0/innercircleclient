@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import RecommendationsFeed from "./RecommendationsFeed";
 import UserAside from "./UserAside";
+import SearchForUserForm from "../containers/SearchForUserForm"
 import CreateRecommendation from "../containers/CreateRecommendation"
+
 
 const Homepage = ({ currentUser }) => {
   if (!currentUser.isAuthenticated) {
@@ -22,6 +24,7 @@ const Homepage = ({ currentUser }) => {
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}
       />
+      <SearchForUserForm/>
       <CreateRecommendation />
       <RecommendationsFeed
         profileImageUrl={currentUser.user.profileImageUrl}

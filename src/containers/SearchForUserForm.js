@@ -35,6 +35,7 @@ class SearchForUser extends Component {
             className="timeline-image"
           />
           <p>Username: {user.username}</p>
+          <button className="btn btn-primary">Send Friend Request</button>
         </div>
     }
 

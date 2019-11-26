@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { searchForUser } from "../store/actions/users"
+import { submitFriendRequest } from "../store/actions/friendRequests"
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 
 class SearchForUser extends Component {
@@ -17,13 +18,23 @@ class SearchForUser extends Component {
     this.props.searchForUser(this.state);
   };
 
+  handleFriendRequest = event => {
+    event.preventDefault();
+    console.log('friend request sent')
+    console.log('requestor is', this.props.currentUser.user.id)
+    const requestorId = this.props.currentUser.user.id
+    console.log('recipient is: '+ this.props.user._id)
+    const recipientId = this.props.user._id
+    this.props.submitFriendRequest(requestorId, recipientId)
+  }
+
   render() {
     const { user } = this.props
     let result = <div></div>
     if (user.message === "user not found") {
       result = <div>User not found</div>
     }
-    if (Object.keys(user).includes("username")) {
+    if (Object. keys(user).includes("username")) {
       result =
         <div>
           User Found!
@@ -35,7 +46,7 @@ class SearchForUser extends Component {
             className="timeline-image"
           />
           <p>Username: {user.username}</p>
-          <button className="btn btn-primary">Send Friend Request</button>
+          <button onClick={this.handleFriendRequest}className="btn btn-primary">Send Friend Request</button>
         </div>
     }
 
@@ -70,4 +81,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { searchForUser })(SearchForUser);
+export default connect(mapStateToProps, { searchForUser, submitFriendRequest })(SearchForUser);

@@ -8,9 +8,6 @@ export const loadUser = user => ({
 });
 
 export const searchForUser = (props) => {
-  let user = {
-    username: props.username
-  }
   return dispatch => {
     return apiCall("get", `/api/users/${props.currentUser.user.id}/potentialFriends/${props.username}`)
       .then(res => {

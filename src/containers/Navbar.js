@@ -25,6 +25,11 @@ class Navbar extends Component {
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <Link
+                  to={`/users/${this.props.currentUser.user.id}/friendRequests`}
+                >
+                  Friend Requests
+                </Link>
+                <Link
                   to={`/users/${this.props.currentUser.user.id}/stuff`}
                 >
                   My Stuff

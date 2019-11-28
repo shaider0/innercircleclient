@@ -1,11 +1,7 @@
 import { apiCall } from "../../services/api";
 import { addError } from "./errors";
-// import { LOAD_FRIEND_REQUEST } from "../actionTypes";
+import { LOAD_FRIEND_REQUESTS } from "../actionTypes"
 
-// export const loadFriendRequest = friendRequest => ({
-//   type: LOAD_FRIEND_REQUEST,
-//   friendRequest
-// });
 
 export const submitFriendRequest = (requestorId, recipientId) => {
 
@@ -14,9 +10,44 @@ export const submitFriendRequest = (requestorId, recipientId) => {
       .then(res => {
         console.log('friend request created: ', res)
       })
+      .catch(err => {
+        dispatch(addError(err.message))
+      })
+  };
+};
+
+export const loadFriendRequests = friendRequests => ({
+  type: LOAD_FRIEND_REQUESTS,
+  friendRequests: friendRequests
+});
+
+// export const getFriendRequests = userId => {
+//   return dispatch => {
+//     return apiCall("get", `/api/users/${userId}/friendRequests/`)
+//       .then(res => {
+//         console.log('server response for friendRequests is ', res)
+//       })
+//       .then(res => {
+//         dispatch(loadFriendRequests(res))
+//       })
+//       .catch(err => {
+//         dispatch(addError(err.message))
+//       })
+//   }
+// }
+
+export const getFriendRequests = (user) => {
+
+  return dispatch => {
+    console.log("hello")
+    return apiCall("get", `/api/users/${user}/friendRequests/`)
       // .then(res => {
-      //   dispatch(loadFriendRequest(res));
+      //   console.log('friend requests from server: ', res)
+      //   return res
       // })
+      .then(res => {
+        dispatch(loadFriendRequests(res))
+      })
       .catch(err => {
         dispatch(addError(err.message))
       })

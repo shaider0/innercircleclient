@@ -19,7 +19,7 @@ class UsersOwnContent extends Component {
     let userItems = feedItems.filter(item => item.user._id === currentUser)
     userItems = userItems.sort((a, b) => (a.title > b.title) ? 1 : -1)
     let userList = userItems.map(m => {
-      if (m.category == 'tvshow'){
+      if (m.category === 'tvshow'){
       return (<TvshowItem
           key={m._id}
           date={m.createAt}
@@ -36,7 +36,7 @@ class UsersOwnContent extends Component {
           updateTvshow={updateTvshow.bind(this, m.user._id, m._id)}
           isCorrectUser={currentUser === m.user._id}
       />)}
-      else if (m.category == 'movie') {
+      else if (m.category === 'movie') {
       return (<MovieItem
         key={m._id}
         date={m.createAt}
@@ -53,6 +53,7 @@ class UsersOwnContent extends Component {
         updateMovie={updateMovie.bind(this, m.user._id, m._id)}
         isCorrectUser={currentUser === m.user._id}
       />)}
+      return
     }
   );
 

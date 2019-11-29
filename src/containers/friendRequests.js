@@ -24,9 +24,21 @@ class FriendRequests extends Component {
     console.log('friend requests are', friendRequests)
     return (
       <div>
-        {friendRequests.map((friend) => {
+        {friendRequests.map((request) => {
           return (
-            <p>{friend}</p>
+            <div key={request._id}>
+              <p>
+              <img
+                src={request.requestor.profileImageUrl || DefaultProfileImg}
+                alt={request.requestor.username}
+                height="100"
+                width="100"
+                className="timeline-image"/>
+              {request.requestor.username}
+              </p>
+              <button className="btn btn-primary">Accept</button>
+              <button className="btn btn-danger">Ignore</button>
+            </div>
           )
         })}
       </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
-import { getFriendRequests } from "../store/actions/friendRequests"
+import { acceptFriendRequest, rejectFriendRequest, getFriendRequests } from "../store/actions/friendRequests"
 
 
 class FriendRequests extends Component {
@@ -17,6 +17,20 @@ class FriendRequests extends Component {
     console.log('curr us is', currentUser)
     const { getFriendRequests } = this.props
     getFriendRequests(currentUser)
+  }
+
+  handleAccept = (event) => {
+    event.preventDefault()
+    const userId = this.state.currentUser
+    const requestId = event.target.id
+    acceptFriendRequest(userId, requestId)
+  }
+
+  handleReject = (event) => {
+    event.preventDefault()
+    const userId = this.state.currentUser
+    const requestId = event.target.id
+    rejectFriendRequest(userId, requestId)
   }
 
   render() {
@@ -36,8 +50,8 @@ class FriendRequests extends Component {
                 className="timeline-image"/>
               {request.requestor.username}
               </p>
-              <button className="btn btn-primary">Accept</button>
-              <button className="btn btn-danger">Ignore</button>
+              <button id={request._id} onClick={this.handleAccept} className="btn btn-primary">Accept</button>
+              <button id={request._id} onClick={this.handleReject}className="btn btn-danger">Ignore</button>
             </div>
           )
         })}
@@ -54,4 +68,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getFriendRequests })(FriendRequests);
+export default connect(mapStateToProps, { getFriendRequests, acceptFriendRequest, rejectFriendRequest })(FriendRequests);

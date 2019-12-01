@@ -37,3 +37,11 @@ export const getFriendRequests = (user) => {
       })
   };
 };
+
+export const acceptFriendRequest = (user, request) => {
+    return apiCall("patch", `/api/users/${user}/friendRequests/${request}`, { status: 2 })
+}
+
+export const rejectFriendRequest = (user, request) => {
+    return apiCall("patch", `/api/users/${user}/friendRequests/${request}`, { status: 3 })
+}

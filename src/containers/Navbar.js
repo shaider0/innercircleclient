@@ -30,6 +30,11 @@ class Navbar extends Component {
                   Friend Requests
                 </Link>
                 <Link
+                  to={`/users/${this.props.currentUser.user.id}/friends`}
+                >
+                  Friends
+                </Link>
+                <Link
                   to={`/users/${this.props.currentUser.user.id}/stuff`}
                 >
                   My Stuff

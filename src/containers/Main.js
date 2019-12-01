@@ -12,6 +12,7 @@ import TvshowForm from "../containers/TvshowForm";
 import UpdateTvshowForm from "../containers/UpdateTvshowForm";
 import UsersOwnContent from "../containers/UsersOwnContent"
 import FriendRequests from "./friendRequests"
+import Friends from "./friends"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
@@ -71,6 +72,10 @@ const Main = props => {
         <Route
           path="/users/:id/friendRequests"
           component={FriendRequests}
+        />
+        <Route
+          path="/users/:id/friends"
+          component={Friends}
         />
       </Switch>
     </div>

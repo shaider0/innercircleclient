@@ -9,3 +9,4 @@ export const REMOVE_TVSHOW = "REMOVE_TVSHOW";
 export const ADD_TVSHOW = "ADD_TVSHOW"
 export const LOAD_USER = "LOAD_USER"
 export const LOAD_FRIEND_REQUESTS = "LOAD_FRIEND_REQUESTS"
+export const LOAD_FRIENDS = "LOAD_FRIENDS"

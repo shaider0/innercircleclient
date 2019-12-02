@@ -8,8 +8,9 @@ import TvshowItem from "../components/TvshowItem";
 class UsersOwnContent extends Component {
 
   componentDidMount() {
-    this.props.fetchMovies();
-    this.props.fetchTvshows();
+    const { currentUser } = this.props
+    this.props.fetchMovies(currentUser);
+    this.props.fetchTvshows(currentUser);
   }
 
   render() {

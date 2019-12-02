@@ -35,12 +35,20 @@ class FriendRequests extends Component {
 
   render() {
     const { friendRequests } = this.props
-    console.log('friend requests are', friendRequests)
+    {if (friendRequests.length === 0) {
+      return (
+        <div>
+          <h3>Friend Requests</h3>
+          <p>-</p>
+        </div>
+      )
+    }}
     return (
       <div>
         {friendRequests.map((request) => {
           return (
             <div key={request._id}>
+              <h3>Friend Requests</h3>
               <p>
               <img
                 src={request.requestor.profileImageUrl || DefaultProfileImg}

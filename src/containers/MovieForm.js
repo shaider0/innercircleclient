@@ -9,7 +9,7 @@ class MovieForm extends Component {
       title: "",
       availableOn: "",
       impressions: "",
-      status: "favorite",
+      status: "recommendation",
     }
   }
 
@@ -21,7 +21,7 @@ class MovieForm extends Component {
       title: "",
       availableOn: "",
       impressions: "",
-      status: "favorite",
+      status: "recommendation",
     });
   };
 
@@ -39,13 +39,34 @@ class MovieForm extends Component {
           onChange={e => this.setState({ title: e.target.value })}
         />
         <input
-          placeholder="Where did you watch it?"
+          placeholder="Platform/Network (e.g., Netflix, Hulu, Amazon Prime Video, etc.)"
           type="text"
           list="availableOn"
           className="form-control"
           value={this.state.availableOn}
           onChange={e => this.setState({ availableOn: e.target.value })}
         />
+        <select
+          className="form-control"
+          value={this.state.status}
+          onChange={e => this.setState({ status: e.target.value })}
+        >
+          <option value="recommendation">This is a Recommendation</option>
+          <option value="want to watch">This is Something I Want To Watch</option>
+        </select>
+        {this.state.status === "recommendation" ?
+          <div>
+            <input
+              type="text"
+              placeholder="Share your impressions (260 characters max)"
+              className="form-control"
+              value={this.state.impressions}
+              onChange={e => this.setState({ impressions: e.target.value })}
+            />
+          </div>
+          : null
+        }
+
         <datalist id="availableOn">
           <option value="Amazon Prime Video"/>
           <option value="Cinemax"/>
@@ -57,23 +78,8 @@ class MovieForm extends Component {
           <option value="Showtime"/>
           <option value="Starz"/>
         </datalist>
-        <input
-          type="text"
-          placeholder="What were your impressions?"
-          className="form-control"
-          value={this.state.impressions}
-          onChange={e => this.setState({ impressions: e.target.value })}
-        />
-        <select
-          className="form-control"
-          value={this.state.status}
-          onChange={e => this.setState({ status: e.target.value })}
-        >
-          <option value="favorite">Favorite</option>
-          <option value="want to watch">Want To Watch</option>
-        </select>
         <button type="submit" className="btn btn-success">
-          Add Recommendation!
+          Submit
         </button>
       </form>
     );

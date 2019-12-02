@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 import { getFriends } from "../store/actions/friends"
+import FriendRequests from "./FriendRequests"
+import SearchForUserForm from "./SearchForUserForm"
 
 class Friends extends Component {
   constructor(props) {
@@ -20,20 +22,22 @@ class Friends extends Component {
     const { friends } = this.props
     return (
       <div>
-      <p>Friends List</p>
-      {friends.map((friend) => {
-        return (
-          <div key={friend.id}>
-            <p>
-            <img
-              src={friend.profileImageUrl || DefaultProfileImg}
-              alt={friend.username}
-              height="100"
-              width="100"
-              className="timeline-image"/>
-            {friend.username}
-            </p>
-          </div>
+        <SearchForUserForm/>
+        <FriendRequests />
+        <h3>Friends List</h3>
+        {friends.map((friend) => {
+          return (
+            <div key={friend.id}>
+              <p>
+                <img
+                  src={friend.profileImageUrl || DefaultProfileImg}
+                  alt={friend.username}
+                  height="100"
+                  width="100"
+                  className="timeline-image"/>
+                {friend.username}
+              </p>
+            </div>
         )
       })}
       </div>

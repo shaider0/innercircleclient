@@ -3,8 +3,9 @@ import RecommendationsFeedList from "../containers/RecommendationsFeedList";
 
 const RecommendationsFeed = props => {
   return (
-    <div className="row">
-      <RecommendationsFeedList />
+    <div>
+      <h3>Recommendations Feed  </h3>
+        <RecommendationsFeedList />
     </div>
   );
 };

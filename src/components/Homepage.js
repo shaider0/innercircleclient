@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import RecommendationsFeed from "./RecommendationsFeed";
 import UserAside from "./UserAside";
-import SearchForUserForm from "../containers/SearchForUserForm"
-import CreateRecommendation from "../containers/CreateRecommendation"
+import CreateItem from "../containers/CreateItem"
 
 
 const Homepage = ({ currentUser }) => {
@@ -24,8 +23,7 @@ const Homepage = ({ currentUser }) => {
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}
       />
-      <SearchForUserForm/>
-      <CreateRecommendation />
+      <CreateItem />
       <RecommendationsFeed
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}

@@ -52,11 +52,11 @@ class SearchForUser extends Component {
 
     return (
       <div>
+        <h3>Add New Friend</h3>
         <form onSubmit={this.handleSubmit}>
           {this.props.errors.message && (
             <div className="alert alert-danger">{this.props.errors.message}</div>
           )}
-          <label>Add A Friend</label>
           <input
             type="text"
             placeholder="search by username"

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import MovieForm from "./MovieForm"
 import TvshowForm from "./TvshowForm"
 
-class CreateRecommendation extends Component {
+class CreateItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,7 @@ class CreateRecommendation extends Component {
     }
     return (
       <div>
-        <p>Recommend Something</p>
+        <h3>Add Something To Your List</h3>
         <select
           className="form-control"
           value={this.state.status}
@@ -39,4 +39,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { })(CreateRecommendation);
+export default connect(mapStateToProps, { })(CreateItem);

@@ -47,9 +47,9 @@ export const updateMovie = (props) => {
   };
 };
 
-export const fetchMovies = () => {
+export const fetchMovies = (userId) => {
   return dispatch => {
-    return apiCall("GET", "/api/movies")
+    return apiCall("get", `/api/users/${userId}/movies`)
       .then(res => {
         dispatch(loadMovies(res));
       })

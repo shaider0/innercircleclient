@@ -26,7 +26,9 @@ class RecommendationsFeedList extends Component{
   }
 
   componentDidMount() {
-    this.props.fetchMovies();
+    const { currentUser } = this.props
+    console.log('8989 current user is', currentUser)
+    this.props.fetchMovies(currentUser);
     this.props.fetchTvshows();
   }
 

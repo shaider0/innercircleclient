@@ -47,9 +47,9 @@ export const updateTvshow = (props) => {
   };
 };
 
-export const fetchTvshows = () => {
+export const fetchTvshows = (userId) => {
   return dispatch => {
-    return apiCall("GET", "/api/tvshows")
+    return apiCall("get", `/api/users/${userId}/tvshows`)
       .then(res => {
         dispatch(loadTvshows(res));
       })

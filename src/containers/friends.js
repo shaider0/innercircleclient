@@ -23,7 +23,7 @@ class Friends extends Component {
       <p>Friends List</p>
       {friends.map((friend) => {
         return (
-          <div key={friend._id}>
+          <div key={friend.id}>
             <p>
             <img
               src={friend.profileImageUrl || DefaultProfileImg}

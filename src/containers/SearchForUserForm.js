@@ -56,9 +56,10 @@ class SearchForUser extends Component {
           {this.props.errors.message && (
             <div className="alert alert-danger">{this.props.errors.message}</div>
           )}
+          <label>Add A Friend</label>
           <input
             type="text"
-            placeholder="Search For User By Username"
+            placeholder="search by username"
             className="form-control"
             value={this.state.username}
             onChange={e => this.setState({ username: e.target.value })}

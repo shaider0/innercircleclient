@@ -11,8 +11,8 @@ import UpdateMovieForm from "../containers/UpdateMovieForm";
 import TvshowForm from "../containers/TvshowForm";
 import UpdateTvshowForm from "../containers/UpdateTvshowForm";
 import UsersOwnContent from "../containers/UsersOwnContent"
-import FriendRequests from "./friendRequests"
-import Friends from "./friends"
+import FriendRequests from "./FriendRequests"
+import Friends from "./Friends"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;

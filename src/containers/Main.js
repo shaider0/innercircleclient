@@ -13,6 +13,7 @@ import UpdateTvshowForm from "../containers/UpdateTvshowForm";
 import UsersOwnContent from "../containers/UsersOwnContent"
 import FriendRequests from "./FriendRequests"
 import Friends from "./Friends"
+import FileUpload from "./FileUpload"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
@@ -60,6 +61,10 @@ const Main = props => {
         <Route
           path="/users/:id/stuff"
           component={UsersOwnContent}
+        />
+        <Route
+          path="/upload"
+          component={FileUpload}
         />
         <Route
           path="/users/:id/movies/:id/update"

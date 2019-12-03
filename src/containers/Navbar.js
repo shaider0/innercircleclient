@@ -24,6 +24,11 @@ class Navbar extends Component {
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <Link
+                  to={`/upload`}
+                >
+                  Upload
+                </Link>
+                <Link
                   to={`/users/${this.props.currentUser.user.id}/friends`}
                 >
                   Friends

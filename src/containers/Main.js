@@ -14,6 +14,7 @@ import UsersOwnContent from "../containers/UsersOwnContent"
 import FriendRequests from "./FriendRequests"
 import Friends from "./Friends"
 import FileUpload from "./FileUpload"
+import Settings from "./Settings"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
@@ -63,8 +64,8 @@ const Main = props => {
           component={UsersOwnContent}
         />
         <Route
-          path="/upload"
-          component={FileUpload}
+          path="/users/:id/settings"
+          component={Settings}
         />
         <Route
           path="/users/:id/movies/:id/update"

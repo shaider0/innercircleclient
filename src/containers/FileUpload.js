@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { apiCall } from "../services/api";
+import { connect } from "react-redux";
 
 class FileUpload extends Component {
   constructor () {
@@ -11,15 +13,19 @@ class FileUpload extends Component {
 
   submitFile = (event) => {
     event.preventDefault();
+    const { currentUser } = this.props
     const formData = new FormData();
     formData.append('file', this.state.file[0]);
     axios.post(`/test-upload`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
-    }).then(response => {
-      // handle your response;
-    }).catch(error => {
+    }).then(res => {
+      let url = res.data.Location
+      let user = currentUser
+      return apiCall("patch", `/api/users/${user}/profile`, {url: url})
+    })
+    .catch(error => {
       // handle your error
     });
   }
@@ -38,4 +44,11 @@ class FileUpload extends Component {
   }
 }
 
-export default FileUpload;
+function mapStateToProps(state) {
+  return {
+    errors: state.errors,
+    currentUser: state.currentUser.user.id
+  };
+}
+
+export default connect(mapStateToProps, {})(FileUpload);

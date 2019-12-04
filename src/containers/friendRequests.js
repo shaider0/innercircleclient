@@ -39,7 +39,7 @@ class FriendRequests extends Component {
       return (
         <div>
           <h3>Friend Requests</h3>
-          <p>-</p>
+          <p>None at this time.</p>
         </div>
       )
     }}

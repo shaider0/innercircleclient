@@ -4,6 +4,7 @@ import DefaultProfileImg from "../images/default-profile-image.jpg";
 import { getFriends } from "../store/actions/friends"
 import FriendRequests from "./FriendRequests"
 import SearchForUserForm from "./SearchForUserForm"
+import { Link } from "react-router-dom"
 
 class Friends extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class Friends extends Component {
                   height="100"
                   width="100"
                   className="timeline-image"/>
-                {friend.username}
+                <Link to="#">{friend.username}</Link>
               </p>
             </div>
         )

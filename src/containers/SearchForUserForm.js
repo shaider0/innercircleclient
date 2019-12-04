@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom"
 import { searchForUser } from "../store/actions/users"
 import { submitFriendRequest } from "../store/actions/friendRequests"
 import DefaultProfileImg from "../images/default-profile-image.jpg";
@@ -34,10 +35,37 @@ class SearchForUser extends Component {
     if (user.message === "user not found") {
       result = <div>User not found</div>
     }
+    if (user.message === "user is already a friend") {
+      result =
+        <div>
+          <p>&#10004; Friends</p>
+          <img
+            src={user.user.profileImageUrl || DefaultProfileImg}
+            alt={user.user.username}
+            height="100"
+            width="100"
+            className="timeline-image"
+          />
+          <Link to="#"><p>{user.user.username}</p></Link>
+        </div>
+    }
+    if (user.message === "this is you") {
+      result =
+        <div>
+          <img
+            src={user.user.profileImageUrl || DefaultProfileImg}
+            alt={user.user.username}
+            height="100"
+            width="100"
+            className="timeline-image"
+          />
+          {user.user.username}
+          <Link to="#"><p>Go to your profile</p></Link>
+        </div>
+    }
     if (Object. keys(user).includes("username")) {
       result =
         <div>
-          User Found!
           <img
             src={user.profileImageUrl || DefaultProfileImg}
             alt={user.username}
@@ -45,14 +73,14 @@ class SearchForUser extends Component {
             width="100"
             className="timeline-image"
           />
-          <p>Username: {user.username}</p>
+          <p>{user.username}</p>
           <button onClick={this.handleFriendRequest}className="btn btn-primary">Send Friend Request</button>
         </div>
     }
 
     return (
       <div>
-        <h3>Add New Friend</h3>
+        <h3>Friends Search</h3>
         <form onSubmit={this.handleSubmit}>
           {this.props.errors.message && (
             <div className="alert alert-danger">{this.props.errors.message}</div>

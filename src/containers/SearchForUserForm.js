@@ -86,6 +86,7 @@ class SearchForUser extends Component {
             <div className="alert alert-danger">{this.props.errors.message}</div>
           )}
           <input
+            required
             type="text"
             placeholder="search by username"
             className="form-control"

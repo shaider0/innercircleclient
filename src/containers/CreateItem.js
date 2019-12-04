@@ -19,7 +19,7 @@ class CreateItem extends Component {
     }
     return (
       <div>
-        <h3>Add Something To Your List</h3>
+        <h3>Add To Your Lists</h3>
         <select
           className="form-control"
           value={this.state.status}

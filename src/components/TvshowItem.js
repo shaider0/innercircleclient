@@ -26,17 +26,18 @@ const TvshowItem = ({
         width="100"
         className="timeline-image"
       />
+      <span className="text-muted">
+        <Moment className="text-muted" format="Do MMM YYYY">
+          {date}
+        </Moment>
+      </span>
       <div className="tvshow-area">
         <Link to="/">@{username} &nbsp;</Link>
-        <span className="text-muted">
-          <Moment className="text-muted" format="Do MMM YYYY">
-            {date}
-          </Moment>
+        <span>{
+          status === "recommendation"? "recommends " : "wants to watch "}{title}(TV Show)
         </span>
-        <p>Tv Show: {title}</p>
         <p>Available On: {availableOn}</p>
         <p>Impressions: {impressions}</p>
-        <p>Status: {status}</p>
         {isCorrectUser && (
           <a className="btn btn-danger" onClick={removeTvshow}>
             Delete

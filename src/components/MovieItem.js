@@ -26,17 +26,18 @@ const MovieItem = ({
         width="100"
         className="timeline-image"
       />
+      <p className="text-muted">
+        <Moment className="text-muted" format="Do MMM YYYY">
+          {date}
+        </Moment>
+      </p>
       <div className="movie-area">
         <Link to="/">@{username} &nbsp;</Link>
-        <span className="text-muted">
-          <Moment className="text-muted" format="Do MMM YYYY">
-            {date}
-          </Moment>
+        <span>{
+          status === "recommendation"? "recommends " : "wants to watch "}{title}(Movie)
         </span>
-        <p>Movie: {title}</p>
         <p>Available On: {availableOn}</p>
         <p>Impressions: {impressions}</p>
-        <p>Status: {status}</p>
         {isCorrectUser && (
           <a className="btn btn-danger" onClick={removeMovie}>
             Delete

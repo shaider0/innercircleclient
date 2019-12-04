@@ -60,6 +60,7 @@ class UsersOwnContent extends Component {
 
     return (
       <div className="row col-sm-8">
+      <h3>My Content</h3>
         <div className="offset-1 col-sm-10">
           <ul className="list-group">
             {userList}

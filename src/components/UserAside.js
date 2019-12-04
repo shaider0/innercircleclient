@@ -1,21 +1,37 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 
-const UserAside = ({ profileImageUrl, username }) => (
-  <aside className="col-sm-2">
-    <div className="panel panel-default">
-      <div className="panel-body">
-        <img
-          src={profileImageUrl || DefaultProfileImg}
-          alt={username}
-          width="200"
-          height="200"
-          className="img-thumbnail"
-        />
-        <p>Username : {username}</p>
-      </div>
-    </div>
-  </aside>
-);
+class UserAside extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    const currentUser = this.props
+    console.log('3434 curr user', currentUser)
+    return (
+      <aside className="col-sm-2">
+        <div className="panel panel-default">
+          <div className="panel-body">
+            <img
+              src={currentUser.profileImageUrl || DefaultProfileImg}
+              alt={currentUser.username}
+              width="200"
+              height="200"
+              className="img-thumbnail"
+            />
+            <p>Username : {currentUser.username}</p>
+          </div>
+        </div>
+      </aside>
+    )
+  }
+}
 
-export default UserAside;
+function mapStateToProps(state) {
+  return {
+    currentUser: state.currentUser.user.id
+  }
+}
+
+export default connect(mapStateToProps, {})(UserAside)

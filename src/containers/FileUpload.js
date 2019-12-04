@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { apiCall } from "../services/api";
 import { connect } from "react-redux";
+import { updateUserProfileImage } from "../store/actions/users"
 
 class FileUpload extends Component {
   constructor () {
@@ -13,17 +14,17 @@ class FileUpload extends Component {
 
   submitFile = (event) => {
     event.preventDefault();
-    const { currentUser } = this.props
+    const { currentUser, updateUserProfileImage } = this.props
     const formData = new FormData();
     formData.append('file', this.state.file[0]);
-    axios.post(`/test-upload`, formData, {
+    axios.post(`/image-upload`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     }).then(res => {
       let url = res.data.Location
       let user = currentUser
-      return apiCall("patch", `/api/users/${user}/profile`, {url: url})
+      updateUserProfileImage(user, url)
     })
     .catch(error => {
       // handle your error
@@ -51,4 +52,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {})(FileUpload);
+export default connect(mapStateToProps, { updateUserProfileImage })(FileUpload);

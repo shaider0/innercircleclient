@@ -58,7 +58,7 @@ class MovieForm extends Component {
           <div>
             <input
               type="text"
-              placeholder="Share your impressions (260 characters max)"
+              placeholder="Briefly share your impressions (120 characters max)"
               className="form-control"
               value={this.state.impressions}
               onChange={e => this.setState({ impressions: e.target.value })}
@@ -78,8 +78,8 @@ class MovieForm extends Component {
           <option value="Showtime"/>
           <option value="Starz"/>
         </datalist>
-        <button type="submit" className="btn btn-success">
-          Submit
+        <button type="submit" className="btn btn-primary">
+          Add Item
         </button>
       </form>
     );

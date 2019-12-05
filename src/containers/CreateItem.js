@@ -20,6 +20,7 @@ class CreateItem extends Component {
     return (
       <div>
         <h3>Add To Your Lists</h3>
+        <p>Use the form to add recommendations (things you've liked) and bookmarks (things you want to try)</p>
         <h5>Choose a Category</h5>
         <select
           className="form-control"

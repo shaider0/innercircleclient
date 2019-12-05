@@ -16,7 +16,15 @@ const TvshowItem = ({
   removeTvshow,
   updateTvshow,
   isCorrectUser
-}) => (
+}) => {
+
+let impressionsjsx = null;
+
+if (status === "recommendation" && !!impressions) {
+  impressionsjsx = (<p>Impressions: {impressions}</p>)
+}
+
+return (
   <div>
     <li className="list-group-item">
       <img
@@ -31,13 +39,15 @@ const TvshowItem = ({
           {date}
         </Moment>
       </span>
+
       <div className="tvshow-area">
         <Link to="/">@{username} &nbsp;</Link>
         <span>{
           status === "recommendation"? "recommends " : "wants to watch "}{title}(TV Show)
         </span>
-        <p>Available On: {availableOn}</p>
-        <p>Impressions: {impressions}</p>
+
+        {!!availableOn? <p>Available On: {availableOn}</p> : null}
+        {impressionsjsx}
         {isCorrectUser && (
           <a className="btn btn-danger" onClick={removeTvshow}>
             Delete
@@ -62,5 +72,6 @@ const TvshowItem = ({
     </li>
   </div>
 );
+}
 
 export default TvshowItem;

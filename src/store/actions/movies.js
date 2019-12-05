@@ -37,7 +37,7 @@ export const updateMovie = (props) => {
   }
   return dispatch => {
     return apiCall("patch", `/api/users/${props.userId}/movies/${props.movieId}`, updatedMovie)
-      .then(()=> apiCall("GET", "/api/movies"))
+      .then(()=> apiCall("GET", `/api/users/${props.userId}/movies`))
       .then(res => {
         dispatch(loadMovies(res));
       })

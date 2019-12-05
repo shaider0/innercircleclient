@@ -3,6 +3,7 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 
+
 const MovieItem = ({
   date,
   profileImageUrl,
@@ -16,7 +17,15 @@ const MovieItem = ({
   removeMovie,
   updateMovie,
   isCorrectUser
-}) => (
+}) => {
+
+let impressionsjsx = null;
+
+if (status === "recommendation" && !!impressions) {
+  impressionsjsx = (<p>Impressions: {impressions}</p>)
+}
+
+return (
   <div>
     <li className="list-group-item">
       <img
@@ -31,13 +40,16 @@ const MovieItem = ({
           {date}
         </Moment>
       </p>
+
       <div className="movie-area">
         <Link to="/">@{username} &nbsp;</Link>
+
         <span>{
           status === "recommendation"? "recommends " : "wants to watch "}{title}(Movie)
         </span>
-        <p>Available On: {availableOn}</p>
-        <p>Impressions: {impressions}</p>
+
+        {!!availableOn? <p>Available On: {availableOn}</p> : null}
+        {impressionsjsx}
         {isCorrectUser && (
           <a className="btn btn-danger" onClick={removeMovie}>
             Delete
@@ -62,5 +74,6 @@ const MovieItem = ({
     </li>
   </div>
 );
+}
 
 export default MovieItem;

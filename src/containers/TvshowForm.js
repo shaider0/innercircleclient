@@ -31,42 +31,43 @@ class TvshowForm extends Component {
         {this.props.errors.message && (
           <div className="alert alert-danger">{this.props.errors.message}</div>
         )}
+        <h5>Choose a Type</h5>
+          <select
+            className="form-control"
+            value={this.state.status}
+            onChange={e => this.setState({ status: e.target.value })}
+          >
+            <option value="recommendation">Something I'd Recommend</option>
+            <option value="want to watch">Something I Want To Watch</option>
+          </select>
+        <h5>Record Show Information</h5>
         <input
+          required
           type="text"
-          placeholder="TV Show Title"
+          placeholder="*Title"
           className="form-control"
           value={this.state.title}
           onChange={e => this.setState({ title: e.target.value })}
         />
-
-        <input
-          placeholder="Platform/Network (e.g., Netflix, Hulu, Amazon Prime Video, etc.)"
-          type="text"
-          list="availableOn"
-          className="form-control"
-          value={this.state.availableOn}
-          onChange={e => this.setState({ availableOn: e.target.value })}
-        />
-
-        <select
-          className="form-control"
-          value={this.state.status}
-          onChange={e => this.setState({ status: e.target.value })}
-        >
-          <option value="recommendation">This is a Recommendation</option>
-          <option value="want to watch">This is Something I Want To Watch</option>
-        </select>
         {this.state.status === "recommendation" ?
         <div>
           <input
             type="text"
-            placeholder="Briefly share your impressions (120 characters max)"
+            placeholder="Your Impressions (120 characters max)"
             className="form-control"
             value={this.state.impressions}
             onChange={e => this.setState({ impressions: e.target.value })}
           />
         </div> : null
         }
+        <input
+          placeholder="Where It's Available (e.g., Netflix, Hulu, Amazon Prime Video, etc.)"
+          type="text"
+          list="availableOn"
+          className="form-control"
+          value={this.state.availableOn}
+          onChange={e => this.setState({ availableOn: e.target.value })}
+        />
 
         <datalist id="availableOn">
           <option value="Amazon Prime Video"/>

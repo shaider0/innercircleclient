@@ -37,7 +37,7 @@ export const updateTvshow = (props) => {
   }
   return dispatch => {
     return apiCall("patch", `/api/users/${props.userId}/tvshows/${props.tvshowId}`, updatedTvshow)
-      .then(()=> apiCall("GET", "/api/tvshows"))
+      .then(()=> apiCall("GET", `/api/users/${props.userId}/tvshows`))
       .then(res => {
         dispatch(loadTvshows(res));
       })

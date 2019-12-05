@@ -26,6 +26,7 @@ class Friends extends Component {
         <SearchForUserForm/>
         <FriendRequests />
         <h3>Friends List</h3>
+        {friends.length === 0 ? <p>Get started by adding friends using the search tool above </p> : null}
         {friends.map((friend) => {
           return (
             <div key={friend.id}>

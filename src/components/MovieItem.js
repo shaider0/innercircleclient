@@ -46,11 +46,12 @@ return (
         <Link to="/">@{username} &nbsp;</Link>
 
         <span>{
-          status === "recommendation"? "recommends " : "wants to watch "}{title}(Movie)
+          status === "recommendation"? "recommends the movie" : "wants to watch the movie "} {title}
         </span>
 
         {!!availableOn? <p>Available On: {availableOn}</p> : null}
         {impressionsjsx}
+        <div>
         {isCorrectUser && (
           <a className="btn btn-danger" onClick={removeMovie}>
             Delete
@@ -71,6 +72,7 @@ return (
             Update
           </Link>
         )}
+        </div>
       </div>
     </li>
   </div>

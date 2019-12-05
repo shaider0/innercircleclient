@@ -60,8 +60,8 @@ class TvshowForm extends Component {
             value={this.state.status}
             onChange={e => this.setState({ status: e.target.value })}
           >
-            <option value="recommendation">Something I'd Recommend</option>
-            <option value="want to watch">Something I Want To Watch</option>
+            <option value="recommendation">Recommendation (liked it)</option>
+            <option value="bookmark">Bookmark (want to watch it)</option>
           </select>
         <h5>Record Show Information</h5>
         <input

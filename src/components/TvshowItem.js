@@ -43,11 +43,12 @@ return (
       <div className="tvshow-area">
         <Link to="/">@{username} &nbsp;</Link>
         <span>{
-          status === "recommendation"? "recommends " : "wants to watch "}{title}(TV Show)
+          status === "recommendation"? "recommends the show " : "wants to watch the show "} {title}
         </span>
 
         {!!availableOn? <p>Available On: {availableOn}</p> : null}
         {impressionsjsx}
+        <div>
         {isCorrectUser && (
           <a className="btn btn-danger" onClick={removeTvshow}>
             Delete
@@ -68,6 +69,7 @@ return (
             Update
           </Link>
         )}
+        </div>
       </div>
     </li>
   </div>

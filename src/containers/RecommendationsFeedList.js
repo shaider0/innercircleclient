@@ -41,12 +41,12 @@ class RecommendationsFeedList extends Component{
     if (this.state.showTvshows) {
       feedItems = [...feedItems, ...tvshows]
     }
-    let sortedFeedItems = feedItems.sort((a, b) => (a.createdAt > b.createdAt) ? -1 : 1)
+    let sortedFeedItems = feedItems.sort((a, b) => (a.updatedAt > b.updatedAt) ? -1 : 1)
     let feedList = sortedFeedItems.map(m => {
       if (m.category === 'tvshow'){
       return (<TvshowItem
           key={m._id}
-          date={m.createdAt}
+          date={m.updatedAt}
           category={m.category}
           title={m.title}
           availableOn={m.availableOn}
@@ -63,7 +63,7 @@ class RecommendationsFeedList extends Component{
       else if (m.category === 'movie') {
       return (<MovieItem
         key={m._id}
-        date={m.createdAt}
+        date={m.updatedAt}
         category={m.category}
         title={m.title}
         availableOn={m.availableOn}

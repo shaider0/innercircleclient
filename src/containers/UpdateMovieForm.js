@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom"
 import { updateMovie } from "../store/actions/movies";
 import MovieForm from "./MovieForm"
 
@@ -32,4 +31,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRouter(connect(mapStateToProps, { updateMovie })(UpdateMovieForm));
+export default connect(mapStateToProps, { updateMovie })(UpdateMovieForm);

@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { postNewTvshow } from "../store/actions/tvshows";
+import { updateTvshow, postNewTvshow } from "../store/actions/tvshows";
 
 class TvshowForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: "",
-      availableOn: "",
-      impressions: "",
-      status: "recommendation",
+    if(this.props.type === "update") {
+      this.state = this.props.state
+    } else {
+      this.state = {
+        title: "",
+        availableOn: "",
+        impressions: "",
+        status: "recommendation",
+      }
     }
   }
 
@@ -25,9 +29,28 @@ class TvshowForm extends Component {
     });
   };
 
+    handleUpdatedTvshow = event => {
+      event.preventDefault();
+      this.props.updateTvshow(this.state);
+
+      this.setState({
+        title: "",
+        availableOn: "",
+        impressions: "",
+        status: "",
+      });
+      document.location.href="/"
+    };
+
   render() {
+    let handler = this.handleNewTvshow
+    let buttonText = "Add Show"
+    if(this.props.type === "update") {
+      buttonText = "Save Updates"
+      handler = this.handleUpdatedTvshow
+    }
     return (
-      <form onSubmit={this.handleNewTvshow}>
+      <form onSubmit={handler}>
         {this.props.errors.message && (
           <div className="alert alert-danger">{this.props.errors.message}</div>
         )}
@@ -82,7 +105,7 @@ class TvshowForm extends Component {
         </datalist>
 
         <button type="submit" className="btn btn-primary">
-          Add Item
+          {buttonText}
         </button>
       </form>
     );
@@ -95,4 +118,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { postNewTvshow })(TvshowForm);
+export default connect(mapStateToProps, { updateTvshow, postNewTvshow })(TvshowForm);

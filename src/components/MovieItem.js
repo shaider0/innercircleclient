@@ -2,6 +2,7 @@ import React from "react";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
+import { withRouter } from "react-router-dom";
 
 
 const MovieItem = ({
@@ -76,4 +77,4 @@ return (
 );
 }
 
-export default MovieItem;
+export default withRouter(MovieItem);

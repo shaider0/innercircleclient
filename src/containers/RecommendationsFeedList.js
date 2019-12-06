@@ -10,7 +10,8 @@ class RecommendationsFeedList extends Component{
     super(props);
     this.state = {
       showMovies: true,
-      showTvshows: true
+      showTvshows: true,
+      singleUserContent: ""
     }
     this.handleInputChange = this.handleInputChange.bind(this)
   }
@@ -34,12 +35,14 @@ class RecommendationsFeedList extends Component{
   render() {
     const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, currentUser } = this.props;
     let feedItems = []
-    // alternative is to use .filter
     if (this.state.showMovies) {
       feedItems = [...movies]
     }
     if (this.state.showTvshows) {
       feedItems = [...feedItems, ...tvshows]
+    }
+    if (this.state.singleUserContent) {
+      feedItems = feedItems.filter(item => item.user.username === this.state.singleUserContent)
     }
     let sortedFeedItems = feedItems.sort((a, b) => (a.updatedAt > b.updatedAt) ? -1 : 1)
     let feedList = sortedFeedItems.map(m => {
@@ -81,7 +84,17 @@ class RecommendationsFeedList extends Component{
     }
   );
     return (
-      <div className="row col-sm-8">
+      <div>
+        <h5>Filters</h5>
+        <p>
+        <label>Username</label>
+        <input
+          type="text"
+          onChange={this.handleInputChange}
+          name="singleUserContent"
+          value={this.state.singleUserContent}
+          />
+        </p>
         <p>
         <input
           type="checkbox"

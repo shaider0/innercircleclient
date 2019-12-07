@@ -15,7 +15,7 @@ import FriendRequests from "./FriendRequests"
 import Friends from "./Friends"
 import FileUpload from "./FileUpload"
 import Settings from "./Settings"
-import Message from "./Message"
+import MessageForm from "./MessageForm"
 import Inbox from "./Inbox"
 
 const Main = props => {
@@ -67,7 +67,7 @@ const Main = props => {
         />
         <Route
           path="/users/:id/message"
-          component={Message}
+          component={MessageForm}
         />
         <Route
           path="/users/:id/settings"

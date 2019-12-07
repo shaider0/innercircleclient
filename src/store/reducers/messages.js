@@ -1,9 +1,11 @@
-import { ADD_MESSAGE } from "../actionTypes";
+import { ADD_MESSAGE, LOAD_MESSAGES } from "../actionTypes";
 
-const message = (state = {}, action) => {
+const message = (state = [], action) => {
   switch (action.type) {
     case ADD_MESSAGE:
-      return action.message
+      return [...action.message]
+    case LOAD_MESSAGES:
+      return [...action.messages]
     default:
       return state;
   }

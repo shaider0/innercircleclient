@@ -85,3 +85,10 @@ a.btn.btn-danger:hover {
 .navbar-header {
   margin: 0 auto;
 }
+
+.messageItem {
+  border: 1px solid grey;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}

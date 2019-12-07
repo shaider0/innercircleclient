@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { postNewMessage } from "../store/actions/messages"
 
-class Message extends Component {
+class MessageForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       recipientUsername: "",
-      message: `Hey!`
-      // message: `Hey! I've been recommending ${this.props.location.state.title} and I thought you might like it. -${this.props.currentUsername}`
+      message: `Hey! I've been recommending ${this.props.location.state.title} and I thought you might like it. -${this.props.currentUsername}`
     }
   }
 
@@ -56,4 +55,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { postNewMessage })(Message);
+export default connect(mapStateToProps, { postNewMessage })(MessageForm);

@@ -47,11 +47,9 @@ ul.nav.navbar-nav li {
   align-items: center;
   justify-content: center;
   z-index: -1;
-  background-image: url("./images/signed-out-home.jpg");
   text-align: center;
   padding: 1rem;
-  background-position: center center;
-  background-size: cover;
+  background-color: #232323;
   color: #fff;
   text-shadow: 0 0 8px #66757f;
 }

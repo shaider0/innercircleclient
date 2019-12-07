@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
-import Logo from "../images/warbler-logo.png";
+import Logo from "../images/inner-circle-logo.png";
 
 class Navbar extends Component {
   logout = e => {
@@ -42,14 +42,6 @@ class Navbar extends Component {
                   to={`/users/${this.props.currentUser.user.id}/friends`}
                 >
                   Friends
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  to={`/users/${this.props.currentUser.user.id}/stuff`}
-                >
-                  My Stuff
                 </Link>
               </li>
               <li>

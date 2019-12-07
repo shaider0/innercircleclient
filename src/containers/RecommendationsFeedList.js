@@ -61,7 +61,7 @@ class RecommendationsFeedList extends Component{
           profileImageUrl={m.user.profileImageUrl}
           removeTvshow={removeTvshow.bind(this, m.user._id, m._id)}
           updateTvshow={updateTvshow.bind(this, m.user._id, m._id)}
-          isCorrectUser={currentUser === m.user._id}
+          currentUser={currentUser}
       />)}
       else if (m.category === 'movie') {
       return (<MovieItem
@@ -78,7 +78,7 @@ class RecommendationsFeedList extends Component{
         profileImageUrl={m.user.profileImageUrl}
         removeMovie={removeMovie.bind(this, m.user._id, m._id)}
         updateMovie={updateMovie.bind(this, m.user._id, m._id)}
-        isCorrectUser={currentUser === m.user._id}
+        currentUser={currentUser}
       />)}
 
     }

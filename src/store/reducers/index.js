@@ -6,6 +6,7 @@ import tvshows from "./tvshows";
 import users from "./users";
 import friendRequests from "./friendRequests"
 import friends from "./friends"
+import messages from "./messages"
 
 const rootReducer = combineReducers({
   currentUser,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   tvshows,
   users,
   friendRequests,
-  friends
+  friends,
+  messages
 });
 
 export default rootReducer;

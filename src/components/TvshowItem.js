@@ -15,7 +15,8 @@ const TvshowItem = ({
   userId,
   removeTvshow,
   updateTvshow,
-  isCorrectUser
+  isCorrectUser,
+  currentUser
 }) => {
 
 let impressionsjsx = null;
@@ -23,6 +24,8 @@ let impressionsjsx = null;
 if (status === "recommendation" && !!impressions) {
   impressionsjsx = (<p>Impressions: {impressions}</p>)
 }
+
+let messageUrl = `/users/${currentUser}/message`
 
 return (
   <div>
@@ -34,17 +37,23 @@ return (
         width="100"
         className="timeline-image"
       />
-      <span className="text-muted">
+      <p className="text-muted">
         <Moment className="text-muted" format="Do MMM YYYY">
           {date}
         </Moment>
-      </span>
+      </p>
+
+      {userId === currentUser? <Link to={{
+        pathname: messageUrl,
+        state: {
+          title
+        }}}><button>Tell A Friend</button></Link> : null }
 
       <div className="tvshow-area">
         <Link to="/">@{username} &nbsp;</Link>
-        <span>{
+        <p>{
           status === "recommendation"? "recommends the show " : "wants to watch the show "} {title}
-        </span>
+        </p>
 
         {!!availableOn? <p>Available On: {availableOn}</p> : null}
         {impressionsjsx}

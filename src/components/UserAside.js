@@ -8,7 +8,6 @@ class UserAside extends Component {
   }
   render() {
     const currentUser = this.props
-    console.log('3434 curr user', currentUser)
     return (
       <aside className="col-sm-2">
         <div className="panel panel-default">

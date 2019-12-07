@@ -10,7 +10,6 @@ class Settings extends Component {
   }
   render(){
     const { currentUser } = this.props
-    console.log('url is ', currentUser.user)
     return (
       <div>
         <UserAside

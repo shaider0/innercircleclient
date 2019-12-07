@@ -17,7 +17,8 @@ const MovieItem = ({
   userId,
   removeMovie,
   updateMovie,
-  isCorrectUser
+  isCorrectUser,
+  currentUser
 }) => {
 
 let impressionsjsx = null;
@@ -25,6 +26,7 @@ let impressionsjsx = null;
 if (status === "recommendation" && !!impressions) {
   impressionsjsx = (<p>Impressions: {impressions}</p>)
 }
+let messageUrl = `/users/${currentUser}/message`
 
 return (
   <div>
@@ -41,7 +43,11 @@ return (
           {date}
         </Moment>
       </p>
-
+      {userId === currentUser? <Link to={{
+        pathname: messageUrl,
+        state: {
+          title
+        }}}><button>Tell A Friend</button></Link> : null }
       <div className="movie-area">
         <Link to="/">@{username} &nbsp;</Link>
 

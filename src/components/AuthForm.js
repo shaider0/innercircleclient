@@ -30,7 +30,7 @@ class AuthForm extends Component {
   };
 
   render() {
-    const { email, username, password, profileImageUrl } = this.state;
+    const { email, username, password } = this.state;
     const {
       signUp,
       heading,

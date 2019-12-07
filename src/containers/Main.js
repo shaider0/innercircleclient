@@ -15,6 +15,8 @@ import FriendRequests from "./FriendRequests"
 import Friends from "./Friends"
 import FileUpload from "./FileUpload"
 import Settings from "./Settings"
+import Message from "./Message"
+import Inbox from "./Inbox"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
@@ -60,8 +62,12 @@ const Main = props => {
           }}
         />
         <Route
-          path="/users/:id/stuff"
-          component={UsersOwnContent}
+          path="/users/:id/inbox"
+          component={Inbox}
+        />
+        <Route
+          path="/users/:id/message"
+          component={Message}
         />
         <Route
           path="/users/:id/settings"

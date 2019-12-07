@@ -35,14 +35,14 @@ class FriendRequests extends Component {
 
   render() {
     const { friendRequests } = this.props
-    {if (friendRequests.length === 0) {
+    if (friendRequests.length === 0) {
       return (
         <div>
           <h3>Friend Requests</h3>
           <p>None at this time.</p>
         </div>
       )
-    }}
+    }
     return (
       <div>
         {friendRequests.map((request) => {

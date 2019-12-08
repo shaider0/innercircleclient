@@ -12,6 +12,8 @@ const MessageItem = ({ date, sender, recipient, message }) => {
       </Moment>
       <p>From: {sender}</p>
       <p>Message: {message}</p>
+      <button>Add To My Watch List</button>
+      <button>Reply</button>
     </div>
   )
 }

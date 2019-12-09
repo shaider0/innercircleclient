@@ -16,7 +16,8 @@ const TvshowItem = ({
   removeTvshow,
   updateTvshow,
   isCorrectUser,
-  currentUser
+  currentUser,
+  category
 }) => {
 
 let impressionsjsx = null;
@@ -25,7 +26,7 @@ if (status === "recommendation" && !!impressions) {
   impressionsjsx = (<p>Impressions: {impressions}</p>)
 }
 
-let messageUrl = `/users/${currentUser}/message`
+let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 
 return (
   <div>
@@ -44,7 +45,7 @@ return (
       </p>
 
       {userId === currentUser? <Link to={{
-        pathname: messageUrl,
+        pathname: personalRecommendationUrl,
         state: {
           title
         }}}><button>Tell A Friend</button></Link> : null }
@@ -72,7 +73,8 @@ return (
               impressions,
               status,
               userId,
-              tvshowId
+              tvshowId,
+              category
             }
           }} className="btn btn-primary">
             Update

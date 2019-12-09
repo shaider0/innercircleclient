@@ -15,8 +15,8 @@ import FriendRequests from "./FriendRequests"
 import Friends from "./Friends"
 import FileUpload from "./FileUpload"
 import Settings from "./Settings"
-import MessageForm from "./MessageForm"
-import Inbox from "./Inbox"
+import PersonalRecommendationForm from "./PersonalRecommendationForm"
+import PersonalRecommendations from "./PersonalRecommendations"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
@@ -62,12 +62,12 @@ const Main = props => {
           }}
         />
         <Route
-          path="/users/:id/inbox"
-          component={Inbox}
+          path="/users/:id/personalRecommendations"
+          component={PersonalRecommendations}
         />
         <Route
-          path="/users/:id/message"
-          component={MessageForm}
+          path="/users/:id/personalRecommendation"
+          component={PersonalRecommendationForm}
         />
         <Route
           path="/users/:id/settings"

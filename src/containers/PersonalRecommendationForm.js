@@ -1,26 +1,27 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { postNewMessage } from "../store/actions/messages"
+import { postNewPersonalRecommendation } from "../store/actions/personalRecommendations"
 
-class MessageForm extends Component {
+class PersonalRecommendationForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       recipientUsername: "",
-      message: `Hey! I've been recommending ${this.props.location.state.title} and I thought you might like it. -${this.props.currentUsername}`
+      item: `${this.props.location.state.title}`,
+      category: `${this.props.location.state.category}`
     }
   }
 
-  handleNewMessage = event => {
+  handleNewPersonalRecommendation = event => {
     event.preventDefault()
-    this.props.postNewMessage(this.state)
+    this.props.postNewPersonalRecommendation(this.state)
   }
 
   render() {
     return (
       <div>
-      <form onSubmit={this.handleNewMessage}>
-        <h3>Suggest To A Friend</h3>
+      <form onSubmit={this.handleNewPersonalRecommendation}>
+        <h3>Send a Personal Recommendation To A Friend</h3>
         <label>To: </label>
         <span>
           <input
@@ -30,12 +31,11 @@ class MessageForm extends Component {
             onChange={e => this.setState({ recipientUsername: e.target.value })}
             className="form-control"
           />
-          <label>Message: </label>
+          <label>Recommendation: </label>
           <input
             type="textArea"
-            placeholder="message"
-            value={this.state.message}
-            onChange={e => this.setState({ message: e.target.value })}
+            placeholder="item"
+            value={this.state.item}
             className="form-control"
           />
           <button>
@@ -55,4 +55,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { postNewMessage })(MessageForm);
+export default connect(mapStateToProps, { postNewPersonalRecommendation })(PersonalRecommendationForm);

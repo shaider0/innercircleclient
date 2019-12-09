@@ -24,9 +24,9 @@ class Navbar extends Component {
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <Link
-                  to={`/users/${this.props.currentUser.user.id}/inbox`}
+                  to={`/users/${this.props.currentUser.user.id}/personalRecommendations`}
                 >
-                  Inbox
+                  Personal Recommendations
                 </Link>
               </li>
               <li>

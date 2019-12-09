@@ -47,8 +47,9 @@ return (
       {userId === currentUser? <Link to={{
         pathname: personalRecommendationUrl,
         state: {
-          title
-        }}}><button>Tell A Friend</button></Link> : null }
+          title,
+          category
+        }}}><button>Recommend To A Friend</button></Link> : null }
 
       <div className="tvshow-area">
         <Link to="/">@{username} &nbsp;</Link>
@@ -73,8 +74,7 @@ return (
               impressions,
               status,
               userId,
-              tvshowId,
-              category
+              tvshowId
             }
           }} className="btn btn-primary">
             Update

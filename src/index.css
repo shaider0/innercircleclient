@@ -84,9 +84,9 @@ a.btn.btn-danger:hover {
   margin: 0 auto;
 }
 
-.messageItem {
+.personalRecommendationItem {
   border: 1px solid grey;
-  margin: 5px;
+  margin: 5px;  
   padding: 5px;
   border-radius: 5px;
 }

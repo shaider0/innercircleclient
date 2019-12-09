@@ -18,7 +18,8 @@ const MovieItem = ({
   removeMovie,
   updateMovie,
   isCorrectUser,
-  currentUser
+  currentUser,
+  category
 }) => {
 
 let impressionsjsx = null;
@@ -46,8 +47,9 @@ return (
       {userId === currentUser? <Link to={{
         pathname: personalRecommendationUrl,
         state: {
-          title
-        }}}><button>Tell A Friend</button></Link> : null }
+          title,
+          category
+        }}}><button>Recommend To A Friend</button></Link> : null }
       <div className="movie-area">
         <Link to="/">@{username} &nbsp;</Link>
 

@@ -19,7 +19,7 @@ class UserAside extends Component {
               height="200"
               className="img-thumbnail"
             />
-            <p>{currentUser.username}</p>
+            <p>@{currentUser.username}</p>
           </div>
         </div>
       </aside>

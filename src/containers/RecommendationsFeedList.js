@@ -11,7 +11,9 @@ class RecommendationsFeedList extends Component{
     this.state = {
       showMovies: true,
       showTvshows: true,
-      singleUserContent: ""
+      singleUserContent: "",
+      showRecommendations: true,
+      showBookmarks: true
     }
     this.handleInputChange = this.handleInputChange.bind(this)
   }
@@ -34,18 +36,31 @@ class RecommendationsFeedList extends Component{
 
   render() {
     const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, currentUser } = this.props;
-    let feedItems = []
-    if (this.state.showMovies) {
-      feedItems = [...movies]
+    let items = [...movies, ...tvshows]
+
+    if (!this.state.showMovies) {
+      items = items.filter(item => item.category !== "movie")
     }
-    if (this.state.showTvshows) {
-      feedItems = [...feedItems, ...tvshows]
+
+    if (!this.state.showTvshows) {
+      items = items.filter(item => item.category !== "tvshow")
     }
+
     if (this.state.singleUserContent) {
-      feedItems = feedItems.filter(item => item.user.username === this.state.singleUserContent)
+      items = items.filter(item => item.user.username === this.state.singleUserContent)
     }
-    let sortedFeedItems = feedItems.sort((a, b) => (a.updatedAt > b.updatedAt) ? -1 : 1)
-    let feedList = sortedFeedItems.map(m => {
+
+    if (!this.state.showRecommendations) {
+      items = items.filter(item => item.status !== 'recommendation')
+    }
+
+    if (!this.state.showBookmarks) {
+      items = items.filter(item => item.status !== 'bookmark')
+    }
+
+
+    let sortedItems = items.sort((a, b) => (a.updatedAt > b.updatedAt) ? -1 : 1)
+    let feedList = sortedItems.map(m => {
       if (m.category === 'tvshow'){
       return (<TvshowItem
           key={m._id}
@@ -85,7 +100,7 @@ class RecommendationsFeedList extends Component{
   );
     return (
       <div>
-        <h5>Filters</h5>
+        <h4>Filters</h4>
         <p>
         <label>Username</label>
         <input
@@ -95,6 +110,7 @@ class RecommendationsFeedList extends Component{
           value={this.state.singleUserContent}
           />
         </p>
+        <h4>Category</h4>
         <p>
         <input
           type="checkbox"
@@ -113,6 +129,26 @@ class RecommendationsFeedList extends Component{
           />
         TV Shows
         </p>
+        <h4>Type</h4>
+        <p>
+        <input
+          type="checkbox"
+          onChange={this.handleInputChange}
+          name="showRecommendations"
+          checked={this.state.showRecommendations}
+          />
+        Recommendations
+        </p>
+        <p>
+        <input
+          type="checkbox"
+          onChange={this.handleInputChange}
+          name="showBookmarks"
+          checked={this.state.showBookmarks}
+          />
+        Bookmarks
+        </p>
+
         <div className="offset-1 col-sm-10">
           <ul className="list-group">
             {feedList}

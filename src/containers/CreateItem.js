@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import MovieForm from "./MovieForm"
 import TvshowForm from "./TvshowForm"
+import MealForm from "./MealForm"
 
 class CreateItem extends Component {
   constructor(props) {
@@ -16,6 +17,8 @@ class CreateItem extends Component {
       form = <MovieForm />
     } else if (this.state.category === "TV Show"){
       form = <TvshowForm />
+    } else if (this.state.category === "Meal"){
+      form = <MealForm />
     }
     return (
       <div className="createItemForm">
@@ -28,6 +31,7 @@ class CreateItem extends Component {
           onChange={e => this.setState({ category: e.target.value })}>
           <option value="Movie">Movie</option>
           <option value="TV Show">TV Show</option>
+          <option value="Meal">Meal</option>
         </select>
         {form}
       </div>

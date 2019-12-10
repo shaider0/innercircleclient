@@ -115,7 +115,6 @@ class RecommendationsFeedList extends Component{
     return (
       <div>
         <h2>Filters</h2>
-        <p>
         <h4>Username</h4>
         <input
           type="text"
@@ -123,7 +122,6 @@ class RecommendationsFeedList extends Component{
           name="singleUserContent"
           value={this.state.singleUserContent}
           />
-        </p>
         <h4>Category</h4>
 
         <p>

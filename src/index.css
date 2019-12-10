@@ -64,6 +64,10 @@ ul.nav.navbar-nav li {
   background-color: #e6ecf0;
 }
 
+.feedItem {
+  margin: 5px; 
+}
+
 .timeline-image {
   border-radius: 50px;
   height: 48px;

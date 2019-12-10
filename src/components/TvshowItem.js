@@ -28,7 +28,7 @@ if (status === "recommendation" && !!impressions) {
 
 let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 return (
-  <div>
+  <div className="feedItem">
     <li className="list-group-item">
       <img
         src={profileImageUrl || DefaultProfileImg}
@@ -42,13 +42,6 @@ return (
           {date}
         </Moment>
       </p>
-
-      {userId === currentUser? <Link to={{
-        pathname: personalRecommendationUrl,
-        state: {
-          title,
-          category
-        }}}><button className="btn-dark">Send A Personal Recommendation To A Friend</button></Link> : null }
 
       <div className="tvshow-area">
         <Link to="/">@{username} &nbsp;</Link>
@@ -79,6 +72,14 @@ return (
             Update
           </Link>
         )}
+
+        {userId === currentUser? <Link to={{
+          pathname: personalRecommendationUrl,
+          state: {
+            title,
+            category
+          }}}><button className="btn btn-dark">Send A Personal Recommendation</button></Link> : null }
+
         </div>
       </div>
     </li>

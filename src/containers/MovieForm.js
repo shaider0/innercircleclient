@@ -60,14 +60,14 @@ class MovieForm extends Component {
           value={this.state.status}
           onChange={e => this.setState({ status: e.target.value })}
         >
-          <option value="recommendation">Recommendation (liked it)</option>
-          <option value="bookmark">Bookmark (want to watch it)</option>
+          <option value="recommendation">Recommendation</option>
+          <option value="bookmark">Bookmark</option>
         </select>
-        <h5>Record Movie Information</h5>
+        <h5>Enter Movie Information</h5>
         <input
           required
           type="text"
-          placeholder="*Title"
+          placeholder="Title"
           className="form-control"
           value={this.state.title}
           onChange={e => this.setState({ title: e.target.value })}
@@ -76,7 +76,7 @@ class MovieForm extends Component {
           <div>
             <input
               type="text"
-              placeholder="Your Impressions (120 characters max)"
+              placeholder="Optional - Your Impressions (120 characters max)"
               className="form-control"
               value={this.state.impressions}
               onChange={e => this.setState({ impressions: e.target.value })}
@@ -85,7 +85,7 @@ class MovieForm extends Component {
           : null
         }
         <input
-          placeholder="Where It's Available (e.g., Netflix, Hulu, Amazon Prime Video, etc.)"
+          placeholder="Optional - Where It's Available (e.g., Netflix, Hulu, Amazon Prime Video, etc.)"
           type="text"
           list="availableOn"
           className="form-control"

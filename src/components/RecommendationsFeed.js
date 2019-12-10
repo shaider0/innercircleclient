@@ -4,7 +4,7 @@ import RecommendationsFeedList from "../containers/RecommendationsFeedList";
 const RecommendationsFeed = props => {
   return (
     <div className="recommendationsFeed">
-      <h3>Timeline of Recommendations and Bookmarks</h3>
+      <h1>Timeline</h1>
         <RecommendationsFeedList />
     </div>
   );

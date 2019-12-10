@@ -39,9 +39,9 @@ class FileUpload extends Component {
     return (
       <form onSubmit={this.submitFile}>
         <input label='upload file' type='file' onChange={this.handleFileUpload}/>
-        <button className="btn btn-primary" type='submit'>Save</button>
+        <div><button className="btn btn-primary" type='submit'>Save</button></div>
       </form>
-    );
+    ) 
   }
 }
 

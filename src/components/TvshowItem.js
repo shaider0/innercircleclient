@@ -30,6 +30,9 @@ let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 return (
   <div className="feedItem">
     <li className="list-group-item">
+      <Moment className="text-muted itemDate" format="Do MMM YYYY">
+        {date}
+      </Moment>
       <img
         src={profileImageUrl || DefaultProfileImg}
         alt={username}
@@ -37,20 +40,11 @@ return (
         width="100"
         className="timeline-image"
       />
-      <p className="text-muted">
-        <Moment className="text-muted" format="Do MMM YYYY">
-          {date}
-        </Moment>
-      </p>
-
-      <div className="tvshow-area">
         <Link to="/">@{username} &nbsp;</Link>
-        <p>{
-          status === "recommendation"? "recommends the show " : "wants to watch the show "} {title}
-        </p>
-
+        {status === "recommendation"? "recommends the show " : "wants to watch the show "} {title}
         {!!availableOn? <p>Available On: {availableOn}</p> : null}
         {impressionsjsx}
+
         <div>
         {isCorrectUser && (
           <a className="btn btn-danger" onClick={removeTvshow}>
@@ -79,9 +73,7 @@ return (
             title,
             category
           }}}><button className="btn btn-dark">Send A Personal Recommendation</button></Link> : null }
-
         </div>
-      </div>
     </li>
   </div>
 );

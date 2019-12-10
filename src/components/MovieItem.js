@@ -33,6 +33,9 @@ console.log('user', isCorrectUser)
 return (
   <div className="feedItem">
     <li className="list-group-item">
+      <Moment className="text-muted itemDate" format="Do MMM YYYY">
+        {date}
+      </Moment>
       <img
         src={profileImageUrl || DefaultProfileImg}
         alt={username}
@@ -40,47 +43,39 @@ return (
         width="100"
         className="timeline-image"
       />
-      <p className="text-muted">
-        <Moment className="text-muted" format="Do MMM YYYY">
-          {date}
-        </Moment>
-      </p>
-      <div className="movie-area">
-        <Link to="/">@{username} &nbsp;</Link>
-
-        <span>{
-          status === "recommendation"? "recommends the movie" : "wants to watch the movie "} {title}
-        </span>
-        {!!availableOn? <p>Available On: {availableOn}</p> : null}
-        {impressionsjsx}
-        <div>
-        {isCorrectUser && (
-          <a className="btn btn-danger" onClick={removeMovie}>
-            Delete
-          </a>
-        )}
-        {isCorrectUser && (
-          <Link to={{
-            pathname: `/users/${userId}/movies/${movieId}/update`,
-            state: {
-              title,
-              availableOn,
-              impressions,
-              status,
-              userId,
-              movieId
-            }
-          }} className="btn btn-primary">
-            Update
-          </Link>
-        )}
-        {userId === currentUser? <Link to={{
-          pathname: personalRecommendationUrl,
+      <Link to="/">@{username} &nbsp;</Link>
+      <span>{
+        status === "recommendation"? "recommends the movie" : "wants to watch the movie "} {title}
+      </span>
+      {!!availableOn? <p>Available On: {availableOn}</p> : null}
+      {impressionsjsx}
+      <div>
+      {isCorrectUser && (
+        <a className="btn btn-danger" onClick={removeMovie}>
+          Delete
+        </a>
+      )}
+      {isCorrectUser && (
+        <Link to={{
+          pathname: `/users/${userId}/movies/${movieId}/update`,
           state: {
             title,
-            category
-          }}}><button className="btn btn-dark">Send A Personal Recommendation</button></Link> : null }
-        </div>
+            availableOn,
+            impressions,
+            status,
+            userId,
+            movieId
+          }
+        }} className="btn btn-primary">
+          Update
+        </Link>
+      )}
+      {userId === currentUser? <Link to={{
+        pathname: personalRecommendationUrl,
+        state: {
+          title,
+          category
+        }}}><button className="btn btn-dark">Send A Personal Recommendation</button></Link> : null }
       </div>
     </li>
   </div>

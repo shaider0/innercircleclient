@@ -103,9 +103,9 @@ class RecommendationsFeedList extends Component{
   );
     return (
       <div>
-        <h4>Filters</h4>
+        <h2>Filters</h2>
         <p>
-        <label>Username</label>
+        <h4>Username</h4>
         <input
           type="text"
           onChange={this.handleInputChange}

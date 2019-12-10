@@ -1,22 +1,51 @@
-import React from "react"
+import React, { Component } from "react"
+import { connect } from "react-redux";
 import Moment from "react-moment"
 import { Link } from "react-router-dom"
 import DefaultProfileImg from "../images/default-profile-image.jpg"
 import { withRouter } from "react-router-dom"
+import { postNewMovie } from "../store/actions/movies"
+import { postNewTvshow } from "../store/actions/tvshows"
 
-const PersonalRecommendationItem = ({ date, sender, item, category }) => {
-  return (
-    <div>
-      <span><Moment className="text-muted" format="Do MMM YYYY">
+class PersonalRecommendationItem extends Component {
+  constructor(props) {
+    super(props)
+    }
+
+  handleAddToWatchList = event => {
+    event.preventDefault()
+    const { postNewMovie, postNewTvshow, sender, item, category } = this.props
+    console.log(category)
+    if (category === "movie") {
+      postNewMovie({title: item, status: "bookmark" })
+    }
+    else if (category === "tvshow") {
+      postNewTvshow({title: item, status: "bookmark" })
+    }
+  };
+
+  render() {
+    console.log(this.props)
+    const { date, sender, item, category } = this.props
+    return (
+      <div>
+        <span><Moment className="text-muted" format="Do MMM YYYY">
         {date}
-      </Moment></span>
-      <span> @<Link to='#'>{sender}</Link> thinks you'll like the {category} {item}</span>
-      <p>
-        <button>Add To My Watch List</button>
+        </Moment></span>
+        <span> @<Link to='#'>{sender}</Link> thinks you'll like the {category} {item}</span>
+        <p>
+        <button onClick={this.handleAddToWatchList}>Add To My Watch List</button>
         <button>Ignore</button>
-      </p>
-    </div>
-  )
+        </p>
+      </div>
+    )
+  }
 }
 
-export default withRouter(PersonalRecommendationItem)
+function mapStateToProps(state) {
+  return {
+    errors: state.errors
+  };
+}
+
+export default connect(mapStateToProps, { postNewMovie, postNewTvshow })(PersonalRecommendationItem);

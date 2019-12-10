@@ -38,8 +38,8 @@ class FileUpload extends Component {
   render () {
     return (
       <form onSubmit={this.submitFile}>
-        <input label='upload file' type='file' onChange={this.handleFileUpload} />
-        <button type='submit'>Send</button>
+        <input label='upload file' type='file' onChange={this.handleFileUpload}/>
+        <button className="btn btn-primary" type='submit'>Save</button>
       </form>
     );
   }

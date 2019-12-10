@@ -16,7 +16,7 @@ class Settings extends Component {
           profileImageUrl={currentUser.user.profileImageUrl}
           username={currentUser.user.username}
         />
-        <p>Upload Profile Picture</p>
+        <h3>Change Profile Picture</h3>
         <FileUpload />
       </div>
     )

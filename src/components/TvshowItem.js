@@ -48,7 +48,7 @@ return (
         state: {
           title,
           category
-        }}}><button>Recommend To A Friend</button></Link> : null }
+        }}}><button className="btn-dark">Send A Personal Recommendation To A Friend</button></Link> : null }
 
       <div className="tvshow-area">
         <Link to="/">@{username} &nbsp;</Link>

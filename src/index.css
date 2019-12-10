@@ -86,7 +86,42 @@ a.btn.btn-danger:hover {
 
 .personalRecommendationItem {
   border: 1px solid grey;
-  margin: 5px;  
+  margin: 5px;
   padding: 5px;
+  border-radius: 5px;
+}
+
+.createItemForm {
+  border: 1px solid grey;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.recommendationsFeed {
+  border: 1px solid grey;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.friendsSearch {
+  border: 1px solid grey;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.friendRequests {
+  border: 1px solid grey;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.friendsList {
+  border: 1px solid grey;
+  margin: 10px;
+  padding: 15px;
   border-radius: 5px;
 }

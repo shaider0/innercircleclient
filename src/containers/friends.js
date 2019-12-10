@@ -25,23 +25,25 @@ class Friends extends Component {
       <div>
         <SearchForUserForm/>
         <FriendRequests />
-        <h3>Friends List</h3>
-        {friends.length === 0 ? <p>Get started by adding friends using the search tool above </p> : null}
-        {friends.map((friend) => {
-          return (
-            <div key={friend.id}>
-              <p>
-                <img
-                  src={friend.profileImageUrl || DefaultProfileImg}
-                  alt={friend.username}
-                  height="100"
-                  width="100"
-                  className="timeline-image"/>
-                <Link to="#">{friend.username}</Link>
-              </p>
-            </div>
-        )
-      })}
+        <div className="friendsList">
+          <h3>Friends List</h3>
+          {friends.length === 0 ? <p>Get started by adding friends using the search tool above </p> : null}
+          {friends.map((friend) => {
+            return (
+              <div key={friend.id}>
+                <p>
+                  <img
+                    src={friend.profileImageUrl || DefaultProfileImg}
+                    alt={friend.username}
+                    height="100"
+                    width="100"
+                    className="timeline-image"/>
+                  <Link to="#">{friend.username}</Link>
+                </p>
+              </div>
+              )
+            })}
+          </div>
       </div>
     )
   }

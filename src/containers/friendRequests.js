@@ -37,14 +37,14 @@ class FriendRequests extends Component {
     const { friendRequests } = this.props
     if (friendRequests.length === 0) {
       return (
-        <div>
+        <div className="friendRequests">
           <h3>Friend Requests</h3>
           <p>None at this time.</p>
         </div>
       )
     }
     return (
-      <div>
+      <div className="friendRequests">
         {friendRequests.map((request) => {
           return (
             <div key={request._id}>

@@ -79,7 +79,7 @@ class SearchForUser extends Component {
     }
 
     return (
-      <div>
+      <div className = "friendsSearch">
         <h3>Friends Search</h3>
         <form onSubmit={this.handleSubmit}>
           {this.props.errors.message && (

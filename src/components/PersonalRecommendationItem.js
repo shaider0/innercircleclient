@@ -6,6 +6,7 @@ import DefaultProfileImg from "../images/default-profile-image.jpg"
 import { withRouter } from "react-router-dom"
 import { postNewMovie } from "../store/actions/movies"
 import { postNewTvshow } from "../store/actions/tvshows"
+import { deletePersonalRecommendation } from "../store/actions/personalRecommendations"
 
 class PersonalRecommendationItem extends Component {
   constructor(props) {
@@ -23,6 +24,12 @@ class PersonalRecommendationItem extends Component {
     }
   };
 
+  handleDelete = event => {
+    event.preventDefault()
+    const { deletePersonalRecommendation, id, currentUser } = this.props
+    deletePersonalRecommendation(currentUser, id)
+  };
+
   render() {
     console.log(this.props)
     const { date, sender, item, category } = this.props
@@ -34,7 +41,7 @@ class PersonalRecommendationItem extends Component {
         <span> @<Link to='#'>{sender}</Link> thinks you'll like the {category} {item}</span>
         <p>
         <button className="btn btn-primary" onClick={this.handleAddToWatchList}>Add To My Bookmarks</button>
-        <button className="btn btn-danger">Ignore</button>
+        <button className="btn btn-danger" onClick={this.handleDelete}>Ignore</button>
         </p>
       </div>
     )
@@ -43,8 +50,9 @@ class PersonalRecommendationItem extends Component {
 
 function mapStateToProps(state) {
   return {
-    errors: state.errors
+    errors: state.errors,
+    currentUser: state.currentUser.user.id
   };
 }
 
-export default connect(mapStateToProps, { postNewMovie, postNewTvshow })(PersonalRecommendationItem);
+export default connect(mapStateToProps, { deletePersonalRecommendation, postNewMovie, postNewTvshow })(PersonalRecommendationItem);

@@ -10,7 +10,9 @@ class RecommendationsFeedList extends Component{
     super(props);
     this.state = {
       showMovies: true,
+      showMoviesOnly: false,
       showTvshows: true,
+      showTvshowsOnly: false,
       singleUserContent: "",
       showRecommendations: true,
       showBookmarks: true
@@ -40,12 +42,21 @@ class RecommendationsFeedList extends Component{
 
     let items = [...movies, ...tvshows]
     console.log('items are', items)
+
     if (!this.state.showMovies) {
       items = items.filter(item => item.category !== "movie")
     }
 
+    if (this.state.showMoviesOnly) {
+      items = items.filter(item => item.category === "movie")
+    }
+
     if (!this.state.showTvshows) {
-      items = items.filter(item => item.category !== "tvshow")
+      items = items.filter(item => item.category !== "tv show")
+    }
+
+    if (this.state.showTvshowsOnly) {
+    items = items.filter(item => item.category === "tv show")
     }
 
     if (this.state.singleUserContent) {
@@ -114,6 +125,7 @@ class RecommendationsFeedList extends Component{
           />
         </p>
         <h4>Category</h4>
+
         <p>
         <input
           type="checkbox"
@@ -122,7 +134,15 @@ class RecommendationsFeedList extends Component{
           checked={this.state.showMovies}
           />
         Movies
+        <input
+          type="checkbox"
+          onChange={this.handleInputChange}
+          name="showMoviesOnly"
+          checked={this.state.showMoviesOnly}
+          />
+        Only
         </p>
+
         <p>
         <input
           type="checkbox"
@@ -131,6 +151,13 @@ class RecommendationsFeedList extends Component{
           checked={this.state.showTvshows}
           />
         TV Shows
+        <input
+          type="checkbox"
+          onChange={this.handleInputChange}
+          name="showTvshowsOnly"
+          checked={this.state.showTvshowsOnly}
+          />
+        Only
         </p>
         <h4>Type</h4>
         <p>

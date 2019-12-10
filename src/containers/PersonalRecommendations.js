@@ -26,6 +26,7 @@ class PersonalRecommendations extends Component {
             sender={m.sender.username}
             item={m.item}
             category={m.category}
+            id={m._id}
             />
         </div>
       )

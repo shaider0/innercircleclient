@@ -1,6 +1,6 @@
 import { apiCall } from "../../services/api";
 import { addError } from "./errors";
-import { LOAD_PERSONAL_RECOMMENDATIONS, ADD_PERSONAL_RECOMMENDATION }from "../actionTypes"
+import { LOAD_PERSONAL_RECOMMENDATIONS, ADD_PERSONAL_RECOMMENDATION, REMOVE_PERSONAL_RECOMMENDATION }from "../actionTypes"
 
 export const addPersonalRecommendation = personalRecommendation => ({
   type: ADD_PERSONAL_RECOMMENDATION,
@@ -10,6 +10,11 @@ export const addPersonalRecommendation = personalRecommendation => ({
 export const loadPersonalRecommendations = personalRecommendations => ({
   type: LOAD_PERSONAL_RECOMMENDATIONS,
   personalRecommendations
+})
+
+export const removeRecommendation = personalRecommendationId => ({
+  type: REMOVE_PERSONAL_RECOMMENDATION,
+  personalRecommendationId
 })
 
 export const postNewPersonalRecommendation = personalRecommendation => (dispatch, getState) => {
@@ -33,3 +38,13 @@ export const fetchPersonalRecommendations = (userId) => {
       })
   }
 }
+
+export const deletePersonalRecommendation = (user_id, personalRecommendation_id) => {
+  return dispatch => {
+    return apiCall("delete", `/api/users/${user_id}/personalRecommendations/${personalRecommendation_id}`)
+      .then(() => dispatch(removeRecommendation(personalRecommendation_id)))
+      .catch(err => {
+        addError(err.message);
+      });
+  };
+};

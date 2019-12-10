@@ -15,11 +15,10 @@ class PersonalRecommendationItem extends Component {
   handleAddToWatchList = event => {
     event.preventDefault()
     const { postNewMovie, postNewTvshow, sender, item, category } = this.props
-    console.log(category)
     if (category === "movie") {
       postNewMovie({title: item, status: "bookmark" })
     }
-    else if (category === "tvshow") {
+    else if (category === "tv show") {
       postNewTvshow({title: item, status: "bookmark" })
     }
   };

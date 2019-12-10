@@ -27,7 +27,6 @@ if (status === "recommendation" && !!impressions) {
 }
 
 let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
-
 return (
   <div>
     <li className="list-group-item">

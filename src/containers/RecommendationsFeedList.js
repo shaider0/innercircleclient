@@ -35,9 +35,11 @@ class RecommendationsFeedList extends Component{
   }
 
   render() {
-    const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, currentUser } = this.props;
-    let items = [...movies, ...tvshows]
 
+    const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, currentUser } = this.props;
+
+    let items = [...movies, ...tvshows]
+    console.log('items are', items)
     if (!this.state.showMovies) {
       items = items.filter(item => item.category !== "movie")
     }
@@ -58,10 +60,9 @@ class RecommendationsFeedList extends Component{
       items = items.filter(item => item.status !== 'bookmark')
     }
 
-
     let sortedItems = items.sort((a, b) => (a.updatedAt > b.updatedAt) ? -1 : 1)
     let feedList = sortedItems.map(m => {
-      if (m.category === 'tvshow'){
+      if (m.category === 'tv show'){
       return (<TvshowItem
           key={m._id}
           date={m.updatedAt}
@@ -77,6 +78,7 @@ class RecommendationsFeedList extends Component{
           removeTvshow={removeTvshow.bind(this, m.user._id, m._id)}
           updateTvshow={updateTvshow.bind(this, m.user._id, m._id)}
           currentUser={currentUser}
+          isCorrectUser={currentUser === m.user._id}
       />)}
       else if (m.category === 'movie') {
       return (<MovieItem
@@ -94,6 +96,7 @@ class RecommendationsFeedList extends Component{
         removeMovie={removeMovie.bind(this, m.user._id, m._id)}
         updateMovie={updateMovie.bind(this, m.user._id, m._id)}
         currentUser={currentUser}
+        isCorrectUser={currentUser === m.user._id}
       />)}
 
     }

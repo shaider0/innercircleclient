@@ -28,6 +28,7 @@ if (status === "recommendation" && !!impressions) {
   impressionsjsx = (<p>Impressions: {impressions}</p>)
 }
 let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
+console.log('user', isCorrectUser)
 
 return (
   <div>
@@ -56,7 +57,6 @@ return (
         <span>{
           status === "recommendation"? "recommends the movie" : "wants to watch the movie "} {title}
         </span>
-
         {!!availableOn? <p>Available On: {availableOn}</p> : null}
         {impressionsjsx}
         <div>

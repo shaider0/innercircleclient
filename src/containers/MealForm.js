@@ -42,7 +42,6 @@ class MealForm extends Component {
       imageUrl: "",
       status: "recommendation",
     });
-    document.location.href="/"
   };
 
   render() {

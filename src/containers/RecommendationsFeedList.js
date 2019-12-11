@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchMovies, removeMovie, updateMovie } from "../store/actions/movies";
 import { fetchTvshows, removeTvshow, updateTvshow } from "../store/actions/tvshows";
+import { fetchMeals, removeMeal, updateMeal } from "../store/actions/meals";
 import MovieItem from "../components/MovieItem";
 import TvshowItem from "../components/TvshowItem";
+import MealItem from "../components/MealItem";
 
 class RecommendationsFeedList extends Component{
   constructor(props) {
@@ -13,6 +15,8 @@ class RecommendationsFeedList extends Component{
       showMoviesOnly: false,
       showTvshows: true,
       showTvshowsOnly: false,
+      showMeals: true,
+      showMealsOnly: false,
       singleUserContent: "",
       showRecommendations: true,
       showBookmarks: true
@@ -34,13 +38,14 @@ class RecommendationsFeedList extends Component{
     const { currentUser } = this.props
     this.props.fetchMovies(currentUser);
     this.props.fetchTvshows(currentUser);
+    this.props.fetchMeals(currentUser);
   }
 
   render() {
 
-    const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, currentUser } = this.props;
+    const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, meals, removeMeal, updateMeal, currentUser } = this.props;
 
-    let items = [...movies, ...tvshows]
+    let items = [...movies, ...tvshows, ...meals]
     console.log('items are', items)
 
     if (!this.state.showMovies) {
@@ -57,6 +62,14 @@ class RecommendationsFeedList extends Component{
 
     if (this.state.showTvshowsOnly) {
     items = items.filter(item => item.category === "tv show")
+    }
+
+    if (!this.state.showMeals) {
+      items = items.filter(item => item.category !== "meal")
+    }
+
+    if (this.state.showMealsOnly) {
+    items = items.filter(item => item.category === "meal")
     }
 
     if (this.state.singleUserContent) {
@@ -110,6 +123,26 @@ class RecommendationsFeedList extends Component{
         isCorrectUser={currentUser === m.user._id}
       />)}
 
+      else if (m.category === 'meal') {
+      return (<MealItem
+        key={m._id}
+        date={m.updatedAt}
+        category={m.category}
+        name={m.name}
+        restaurant={m.restaurant}
+        imageUrl={m.imageUrl}
+        impressions={m.impressions}
+        status={m.status}
+        mealId={m._id}
+        username={m.user.username}
+        userId={m.user._id}
+        profileImageUrl={m.user.profileImageUrl}
+        removeMeal={removeMeal.bind(this, m.user._id, m._id)}
+        updateMeal={updateMeal.bind(this, m.user._id, m._id)}
+        currentUser={currentUser}
+        isCorrectUser={currentUser === m.user._id || currentUser === m.user}
+      />)}
+
     }
   );
     return (
@@ -123,7 +156,6 @@ class RecommendationsFeedList extends Component{
           value={this.state.singleUserContent}
           />
         <h4>Category</h4>
-
         <p>
         <input
           type="checkbox"
@@ -137,6 +169,23 @@ class RecommendationsFeedList extends Component{
           onChange={this.handleInputChange}
           name="showMoviesOnly"
           checked={this.state.showMoviesOnly}
+          />
+        Only
+        </p>
+
+        <p>
+        <input
+          type="checkbox"
+          onChange={this.handleInputChange}
+          name="showMeals"
+          checked={this.state.showMeals}
+          />
+        Meals
+        <input
+          type="checkbox"
+          onChange={this.handleInputChange}
+          name="showMealsOnly"
+          checked={this.state.showMealsOnly}
           />
         Only
         </p>
@@ -191,10 +240,21 @@ function mapStateToProps(state) {
   return {
     movies: state.movies,
     tvshows: state.tvshows,
+    meals: state.meals,
     currentUser: state.currentUser.user.id
   };
 }
 
-export default connect(mapStateToProps, { fetchMovies, removeMovie, updateMovie, fetchTvshows, removeTvshow, updateTvshow })(
+export default connect(mapStateToProps, {
+  fetchMovies,
+  removeMovie,
+  updateMovie,
+  fetchTvshows,
+  removeTvshow,
+  updateTvshow,
+  fetchMeals,
+  removeMeal,
+  updateMeal
+})(
   RecommendationsFeedList
 );

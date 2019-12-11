@@ -6,6 +6,7 @@ import DefaultProfileImg from "../images/default-profile-image.jpg"
 import { withRouter } from "react-router-dom"
 import { postNewMovie } from "../store/actions/movies"
 import { postNewTvshow } from "../store/actions/tvshows"
+import { postNewMeal } from "../store/actions/meals"
 import { deletePersonalRecommendation } from "../store/actions/personalRecommendations"
 
 class PersonalRecommendationItem extends Component {
@@ -15,12 +16,15 @@ class PersonalRecommendationItem extends Component {
 
   handleAddToWatchList = event => {
     event.preventDefault()
-    const { postNewMovie, postNewTvshow, sender, item, category } = this.props
+    const { postNewMovie, postNewTvshow, postNewMeal, sender, item, category } = this.props
     if (category === "movie") {
       postNewMovie({title: item, status: "bookmark" })
     }
     else if (category === "tv show") {
       postNewTvshow({title: item, status: "bookmark" })
+    }
+    else if (category === "meal") {
+      postNewMeal({name: item, status: "bookmark" })
     }
   };
 
@@ -38,7 +42,8 @@ class PersonalRecommendationItem extends Component {
         <span><Moment className="text-muted" format="Do MMM YYYY">
         {date}
         </Moment></span>
-        <span> @<Link to='#'>{sender}</Link> thinks you'll like the {category} {item}</span>
+        <h6>{category.toUpperCase()}</h6>
+        <span> @<Link to='#'>{sender}</Link> thinks you'll like: {item}</span>
         <p>
         <button className="btn btn-primary" onClick={this.handleAddToWatchList}>Add To My Bookmarks</button>
         <button className="btn btn-danger" onClick={this.handleDelete}>Ignore</button>
@@ -55,4 +60,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { deletePersonalRecommendation, postNewMovie, postNewTvshow })(PersonalRecommendationItem);
+export default connect(mapStateToProps, { deletePersonalRecommendation, postNewMovie, postNewTvshow, postNewMeal })(PersonalRecommendationItem);

@@ -5,10 +5,21 @@ import { postNewPersonalRecommendation } from "../store/actions/personalRecommen
 class PersonalRecommendationForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      recipientUsername: "",
-      item: `${this.props.location.state.title}`,
-      category: `${this.props.location.state.category}`
+    let { category } = this.props.location.state
+    if (category === "movie" || category ==="tv show") {
+      this.state = {
+        recipientUsername: "",
+        item: `${this.props.location.state.title}`,
+        category: `${this.props.location.state.category}`
+      }
+    }
+
+    if (category === "meal") {
+      this.state = {
+        recipientUsername: "",
+        item: `${this.props.location.state.name} at ${this.props.location.state.restaurant}`,
+        category: `${this.props.location.state.category}`
+      }
     }
   }
 
@@ -33,6 +44,7 @@ class PersonalRecommendationForm extends Component {
           />
           <label>Recommendation: </label>
           <input
+            readOnly
             type="textArea"
             placeholder="item"
             value={this.state.item}

@@ -19,12 +19,12 @@ body {
   cursor: pointer;
 }
 
+.navbar {
+  display: flex;
+}
+
 .navbar-brand > img {
-  display: inline-block;
-  width: 30px;
-  margin-bottom: 2px;
-  margin-right: 5px;
-  border-radius: 2px;
+  width: 50px;
 }
 
 ul.nav.navbar-nav li {

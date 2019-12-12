@@ -61,6 +61,17 @@ export const fetchMeals = (userId) => {
 };
 
 export const postNewMeal = newMeal => (dispatch, getState) => {
+  // first handle image
+  const formData = new FormData()
+  const file = newMeal.image[0]
+  formData.append('file', file)
+  // check out the endpoint
+  apiCall("post", `/image-upload`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+
   let { currentUser } = getState();
   const id = currentUser.user.id;
   return apiCall("post", `/api/users/${id}/meals`, newMeal)

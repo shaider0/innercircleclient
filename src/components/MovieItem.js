@@ -28,7 +28,6 @@ if (status === "recommendation" && !!impressions) {
   impressionsjsx = (<p>Impressions: {impressions}</p>)
 }
 let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
-console.log('user', isCorrectUser)
 
 return (
   <div className="feedItem">

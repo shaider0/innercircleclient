@@ -13,7 +13,7 @@ class MealForm extends Component {
         name: "",
         restaurant: "",
         impressions: "",
-        imageUrl: "",
+        image: null,
         status: "recommendation",
       }
     }
@@ -27,7 +27,7 @@ class MealForm extends Component {
       name: "",
       restaurant: "",
       impressions: "",
-      imageUrl: "",
+      image: null,
       status: "recommendation",
     });
   };
@@ -39,7 +39,7 @@ class MealForm extends Component {
       name: "",
       restaurant: "",
       impressions: "",
-      imageUrl: "",
+      image: null,
       status: "recommendation",
     });
   };
@@ -85,13 +85,6 @@ class MealForm extends Component {
           value={this.state.restaurant}
           onChange={e => this.setState({ restaurant: e.target.value })}
         />
-        <input
-          type="text"
-          placeholder="Image URL"
-          className="form-control"
-          value={this.state.imageUrl}
-          onChange={e => this.setState({ imageUrl: e.target.value })}
-        />
 
         {this.state.status === "recommendation" ?
           <div>
@@ -105,6 +98,13 @@ class MealForm extends Component {
           </div>
           : null
         }
+
+        <h5>Upload a Photo: </h5>
+        <input
+          type="file"
+          onChange={e => this.setState({ image: e.target.files})}
+        />
+
         <button type="submit" className="btn btn-primary">
           {buttonText}
         </button>

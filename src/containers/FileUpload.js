@@ -15,7 +15,9 @@ class FileUpload extends Component {
   submitFile = (event) => {
     event.preventDefault();
     const { currentUser, updateUserProfileImage } = this.props
+
     const formData = new FormData();
+
     formData.append('file', this.state.file[0]);
     axios.post(`/image-upload`, formData, {
       headers: {
@@ -41,7 +43,7 @@ class FileUpload extends Component {
         <input label='upload file' type='file' onChange={this.handleFileUpload}/>
         <div><button className="btn btn-primary" type='submit'>Save</button></div>
       </form>
-    ) 
+    )
   }
 }
 

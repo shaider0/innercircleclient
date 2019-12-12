@@ -46,7 +46,6 @@ class RecommendationsFeedList extends Component{
     const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, meals, removeMeal, updateMeal, currentUser } = this.props;
 
     let items = [...movies, ...tvshows, ...meals]
-    console.log('items are', items)
 
     if (!this.state.showMovies) {
       items = items.filter(item => item.category !== "movie")

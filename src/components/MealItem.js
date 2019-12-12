@@ -50,7 +50,12 @@ return (
       </span>
       <p>Restaurant: {restaurant}</p>
       {impressionsjsx}
-      <p>TO BE REPLACED WITH IMAGE</p>
+
+      <img
+        src={imageUrl || "#"}
+        alt={username}
+        width="500"
+      />
 
       <div>
       {isCorrectUser && (

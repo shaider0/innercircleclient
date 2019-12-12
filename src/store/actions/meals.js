@@ -27,26 +27,44 @@ export const removeMeal = (user_id, meal_id) => {
   };
 };
 
-export const updateMeal = (props) => {
-  console.log(props)
+export const updateMeal = props => (dispatch, getState) => {
+
   const updatedMeal = {
     name: props.name,
     restaurant: props.restaurant,
-    imageUrl: props.imageUrl,
     impressions: props.impressions,
-    status: props.status
+    status: props.status,
+    image: props.image
   }
-  return dispatch => {
-    return apiCall("patch", `/api/users/${props.userId}/meals/${props.mealId}`, updatedMeal)
-      .then(()=> apiCall("GET", `/api/users/${props.userId}/meals`))
-      .then(res => {
-        dispatch(loadMeals(res));
-      })
-      .catch(err => {
-        dispatch(addError(err.message))
-      })
-  };
-};
+
+  let { currentUser } = getState();
+  const id = currentUser.user.id;
+
+  // first handle image
+  const formData = new FormData()
+  const file = updatedMeal.image[0]
+  formData.append('file', file)
+
+  // post image to aws. response will include an object with Location property that represents URL
+  return apiCall("post", `/api/users/${id}/images`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+    .then(res => {
+      const url = res.Location
+      updatedMeal.imageUrl = url
+      return apiCall("patch", `/api/users/${props.userId}/meals/${props.mealId}`, updatedMeal)
+        .then(()=> apiCall("GET", `/api/users/${props.userId}/meals`))
+        .then(res => {
+          dispatch(loadMeals(res));
+        })
+        .catch(err => {
+          dispatch(addError(err.message))
+        })
+    })
+    .catch(err => addError(err))
+}
 
 export const fetchMeals = (userId) => {
   return dispatch => {

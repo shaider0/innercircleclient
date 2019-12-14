@@ -134,3 +134,8 @@ a.btn.btn-danger:hover {
   display: flex;
   justify-content: flex-end;
 }
+
+.profile-pic {
+  width: 100px;
+  border-radius: 15px;
+}

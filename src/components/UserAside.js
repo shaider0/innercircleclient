@@ -15,9 +15,7 @@ class UserAside extends Component {
             <img
               src={currentUser.profileImageUrl || DefaultProfileImg}
               alt={currentUser.username}
-              width="200"
-              height="200"
-              className="img-thumbnail"
+              className="profile-pic"
             />
             <p>@{currentUser.username}</p>
           </div>

@@ -9,7 +9,6 @@ import withAuth from "../hocs/withAuth";
 import UpdateMovieForm from "../containers/UpdateMovieForm";
 import UpdateMealForm from "../containers/UpdateMealForm";
 import UpdateTvshowForm from "../containers/UpdateTvshowForm";
-import UsersOwnContent from "../containers/UsersOwnContent"
 import FriendRequests from "./FriendRequests"
 import Friends from "./Friends"
 import FileUpload from "./FileUpload"

@@ -12,6 +12,11 @@ export const remove = id => ({
   id
 });
 
+export const update = movie => ({
+  type: UPDATE_MOVIE,
+  movie
+})
+
 export const addMovie = movie => ({
   type: ADD_MOVIE,
   movie
@@ -37,9 +42,8 @@ export const updateMovie = (props) => {
   }
   return dispatch => {
     return apiCall("patch", `/api/users/${props.userId}/movies/${props.movieId}`, updatedMovie)
-      .then(()=> apiCall("GET", `/api/users/${props.userId}/movies`))
       .then(res => {
-        dispatch(loadMovies(res));
+        dispatch(update(res));
       })
       .catch(err => {
         dispatch(addError(err.message))

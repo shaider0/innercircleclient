@@ -39,7 +39,6 @@ class TvshowForm extends Component {
         impressions: "",
         status: "",
       });
-      document.location.href="/"
     };
 
   render() {

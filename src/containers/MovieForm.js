@@ -39,7 +39,6 @@ class MovieForm extends Component {
       impressions: "",
       status: "",
     });
-    document.location.href="/"
   };
 
   render() {

@@ -12,6 +12,12 @@ export const remove = id => ({
   id
 });
 
+export const update = meal => ({
+  type: UPDATE_MEAL,
+  meal
+})
+
+
 export const addMeal = meal => ({
   type: ADD_MEAL,
   meal
@@ -41,6 +47,7 @@ export const updateMeal = props => (dispatch, getState) => {
   const id = currentUser.user.id;
 
   // first handle image
+
   const formData = new FormData()
   const file = updatedMeal.image[0]
   formData.append('file', file)
@@ -55,9 +62,8 @@ export const updateMeal = props => (dispatch, getState) => {
       const url = res.Location
       updatedMeal.imageUrl = url
       return apiCall("patch", `/api/users/${props.userId}/meals/${props.mealId}`, updatedMeal)
-        .then(()=> apiCall("GET", `/api/users/${props.userId}/meals`))
         .then(res => {
-          dispatch(loadMeals(res));
+          dispatch(update(res));
         })
         .catch(err => {
           dispatch(addError(err.message))

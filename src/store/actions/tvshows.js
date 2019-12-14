@@ -12,6 +12,11 @@ export const remove = id => ({
   id
 });
 
+export const update = tvshow => ({
+  type: UPDATE_TVSHOW,
+  tvshow
+})
+
 export const addTvshow = tvshow => ({
   type: ADD_TVSHOW,
   tvshow
@@ -37,9 +42,8 @@ export const updateTvshow = (props) => {
   }
   return dispatch => {
     return apiCall("patch", `/api/users/${props.userId}/tvshows/${props.tvshowId}`, updatedTvshow)
-      .then(()=> apiCall("GET", `/api/users/${props.userId}/tvshows`))
       .then(res => {
-        dispatch(loadTvshows(res));
+        dispatch(update(res));
       })
       .catch(err => {
         dispatch(addError(err.message))

@@ -28,6 +28,8 @@ export const searchForUser = (props) => {
 
 export const updateUserProfileImage = (user, url) => {
   return dispatch => {
+    console.log('patching...')
+
     return apiCall("patch", `/api/users/${user}/profile`, {url: url})
       .then(res => {
         dispatch(updateUser({profileImageUrl: url}));

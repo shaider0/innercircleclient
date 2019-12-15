@@ -46,30 +46,40 @@ export const updateMeal = props => (dispatch, getState) => {
   let { currentUser } = getState();
   const id = currentUser.user.id;
 
-  // first handle image
+  // if update includes an image, only then try posting to AWS
+  if (updatedMeal.image) {
+    const formData = new FormData()
+    const file = updatedMeal.image[0]
+    formData.append('file', file)
 
-  const formData = new FormData()
-  const file = updatedMeal.image[0]
-  formData.append('file', file)
-
-  // post image to aws. response will include an object with Location property that represents URL
-  return apiCall("post", `/api/users/${id}/images`, formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    }
-  })
-    .then(res => {
-      const url = res.Location
-      updatedMeal.imageUrl = url
-      return apiCall("patch", `/api/users/${props.userId}/meals/${props.mealId}`, updatedMeal)
-        .then(res => {
-          dispatch(update(res));
-        })
-        .catch(err => {
-          dispatch(addError(err.message))
-        })
+    return apiCall("post", `/api/users/${id}/images`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
     })
-    .catch(err => addError(err))
+    // then, post the meal to mongo, including the image url provided by AWS response
+      .then(res => {
+        const url = res.Location
+        updatedMeal.imageUrl = url
+        return apiCall("patch", `/api/users/${props.userId}/meals/${props.mealId}`, updatedMeal)
+          .then(res => {
+            dispatch(update(res));
+          })
+          .catch(err => {
+            dispatch(addError(err.message))
+          })
+      })
+      .catch(err => addError(err))
+  }
+  else {
+    return apiCall("patch", `/api/users/${props.userId}/meals/${props.mealId}`, updatedMeal)
+      .then(res => {
+        dispatch(update(res));
+      })
+      .catch(err => {
+        dispatch(addError(err.message))
+      })
+  }
 }
 
 export const fetchMeals = (userId) => {
@@ -88,25 +98,32 @@ export const postNewMeal = newMeal => (dispatch, getState) => {
   let { currentUser } = getState();
   const id = currentUser.user.id;
 
-  // first handle image
-  const formData = new FormData()
-  const file = newMeal.image[0]
-  formData.append('file', file)
+  if (newMeal.image) {
+    const formData = new FormData()
+    const file = newMeal.image[0]
+    formData.append('file', file)
 
-  // post image to aws. response will include an object with Location property that represents URL
-  return apiCall("post", `/api/users/${id}/images`, formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    }
-  })
-    .then(res => {
-      const url = res.Location
-      newMeal.imageUrl = url
-      return apiCall("post", `/api/users/${id}/meals`, newMeal)
-        .then(res => {
-          dispatch(addMeal(res))
-        })
-        .catch(err => addError(err.meal));
+    return apiCall("post", `/api/users/${id}/images`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
     })
-    .catch(err => addError(err))
+      .then(res => {
+        const url = res.Location
+        newMeal.imageUrl = url
+        return apiCall("post", `/api/users/${id}/meals`, newMeal)
+          .then(res => {
+            dispatch(addMeal(res))
+          })
+          .catch(err => addError(err.meal));
+      })
+      .catch(err => addError(err))
+  }
+  else {
+    return apiCall("post", `/api/users/${id}/meals`, newMeal)
+      .then(res => {
+        dispatch(addMeal(res))
+      })
+      .catch(err => addError(err.meal));
+  }
 };

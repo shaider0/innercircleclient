@@ -7,7 +7,7 @@ const meal = (state = [], action) => {
     case REMOVE_MEAL:
       return (state.filter(meal => meal._id !== action.id))
     case ADD_MEAL:
-      return [...state, action.meal]
+      return [...action.meal, ...state]
     case UPDATE_MEAL:
       return [...action.meal, state.filter(meal => meal._id !== action.id)]
     default:

@@ -18,7 +18,7 @@ class Navbar extends Component {
           <div className="navbar-header">
           <Link to="/" className="navbar-brand">
             <img src={Logo} alt="InnerCircle Home" />
-          </Link> 
+          </Link>
           </div>
           {this.props.currentUser.isAuthenticated ? (
             <ul className="nav navbar-nav navbar-right">

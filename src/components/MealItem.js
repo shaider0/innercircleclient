@@ -54,7 +54,7 @@ return (
       <img
         src={imageUrl || "#"}
         alt={username}
-        width="500"
+        className="mealImage"
       />
 
       <div>

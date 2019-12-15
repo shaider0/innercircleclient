@@ -31,6 +31,10 @@ ul.nav.navbar-nav li {
   margin: 0 0.5rem;
 }
 
+.onboarding {
+  background-color: rgb(250, 250, 250)
+}
+
 .onboarding > .navbar {
   background-image: url("./images/nav-bg.png");
   background-size: 100% 100%;
@@ -138,4 +142,8 @@ a.btn.btn-danger:hover {
 .profile-pic {
   width: 100px;
   border-radius: 15px;
+}
+
+.mealImage {
+  width: 100%;
 }

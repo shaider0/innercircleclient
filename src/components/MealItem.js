@@ -88,7 +88,7 @@ return (
           name,
           restaurant,
           category
-        }}}><button className="btn btn-dark">Send A Personal Recommendation</button>
+        }}}><button className="btn btn-dark">Recommend To A Friend</button>
       </Link>
       )}
       </div>

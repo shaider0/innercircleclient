@@ -72,7 +72,7 @@ return (
           state: {
             title,
             category
-          }}}><button className="btn btn-dark">Send A Personal Recommendation</button></Link> : null }
+          }}}><button className="btn btn-dark">Recommend To A Friend</button></Link> : null }
         </div>
     </li>
   </div>

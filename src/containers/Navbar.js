@@ -14,11 +14,11 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand">
+        <Link to="/" className="navbar-brand">
+          <img src={Logo} alt="InnerCircle Home" />
+        </Link>
         <div className="container-fluid">
           <div className="navbar-header">
-          <Link to="/" className="navbar-brand">
-            <img src={Logo} alt="InnerCircle Home" />
-          </Link>
           </div>
           {this.props.currentUser.isAuthenticated ? (
             <ul className="nav navbar-nav navbar-right">

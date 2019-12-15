@@ -1,8 +1,6 @@
-body {
-  background-color: #e6ecf0;
+html {
+  background-color: rgb(234, 234, 234)
 }
-
-/* Nav */
 
 .navbar {
   margin-bottom: 1rem;
@@ -36,7 +34,7 @@ ul.nav.navbar-nav li {
 }
 
 .onboarding > .navbar {
-  background-image: url("./images/nav-bg.png");
+  background-image: linear-gradient(to right, black, grey);
   background-size: 100% 100%;
 }
 
@@ -146,4 +144,18 @@ a.btn.btn-danger:hover {
 
 .mealImage {
   width: 100%;
+}
+
+.btn-primary {
+  background-color: #18366d !important;
+  border: 1px solid white !important;
+}
+
+.btn-danger {
+  background-color: #ad686f !important;
+  border: 1px solid white !important;
+}
+
+.btn-dark {
+  border: 1px solid white !important;
 }

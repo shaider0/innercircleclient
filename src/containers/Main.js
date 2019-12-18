@@ -6,9 +6,9 @@ import AuthForm from "../components/AuthForm";
 import { authUser } from "../store/actions/auth";
 import { removeError } from "../store/actions/errors";
 import withAuth from "../hocs/withAuth";
-import UpdateMovieForm from "../containers/UpdateMovieForm";
-import UpdateMealForm from "../containers/UpdateMealForm";
-import UpdateTvshowForm from "../containers/UpdateTvshowForm";
+import UpdateMovieForm from "./UpdateMovieForm";
+import UpdateMealForm from "./UpdateMealForm";
+import UpdateTvshowForm from "./UpdateTvshowForm";
 import FriendRequests from "./FriendRequests"
 import Friends from "./Friends"
 import FileUpload from "./FileUpload"

@@ -22,7 +22,7 @@ html {
 }
 
 .navbar-brand > img {
-  width: 50px;
+  width: 35px;
 }
 
 ul.nav.navbar-nav li {
@@ -158,4 +158,9 @@ a.btn.btn-danger:hover {
 
 .btn-dark {
   border: 1px solid white !important;
+}
+
+.navProfilePic {
+  width: 40px;
+  border: 2px solid white;
 }

@@ -19,10 +19,6 @@ const Homepage = ({ currentUser }) => {
   }
   return (
     <div>
-      <UserAside
-        profileImageUrl={currentUser.user.profileImageUrl}
-        username={currentUser.user.username}
-      />
       <CreateItem />
       <RecommendationsFeed
         profileImageUrl={currentUser.user.profileImageUrl}

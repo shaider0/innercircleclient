@@ -12,6 +12,7 @@ class Navbar extends Component {
   };
 
   render() {
+    const { currentUser } = this.props;
     return (
       <nav className="navbar navbar-expand">
         <Link to="/" className="navbar-brand">
@@ -26,7 +27,7 @@ class Navbar extends Component {
                 <Link
                   to={`/users/${this.props.currentUser.user.id}/personalRecommendations`}
                 >
-                  Personal Recommendations
+                  Inbox
                 </Link>
               </li>
               <li>
@@ -46,6 +47,12 @@ class Navbar extends Component {
               </li>
               <li>
                   <a onClick={this.logout}>Log out</a>
+              </li>
+              <li>
+                <img
+                  src={currentUser.user.profileImageUrl}
+                  className="navProfilePic"
+                />
               </li>
             </ul>
           ) : (

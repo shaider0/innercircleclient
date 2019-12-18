@@ -29,6 +29,7 @@ if (status === "recommendation" && !!impressions) {
 }
 let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 
+console.log('url is', profileImageUrl)
 return (
   <div className="feedItem">
     <li className="list-group-item">

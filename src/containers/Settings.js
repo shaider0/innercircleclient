@@ -1,23 +1,25 @@
 import React, { Component } from "react";
 import UserAside from "../components/UserAside";
 import { connect } from "react-redux";
-import FileUpload from './FileUpload'
+import ProfilePictureForm from './ProfilePictureForm'
+import { withRouter } from "react-router-dom";
 
 
 class Settings extends Component {
   constructor(props) {
     super(props)
   }
+
   render(){
     const { currentUser } = this.props
+    console.log('user', currentUser.user.profileImageUrl)
     return (
       <div>
-        <UserAside
-          profileImageUrl={currentUser.user.profileImageUrl}
-          username={currentUser.user.username}
-        />
+          <img
+            src={currentUser.user.profileImageUrl}
+          />
         <h3>Change Profile Picture</h3>
-        <FileUpload />
+        <ProfilePictureForm />
       </div>
     )
   }
@@ -29,4 +31,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {})(Settings);
+export default withRouter(connect(mapStateToProps, {})(Settings));

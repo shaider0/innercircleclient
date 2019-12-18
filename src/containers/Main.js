@@ -11,7 +11,6 @@ import UpdateMealForm from "./UpdateMealForm";
 import UpdateTvshowForm from "./UpdateTvshowForm";
 import FriendRequests from "./FriendRequests"
 import Friends from "./Friends"
-import FileUpload from "./FileUpload"
 import Settings from "./Settings"
 import PersonalRecommendationForm from "./PersonalRecommendationForm"
 import PersonalRecommendations from "./PersonalRecommendations"

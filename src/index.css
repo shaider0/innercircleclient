@@ -1,5 +1,6 @@
 * {
   font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
 }
 html {
   background-color: rgb(234, 234, 234)
@@ -59,18 +60,15 @@ ul.nav.navbar-nav li {
   text-shadow: 0 0 8px #66757f;
 }
 
-#movies .list-group-item {
-  display: flex;
-  align-items: flex-start;
-  padding: 7px 20px 12px;
-}
-
-#movies:not(.no-hover) .list-group-item:hover {
-  background-color: #e6ecf0;
-}
-
 .feedItem {
-  margin: 5px;
+  margin: 5px auto;
+  width: 800px;
+}
+
+@media (max-width: 1000px) {
+  .feedItem {
+    width: 100%;
+  }
 }
 
 .timeline-image {
@@ -97,45 +95,44 @@ a.btn.btn-danger:hover {
   border: 1px solid grey;
   margin: 5px;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .createItemForm {
-  margin: 5px;
+  margin: 5px auto;
   padding: 35px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: rgb(253, 253, 254);
+  width: 800px;
+}
+
+@media (max-width: 800px) {
+  .createItemForm {
+    width: 100%;
+  }
 }
 
 .recommendationsFeed {
-  margin: 10px;
-  padding: 35px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: rgb(253, 253, 254);
 }
 
-.friendsSearch {
-  border: 1px solid grey;
-  margin: 10px;
-  padding: 35px;
-  border-radius: 5px;
-  background-color: white;
-}
-
-.friendRequests {
-  border: 1px solid grey;
-  margin: 10px;
-  padding: 35px;
-  border-radius: 5px;
-  background-color: white;
-}
-
+.friendsSearch,
+.friendRequests,
 .friendsList {
-  border: 1px solid grey;
-  margin: 10px;
+  margin: 10px auto;
   padding: 35px;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: white;
+  width: 800px;
+}
+
+@media (max-width: 800px) {
+  .friendsSearch,
+  .friendRequests,
+  .friendsList {
+    width: 100%;
+  }
 }
 
 .itemDate {
@@ -145,7 +142,7 @@ a.btn.btn-danger:hover {
 
 .profile-pic {
   width: 100px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .mealImage {
@@ -189,7 +186,8 @@ a.btn.btn-danger:hover {
   color: white;
   width: 250px;
   font-size: 13px;
-  margin: 0;
+  margin: 0 auto;
+  display: block;
   /* font-family: 'Archivo Black', sans-serif; */
 }
 
@@ -198,11 +196,12 @@ a.btn.btn-danger:hover {
 
 .filterMenu {
   padding: 10px;
+  text-align: center;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 25% 15% 15% 55%;
+  grid-template-columns: 35% 15% 15% 35%
 }
 
 .col1 {
@@ -223,4 +222,25 @@ a.btn.btn-danger:hover {
 .col4 {
   grid-column-start: 4;
   padding: 15px;
+}
+
+.create-form {
+  width: 800px;
+}
+
+.profilePictureForm {
+  background-color: white;
+}
+.profilePictureForm * {
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.friendRequests {
+  background-color: white;
+}
+
+.feed {
+  background-color: rgb(234, 234, 234);
 }

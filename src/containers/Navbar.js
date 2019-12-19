@@ -15,14 +15,18 @@ class Navbar extends Component {
     const { currentUser } = this.props;
     return (
       <nav className="navbar navbar-expand">
-        <Link to="/" className="navbar-brand">
-          <img src={Logo} alt="InnerCircle Home" />
-        </Link>
         <div className="container-fluid">
           <div className="navbar-header">
           </div>
           {this.props.currentUser.isAuthenticated ? (
             <ul className="nav navbar-nav navbar-right">
+              <li>
+                <Link
+                  to="/"
+                >
+                  Home
+                </Link>
+              </li>
               <li>
                 <Link
                   to={`/users/${this.props.currentUser.user.id}/personalRecommendations`}
@@ -31,10 +35,8 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li>
-                <Link
-                  to={`/users/${this.props.currentUser.user.id}/settings`}
-                >
-                  Settings
+                <Link to={`/users/${currentUser}/create-item`}>
+                  Create
                 </Link>
               </li>
 
@@ -45,6 +47,15 @@ class Navbar extends Component {
                   Friends
                 </Link>
               </li>
+              
+              <li>
+                <Link
+                  to={`/users/${this.props.currentUser.user.id}/settings`}
+                >
+                  Settings
+                </Link>
+              </li>
+
               <li>
                   <a onClick={this.logout}>Log out</a>
               </li>

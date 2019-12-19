@@ -255,14 +255,11 @@ class RecommendationsFeedList extends Component{
         </div>
     )
     return (
-      <div>
-        <Link to={`/users/${currentUser}/create-item`}>
-          <button className="customButton1 newRecommendationButton">Make A New Recommendation </button>
-        </Link>
+      <div className="feed">
         <br/>
         <button className="customButton2" onClick={this.toggleFilterMenu}>Show/Hide Filters</button>
         {this.state.filterMenu ? filterMenu : null}
-        <div className="offset-1 col-sm-10">
+        <div>
           <ul className="list-group">
             {feedList}
           </ul>

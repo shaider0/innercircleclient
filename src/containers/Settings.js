@@ -14,11 +14,11 @@ class Settings extends Component {
     const { currentUser } = this.props
     console.log('user', currentUser.user.profileImageUrl)
     return (
-      <div>
-          <img
-            src={currentUser.user.profileImageUrl}
-          />
-        <h3>Change Profile Picture</h3>
+      <div className="profilePictureForm">
+        <h5>Set/Change Profile Picture</h5>
+        <img
+          src={currentUser.user.profileImageUrl}
+        />
         <ProfilePictureForm />
       </div>
     )

@@ -6,11 +6,13 @@ import { fetchMeals, removeMeal, updateMeal } from "../store/actions/meals";
 import MovieItem from "../components/MovieItem";
 import TvshowItem from "../components/TvshowItem";
 import MealItem from "../components/MealItem";
+import { Link } from "react-router-dom"
 
 class RecommendationsFeedList extends Component{
   constructor(props) {
     super(props);
     this.state = {
+      filterMenu: false,
       showMovies: true,
       showMoviesOnly: false,
       showTvshows: true,
@@ -22,6 +24,7 @@ class RecommendationsFeedList extends Component{
       showBookmarks: true
     }
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.toggleFilterMenu = this.toggleFilterMenu.bind(this)
   }
 
    handleInputChange(event) {
@@ -34,6 +37,12 @@ class RecommendationsFeedList extends Component{
     });
   }
 
+  toggleFilterMenu() {
+    this.setState((prevState) => ({
+      filterMenu: !prevState.filterMenu
+    }))
+  }
+
   componentDidMount() {
     const { currentUser } = this.props
     this.props.fetchMovies(currentUser);
@@ -42,6 +51,11 @@ class RecommendationsFeedList extends Component{
   }
 
   render() {
+    const toggleFilters = () => {
+      this.setState(prevState => ({
+        filterMenu: !prevState.filtermenu
+      }))
+    }
 
     const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, meals, removeMeal, updateMeal, currentUser } = this.props;
 
@@ -144,87 +158,110 @@ class RecommendationsFeedList extends Component{
 
     }
   );
+
+    const filterMenu = (
+      <div className="filterMenu">
+        <div className="container">
+          <div className="col1">
+            <p><strong>Username: </strong></p>
+            <input
+              type="text"
+              onChange={this.handleInputChange}
+              name="singleUserContent"
+              value={this.state.singleUserContent}
+              />
+            <br/>
+          </div>
+
+          <div className="col2">
+            <p><strong>Categories: </strong></p>
+            <p>
+            <input
+              type="checkbox"
+              onChange={this.handleInputChange}
+              name="showMovies"
+              checked={this.state.showMovies}
+              />
+            Movies
+            <input
+              type="checkbox"
+              onChange={this.handleInputChange}
+              name="showMoviesOnly"
+              checked={this.state.showMoviesOnly}
+              />
+            Only
+            </p>
+
+            <p>
+            <input
+              type="checkbox"
+              onChange={this.handleInputChange}
+              name="showTvshows"
+              checked={this.state.showTvshows}
+              />
+            TV Shows
+            <input
+              type="checkbox"
+              onChange={this.handleInputChange}
+              name="showTvshowsOnly"
+              checked={this.state.showTvshowsOnly}
+              />
+            Only
+            </p>
+            </div>
+
+            <div className="col3">
+            <br/> <br/>
+            <p>
+            <input
+              type="checkbox"
+              onChange={this.handleInputChange}
+              name="showMeals"
+              checked={this.state.showMeals}
+              />
+            Meals
+            <input
+              type="checkbox"
+              onChange={this.handleInputChange}
+              name="showMealsOnly"
+              checked={this.state.showMealsOnly}
+              />
+            Only
+            </p>
+            </div>
+
+          <div className="col4">
+            <p><strong>Type: </strong></p>
+            <p>
+            <input
+              type="checkbox"
+              onChange={this.handleInputChange}
+              name="showRecommendations"
+              checked={this.state.showRecommendations}
+              />
+            Recommendations
+            </p>
+            <p>
+            <input
+              type="checkbox"
+              onChange={this.handleInputChange}
+              name="showBookmarks"
+              checked={this.state.showBookmarks}
+              />
+            Bookmarks
+            </p>
+          </div>
+        </div>
+        </div>
+    )
     return (
       <div>
-        <h2>Filters</h2>
-        <h4>Username</h4>
-        <input
-          type="text"
-          onChange={this.handleInputChange}
-          name="singleUserContent"
-          value={this.state.singleUserContent}
-          />
-        <h4>Category</h4>
-        <p>
-        <input
-          type="checkbox"
-          onChange={this.handleInputChange}
-          name="showMovies"
-          checked={this.state.showMovies}
-          />
-        Movies
-        <input
-          type="checkbox"
-          onChange={this.handleInputChange}
-          name="showMoviesOnly"
-          checked={this.state.showMoviesOnly}
-          />
-        Only
-        </p>
-
-        <p>
-        <input
-          type="checkbox"
-          onChange={this.handleInputChange}
-          name="showMeals"
-          checked={this.state.showMeals}
-          />
-        Meals
-        <input
-          type="checkbox"
-          onChange={this.handleInputChange}
-          name="showMealsOnly"
-          checked={this.state.showMealsOnly}
-          />
-        Only
-        </p>
-
-        <p>
-        <input
-          type="checkbox"
-          onChange={this.handleInputChange}
-          name="showTvshows"
-          checked={this.state.showTvshows}
-          />
-        TV Shows
-        <input
-          type="checkbox"
-          onChange={this.handleInputChange}
-          name="showTvshowsOnly"
-          checked={this.state.showTvshowsOnly}
-          />
-        Only
-        </p>
-        <h4>Type</h4>
-        <p>
-        <input
-          type="checkbox"
-          onChange={this.handleInputChange}
-          name="showRecommendations"
-          checked={this.state.showRecommendations}
-          />
-        Recommendations
-        </p>
-        <p>
-        <input
-          type="checkbox"
-          onChange={this.handleInputChange}
-          name="showBookmarks"
-          checked={this.state.showBookmarks}
-          />
-        Bookmarks
-        </p>
-
+        <Link to={`/users/${currentUser}/create-item`}>
+          <button className="customButton1 newRecommendationButton">Make A New Recommendation </button>
+        </Link>
+        <br/>
+        <button className="customButton2" onClick={this.toggleFilterMenu}>Show/Hide Filters</button>
+        {this.state.filterMenu ? filterMenu : null}
         <div className="offset-1 col-sm-10">
           <ul className="list-group">
             {feedList}

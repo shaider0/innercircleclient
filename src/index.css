@@ -1,3 +1,6 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
 html {
   background-color: rgb(234, 234, 234)
 }
@@ -116,6 +119,7 @@ a.btn.btn-danger:hover {
   margin: 10px;
   padding: 35px;
   border-radius: 5px;
+  background-color: white;
 }
 
 .friendRequests {
@@ -123,6 +127,7 @@ a.btn.btn-danger:hover {
   margin: 10px;
   padding: 35px;
   border-radius: 5px;
+  background-color: white;
 }
 
 .friendsList {
@@ -130,6 +135,7 @@ a.btn.btn-danger:hover {
   margin: 10px;
   padding: 35px;
   border-radius: 5px;
+  background-color: white;
 }
 
 .itemDate {
@@ -152,7 +158,7 @@ a.btn.btn-danger:hover {
 }
 
 .btn-danger {
-  background-color: #ad686f !important;
+  background-color: #451562 !important;
   border: 1px solid white !important;
 }
 
@@ -163,4 +169,58 @@ a.btn.btn-danger:hover {
 .navProfilePic {
   width: 40px;
   border: 2px solid white;
+}
+
+.customButton1 {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(62, 35, 91);
+  color: white;
+  width: 250px;
+  font-size: 13px;
+  margin: 0;
+  /* font-family: 'Archivo Black', sans-serif; */
+}
+
+.customButton2 {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(21, 32, 43);
+  color: white;
+  width: 250px;
+  font-size: 13px;
+  margin: 0;
+  /* font-family: 'Archivo Black', sans-serif; */
+}
+
+.newRecommendationButton {
+}
+
+.filterMenu {
+  padding: 10px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 25% 15% 15% 55%;
+}
+
+.col1 {
+  grid-column-start: 1;
+  padding: 15px;
+}
+
+.col2 {
+  grid-column-start: 2;
+  padding: 15px;
+}
+
+.col3 {
+  grid-column-start: 3;
+  padding: 15px;
+}
+
+.col4 {
+  grid-column-start: 4;
+  padding: 15px;
 }

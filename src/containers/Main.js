@@ -14,11 +14,12 @@ import Friends from "./Friends"
 import Settings from "./Settings"
 import PersonalRecommendationForm from "./PersonalRecommendationForm"
 import PersonalRecommendations from "./PersonalRecommendations"
+import CreateItem from "./CreateItem"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
   return (
-    <div className="container">
+    <div>
       <Switch>
         <Route
           exact
@@ -57,6 +58,10 @@ const Main = props => {
               />
             );
           }}
+        />
+        <Route
+          path="/users/:id/create-item"
+          component={CreateItem}
         />
         <Route
           path="/users/:id/personalRecommendations"

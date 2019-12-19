@@ -244,3 +244,7 @@ a.btn.btn-danger:hover {
 .feed {
   background-color: rgb(234, 234, 234);
 }
+
+.personalRecMessage {
+  text-align: center;
+}

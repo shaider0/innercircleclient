@@ -16,7 +16,7 @@ class PersonalRecommendations extends Component {
   render(){
     const { personalRecommendations } = this.props
     if (personalRecommendations.length === 0) {
-      return <div>None at this time</div>
+      return <div class="personalRecMessage">No personalized recommendations at this time. Check back soon!</div>
     }
     let personalRecommendationsList = personalRecommendations.map(m => {
       return (

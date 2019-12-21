@@ -3,6 +3,7 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 import { withRouter } from "react-router-dom";
+import MealItemMenu from "./MealItemMenu"
 
 
 const MealItem = ({
@@ -33,9 +34,20 @@ let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 return (
   <div className="feedItem">
     <li className="list-group-item">
-      <Moment className="text-muted itemDate" format="Do MMM YYYY">
-        {date}
-      </Moment>
+      <MealItemMenu
+      removeMeal={removeMeal}
+      updateMeal={updateMeal}
+      isCorrectUser={isCorrectUser}
+      name={name}
+      restaurant={restaurant}
+      impressions={impressions}
+      status={status}
+      mealId={mealId}
+      userId={userId}
+      category={category}
+      currentUser={currentUser}
+      imageUrl={imageUrl}
+      />
       <img
         src={profileImageUrl || DefaultProfileImg}
         alt={username}
@@ -58,41 +70,9 @@ return (
       />
       : null
       }
-      <div>
-      {isCorrectUser && (
-        <a className="btn btn-danger" onClick={removeMeal}>
-          Delete
-        </a>
-      )}
-
-      {isCorrectUser && (
-        <Link to={{
-          pathname: `/users/${userId}/meals/${mealId}/update`,
-          state: {
-            name,
-            restaurant,
-            imageUrl,
-            impressions,
-            status,
-            userId,
-            mealId
-          }
-        }} className="btn btn-primary">
-          Update
-        </Link>
-      )}
-
-      {isCorrectUser && (
-      <Link to={{
-        pathname: personalRecommendationUrl,
-        state: {
-          name,
-          restaurant,
-          category
-        }}}><button className="btn btn-dark">Recommend To A Friend</button>
-      </Link>
-      )}
-      </div>
+      <Moment className="text-muted itemDate" format="Do MMM YYYY">
+        {date}
+      </Moment>
     </li>
   </div>
 );

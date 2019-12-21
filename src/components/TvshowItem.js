@@ -2,6 +2,7 @@ import React from "react";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
+import TvshowItemMenu from "./TvshowItemMenu"
 
 const TvshowItem = ({
   date,
@@ -30,6 +31,19 @@ let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 return (
   <div className="feedItem">
     <li className="list-group-item">
+    <TvshowItemMenu
+    removeTvshow={removeTvshow}
+    updateTvshow={updateTvshow}
+    isCorrectUser={isCorrectUser}
+    title={title}
+    availableOn={availableOn}
+    impressions={impressions}
+    status={status}
+    tvshowId={tvshowId}
+    userId={userId}
+    category={category}
+    currentUser={currentUser}
+    />
       <Moment className="text-muted itemDate" format="Do MMM YYYY">
         {date}
       </Moment>
@@ -44,36 +58,6 @@ return (
         {status === "recommendation"? "recommends the show " : "wants to watch the show "} {title}
         {!!availableOn? <p>Available On: {availableOn}</p> : null}
         {impressionsjsx}
-
-        <div>
-        {isCorrectUser && (
-          <a className="btn btn-danger" onClick={removeTvshow}>
-            Delete
-          </a>
-        )}
-        {isCorrectUser && (
-          <Link to={{
-            pathname: `/users/${userId}/tvshows/${tvshowId}/update`,
-            state: {
-              title,
-              availableOn,
-              impressions,
-              status,
-              userId,
-              tvshowId
-            }
-          }} className="btn btn-primary">
-            Update
-          </Link>
-        )}
-
-        {userId === currentUser? <Link to={{
-          pathname: personalRecommendationUrl,
-          state: {
-            title,
-            category
-          }}}><button className="btn btn-dark">Recommend To A Friend</button></Link> : null }
-        </div>
     </li>
   </div>
 );

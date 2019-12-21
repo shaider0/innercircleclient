@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 
-class Menu extends Component {
+class MealItemMenu extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -41,7 +41,7 @@ class Menu extends Component {
   }
 
   render() {
-    const { removeMovie, updateMovie, isCorrectUser, title, availableOn, impressions, status, movieId, userId, category, currentUser } = this.props
+    const { removeMeal, updateMeal, isCorrectUser, title, availableOn, impressions, status, mealId, userId, category, currentUser, name, restaurant, imageUrl } = this.props
 
     const personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 
@@ -52,24 +52,26 @@ class Menu extends Component {
         <button onClick={this.toggleMenu} class="dropbtn"><i class="ellipsis fas fa-ellipsis-h"></i></button>
         <div class={this.state.showMenu ? shown : hidden}>
           <Link to={{
-            pathname: `/users/${userId}/movies/${movieId}/update`,
+            pathname: `/users/${userId}/meals/${mealId}/update`,
             state: {
-              title,
-              availableOn,
+              name,
+              restaurant,
+              imageUrl,
               impressions,
               status,
               userId,
-              movieId
+              mealId
             }
           }}>
             Update
           </Link>
-          <Link to="#" onClick={removeMovie}>Delete</Link>
+          <Link to="#" onClick={removeMeal}>Delete</Link>
         <Link to={{
           pathname: personalRecommendationUrl,
           state: {
-            title,
-            category
+            name,
+            category,
+            restaurant
           }}}>Recommend To A Friend</Link>
         </div>
       </div>
@@ -78,4 +80,4 @@ class Menu extends Component {
   }
 }
 
-export default Menu
+export default MealItemMenu

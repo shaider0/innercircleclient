@@ -3,7 +3,7 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 import { withRouter } from "react-router-dom";
-import Menu from "./Menu"
+import MovieItemMenu from "./MovieItemMenu"
 
 
 const MovieItem = ({
@@ -32,7 +32,7 @@ if (status === "recommendation" && !!impressions) {
 return (
   <div className="feedItem">
     <li className="list-group-item">
-    <Menu
+    <MovieItemMenu
     removeMovie={removeMovie}
     updateMovie={updateMovie}
     isCorrectUser={isCorrectUser}

@@ -46,17 +46,18 @@ return (
 
       <Link to="/">@{username} &nbsp;</Link>
       <span>{
-        status === "recommendation"? "recommends the meal" : "wants to try the meal "} {name}
+        status === "recommendation"? "recommends the " : "wants to try the "} {name}
       </span>
-      <p>Restaurant: {restaurant}</p>
+      <span> at {restaurant}</span>
       {impressionsjsx}
 
-      <img
+      {imageUrl ?  <img
         src={imageUrl || "#"}
         alt={username}
         className="mealImage"
       />
-
+      : null
+      }
       <div>
       {isCorrectUser && (
         <a className="btn btn-danger" onClick={removeMeal}>

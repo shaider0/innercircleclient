@@ -92,10 +92,10 @@ a.btn.btn-danger:hover {
 }
 
 .personalRecommendationItem {
-  border: 1px solid grey;
   margin: 5px;
   padding: 5px;
   border-radius: 10px;
+  background-color: white;
 }
 
 .createItemForm {
@@ -191,41 +191,19 @@ a.btn.btn-danger:hover {
   /* font-family: 'Archivo Black', sans-serif; */
 }
 
-.newRecommendationButton {
-}
-
 .filterMenu {
-  padding: 10px;
   text-align: left;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 35% 15% 15% 35%
-}
-
-.col1 {
-  grid-column-start: 1;
-  padding: 15px;
-}
-
-.col2 {
-  grid-column-start: 2;
-  padding: 15px;
-}
-
-.col3 {
-  grid-column-start: 3;
-  padding: 15px;
-}
-
-.col4 {
-  grid-column-start: 4;
-  padding: 15px;
+  margin: 15px auto;
+  width: 800px;
+  color: white;
 }
 
 .create-form {
   width: 800px;
+}
+
+.filterCheckbox {
+  margin: 0 10px;
 }
 
 .profilePictureForm {
@@ -296,4 +274,36 @@ a.btn.btn-danger:hover {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+
+.friendFilter {
+  width: 800px;
+  background-color: #191529;
+  padding: 9px;
+  margin-bottom: 2px;
+  border-radius: 0;
+}
+
+.typeFilter {
+  width: 800px;
+  background-color: #4a4a4a;
+  padding: 10px;
+  margin-bottom: 2px;
+  border-radius: 0;
+}
+
+.includeFilter {
+  width: 800px;
+  background-color: #275186;
+  padding: 10px;
+  margin-bottom: 2px;
+  border-radius: 0;
+}
+
+.onlyFilter {
+  width: 800px;
+  background-color: #0e1461;
+  padding: 10px;
+  margin-bottom: 2px;
+  border-radius: 0;
 }

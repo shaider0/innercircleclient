@@ -42,8 +42,7 @@ class PersonalRecommendationItem extends Component {
         <span><Moment className="text-muted" format="Do MMM YYYY">
         {date}
         </Moment></span>
-        <h6>{category.toUpperCase()}</h6>
-        <span> @<Link to='#'>{sender}</Link> thinks you'll like: {item}</span>
+        <span> @<Link to='#'>{sender}</Link> thinks you'll like the {category} {item}</span>
         <p>
         <button className="btn btn-primary" onClick={this.handleAddToWatchList}>Add To My Bookmarks</button>
         <button className="btn btn-danger" onClick={this.handleDelete}>Ignore</button>

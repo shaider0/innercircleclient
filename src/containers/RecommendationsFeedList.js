@@ -12,7 +12,7 @@ class RecommendationsFeedList extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      filterMenu: false,
+      filterMenu: true,
       showMovies: true,
       showMoviesOnly: false,
       showTvshows: true,
@@ -155,103 +155,96 @@ class RecommendationsFeedList extends Component{
 
     const filterMenu = (
       <div className="filterMenu">
-        <div className="container">
-          <div className="col1">
-            <p><strong>Username: </strong></p>
+          <p className="friendFilter"><strong>Friend: </strong>
             <input
               type="text"
               onChange={this.handleInputChange}
               name="singleUserContent"
               value={this.state.singleUserContent}
               />
-            <br/>
-          </div>
+          </p>
 
-          <div className="col2">
-            <p><strong>Categories: </strong></p>
-            <p>
-            <input
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showMovies"
-              checked={this.state.showMovies}
-              />
-            Movies
-            <input
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showMoviesOnly"
-              checked={this.state.showMoviesOnly}
-              />
-            Only
+            <p className="typeFilter">Type:
+              <input
+                className="filterCheckbox"
+                type="checkbox"
+                onChange={this.handleInputChange}
+                name="showRecommendations"
+                checked={this.state.showRecommendations}
+                />
+              Recommendations
+              <input
+                className="filterCheckbox"
+                type="checkbox"
+                onChange={this.handleInputChange}
+                name="showBookmarks"
+                checked={this.state.showBookmarks}
+                />
+              Bookmarks
             </p>
 
-            <p>
-            <input
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showTvshows"
-              checked={this.state.showTvshows}
-              />
-            TV Shows
-            <input
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showTvshowsOnly"
-              checked={this.state.showTvshowsOnly}
-              />
-            Only
-            </p>
-            </div>
+          <p className="includeFilter">
+          Include: (choose multiple)
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showMovies"
+            checked={this.state.showMovies}
+            />
+          Movies
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showTvshows"
+            checked={this.state.showTvshows}
+            />
+          TV Shows
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showMeals"
+            checked={this.state.showMeals}
+            />
+          Meals
+          </p>
 
-            <div className="col3">
-            <br/> <br/>
-            <p>
-            <input
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showMeals"
-              checked={this.state.showMeals}
-              />
-            Meals
-            <input
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showMealsOnly"
-              checked={this.state.showMealsOnly}
-              />
-            Only
-            </p>
-            </div>
+          <p className="onlyFilter">
+          Show Only: (choose one)
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showMoviesOnly"
+            checked={this.state.showMoviesOnly}
+            />
+          Movies
 
-          <div className="col4">
-            <p><strong>Type: </strong></p>
-            <p>
-            <input
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showRecommendations"
-              checked={this.state.showRecommendations}
-              />
-            Recommendations
-            </p>
-            <p>
-            <input
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showBookmarks"
-              checked={this.state.showBookmarks}
-              />
-            Bookmarks
-            </p>
-          </div>
-        </div>
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showTvshowsOnly"
+            checked={this.state.showTvshowsOnly}
+            />
+          TV Shows
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showMealsOnly"
+            checked={this.state.showMealsOnly}
+            />
+          Meals
+          </p>
         </div>
     )
     return (
       <div className="feed">
         <br/>
-        <button className="customButton2" onClick={this.toggleFilterMenu}>Show/Hide Filters</button>
+        <button className="customButton2" onClick={this.toggleFilterMenu}>Search/Filter</button>
         {this.state.filterMenu ? filterMenu : null}
         <div>
           <ul className="list-group">

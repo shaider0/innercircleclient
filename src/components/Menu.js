@@ -8,12 +8,36 @@ class Menu extends Component {
       showMenu: false
     }
     this.toggleMenu = this.toggleMenu.bind(this)
+    this.hideMenu = this.hideMenu.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   toggleMenu() {
     this.setState((prevState) => ({
       showMenu: !prevState.showMenu
     }))
+  }
+
+  hideMenu(){
+    this.setState({
+      showMenu: false
+    })
+  }
+
+  componentWillMount(){
+    document.addEventListener('mousedown', this.handleClick, false)
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener('mousedown', this.handleClick, false)
+  }
+
+  handleClick = (e) => {
+    if (this.node.contains(e.target)) {
+      return
+    }
+
+    this.hideMenu()
   }
 
   render() {
@@ -24,7 +48,7 @@ class Menu extends Component {
     const shown = "dropdown-content showMenu"
     const hidden = "dropdown-content"
     const menu = (
-      <div class="dropdown">
+      <div class="dropdown" ref={node => this.node = node}>
         <button onClick={this.toggleMenu} class="dropbtn"><i class="ellipsis fas fa-ellipsis-h"></i></button>
         <div class={this.state.showMenu ? shown : hidden}>
           <Link to={{
@@ -50,7 +74,7 @@ class Menu extends Component {
         </div>
       </div>
     )
-    return isCorrectUser ? menu : null
+    return isCorrectUser ? menu : (<div ref={node => this.node = node}></div>)
   }
 }
 

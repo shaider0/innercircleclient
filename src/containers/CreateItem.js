@@ -22,8 +22,7 @@ class CreateItem extends Component {
     }
     return (
       <div className="createItemForm">
-        <h3>Make A Recommendation</h3>
-        <p>Use this form to add recommendations (things you like) and bookmarks (things you want to try)</p>
+        <p>Use this form to share recommendations and bookmarks with friends</p>
         <h5>Choose a Category</h5>
         <select
           className="form-control"

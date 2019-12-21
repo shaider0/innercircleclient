@@ -3,6 +3,7 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 import { withRouter } from "react-router-dom";
+import Menu from "./Menu"
 
 
 const MovieItem = ({
@@ -27,12 +28,23 @@ let impressionsjsx = null;
 if (status === "recommendation" && !!impressions) {
   impressionsjsx = (<p>Impressions: {impressions}</p>)
 }
-let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 
-console.log('url is', profileImageUrl)
 return (
   <div className="feedItem">
     <li className="list-group-item">
+    <Menu
+    removeMovie={removeMovie}
+    updateMovie={updateMovie}
+    isCorrectUser={isCorrectUser}
+    title={title}
+    availableOn={availableOn}
+    impressions={impressions}
+    status={status}
+    movieId={movieId}
+    userId={userId}
+    category={category}
+    currentUser={currentUser}
+    />
       <Moment className="text-muted itemDate" format="Do MMM YYYY">
         {date}
       </Moment>
@@ -49,37 +61,9 @@ return (
       </span>
       {!!availableOn? <p>Available On: {availableOn}</p> : null}
       {impressionsjsx}
-      <div>
-      {isCorrectUser && (
-        <a className="btn btn-danger" onClick={removeMovie}>
-          Delete
-        </a>
-      )}
-      {isCorrectUser && (
-        <Link to={{
-          pathname: `/users/${userId}/movies/${movieId}/update`,
-          state: {
-            title,
-            availableOn,
-            impressions,
-            status,
-            userId,
-            movieId
-          }
-        }} className="btn btn-primary">
-          Update
-        </Link>
-      )}
-      {userId === currentUser? <Link to={{
-        pathname: personalRecommendationUrl,
-        state: {
-          title,
-          category
-        }}}><button className="btn btn-dark">Recommend To A Friend</button></Link> : null }
-      </div>
     </li>
   </div>
-);
+)
 }
 
 export default withRouter(MovieItem);

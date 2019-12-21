@@ -51,12 +51,6 @@ class RecommendationsFeedList extends Component{
   }
 
   render() {
-    const toggleFilters = () => {
-      this.setState(prevState => ({
-        filterMenu: !prevState.filtermenu
-      }))
-    }
-
     const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, meals, removeMeal, updateMeal, currentUser } = this.props;
 
     let items = [...movies, ...tvshows, ...meals]

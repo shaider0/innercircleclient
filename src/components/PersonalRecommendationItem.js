@@ -39,7 +39,7 @@ class PersonalRecommendationItem extends Component {
     const { date, sender, item, category } = this.props
     return (
       <div>
-        <span><Moment className="text-muted" format="Do MMM YYYY">
+        <span><Moment className="text-muted" format="D MMM YYYY">
         {date}
         </Moment></span>
         <span> @<Link to='#'>{sender}</Link> thinks you'll like the {category} {item}</span>

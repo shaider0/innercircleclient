@@ -27,27 +27,15 @@ const MealItem = ({
 let impressionsjsx = null;
 
 if (status === "recommendation" && !!impressions) {
-  impressionsjsx = (<p>Impressions: {impressions}</p>)
+  impressionsjsx = (<p><em>"{impressions}"</em></p>)
 }
 let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 
 return (
+  <li className="list-group-item">
   <div className="feedItem">
-    <li className="list-group-item">
-      <MealItemMenu
-      removeMeal={removeMeal}
-      updateMeal={updateMeal}
-      isCorrectUser={isCorrectUser}
-      name={name}
-      restaurant={restaurant}
-      impressions={impressions}
-      status={status}
-      mealId={mealId}
-      userId={userId}
-      category={category}
-      currentUser={currentUser}
-      imageUrl={imageUrl}
-      />
+    <div className="feedItemMain">
+      <i class="fas fa-hamburger"></i>
       <img
         src={profileImageUrl || DefaultProfileImg}
         alt={username}
@@ -70,11 +58,30 @@ return (
       />
       : null
       }
-      <Moment className="text-muted itemDate" format="Do MMM YYYY">
+    </div>
+
+    <div className="feedItemRight">
+      <MealItemMenu
+      removeMeal={removeMeal}
+      updateMeal={updateMeal}
+      isCorrectUser={isCorrectUser}
+      name={name}
+      restaurant={restaurant}
+      impressions={impressions}
+      status={status}
+      mealId={mealId}
+      userId={userId}
+      category={category}
+      currentUser={currentUser}
+      imageUrl={imageUrl}
+      />
+
+      <Moment className="text-muted itemDate" format="D MMM YYYY">
         {date}
       </Moment>
-    </li>
+    </div>
   </div>
+  </li>
 );
 }
 

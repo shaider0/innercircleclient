@@ -61,8 +61,24 @@ ul.nav.navbar-nav li {
 }
 
 .feedItem {
-  margin: 5px auto;
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+
+.feedItemMain i {
+  margin-right: 10px;
+}
+
+.feedItemRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.list-group-item {
   width: 800px;
+  margin: 5px auto;
 }
 
 @media (max-width: 1000px) {
@@ -307,4 +323,16 @@ a.btn.btn-danger:hover {
   padding: 10px;
   margin-bottom: 2px;
   border-radius: 0;
+}
+
+.fa-film {
+  font-size: 20px;
+}
+
+.fa-tv {
+  font-size: 16px;
+}
+
+.fa-hamburger {
+  font-size: 19px;
 }

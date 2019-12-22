@@ -155,7 +155,7 @@ class RecommendationsFeedList extends Component{
 
     const filterMenu = (
       <div className="filterMenu">
-          <p className="friendFilter"><strong>Friend: </strong>
+          <p className="friendFilter"><strong>Username: </strong>
             <input
               type="text"
               onChange={this.handleInputChange}

@@ -35,7 +35,7 @@ return (
   <li className="list-group-item">
   <div className="feedItem">
     <div className="feedItemMain">
-      <i class="fas fa-hamburger"></i>
+      <i className="fas fa-hamburger"></i>
       <img
         src={profileImageUrl || DefaultProfileImg}
         alt={username}

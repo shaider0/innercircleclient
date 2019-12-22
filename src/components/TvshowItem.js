@@ -32,7 +32,7 @@ return (
       <li className="list-group-item">
       <div className="feedItem">
         <div className="feedItemMain">
-          <i class="fas fa-tv"></i>
+          <i className="fas fa-tv"></i>
           <img
             src={profileImageUrl || DefaultProfileImg}
             alt={username}

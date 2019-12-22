@@ -34,7 +34,7 @@ return (
 
     <div className="feedItem">
       <div className="feedItemMain">
-        <i class="fas fa-film"></i>
+        <i className="fas fa-film"></i>
         <img
           src={profileImageUrl || DefaultProfileImg}
           alt={username}
@@ -68,7 +68,7 @@ return (
           {date}
         </Moment>
       </div>
-      
+
     </div>
     </li>
 )

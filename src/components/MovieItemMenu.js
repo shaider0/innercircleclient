@@ -48,9 +48,9 @@ class MovieItemMenu extends Component {
     const shown = "dropdown-content showMenu"
     const hidden = "dropdown-content"
     const menu = (
-      <div class="dropdown" ref={node => this.node = node}>
-        <button onClick={this.toggleMenu} class="dropbtn"><i class="ellipsis fas fa-ellipsis-h"></i></button>
-        <div class={this.state.showMenu ? shown : hidden}>
+      <div className="dropdown" ref={node => this.node = node}>
+        <button onClick={this.toggleMenu} className="dropbtn"><i className="ellipsis fas fa-ellipsis-h"></i></button>
+        <div className={this.state.showMenu ? shown : hidden}>
           <Link to={{
             pathname: `/users/${userId}/movies/${movieId}/update`,
             state: {

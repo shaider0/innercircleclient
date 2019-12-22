@@ -24,7 +24,7 @@ const TvshowItem = ({
 let impressionsjsx = null;
 
 if (status === "recommendation" && !!impressions) {
-  impressionsjsx = (<p><em>"{impressions}"</em></p>)
+  impressionsjsx = (<p className="impressions"><em>"{impressions}"</em></p>)
 }
 
 let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
@@ -42,8 +42,8 @@ return (
           />
             <Link to="/">@{username} &nbsp;</Link>
             {status === "recommendation"? "recommends the show " : "wants to watch the show "} {title}
-            {!!availableOn? <p>Available On: {availableOn}</p> : null}
             {impressionsjsx}
+            {!!availableOn? <p className="availableOn">Available On {availableOn}</p> : null}
         </div>
 
         <div className="feedItemRight">
@@ -64,7 +64,7 @@ return (
           <Moment className="text-muted itemDate" format="D MMM YYYY">
             {date}
           </Moment>
-          
+
         </div>
       </div>
     </li>

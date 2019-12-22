@@ -8,6 +8,7 @@ html {
 
 .navbar {
   margin-bottom: 1rem;
+  width: !important 100%;
 }
 
 .navbar a {
@@ -108,10 +109,15 @@ a.btn.btn-danger:hover {
 }
 
 .personalRecommendationItem {
-  margin: 5px;
+  margin: 5px auto;
   padding: 5px;
   border-radius: 10px;
   background-color: white;
+  width: 800px;
+}
+
+.personalRecommendationItem * {
+  margin-bottom: 10px;
 }
 
 .createItemForm {
@@ -303,7 +309,7 @@ a.btn.btn-danger:hover {
 
 .typeFilter {
   width: 800px;
-  background-color: #4a4a4a;
+  background-color: #3595ab;
   padding: 10px;
   margin-bottom: 2px;
   border-radius: 0;
@@ -343,4 +349,16 @@ a.btn.btn-danger:hover {
 
 .impressions {
   margin-left: 118px;
+}
+
+.createItemForm * {
+  margin-bottom: 20px;
+}
+
+.welcomeMessage {
+  width: 800px;
+  border-radius: 10px;
+  background-color: white;
+  margin: 0 auto;
+  padding: 10px;
 }

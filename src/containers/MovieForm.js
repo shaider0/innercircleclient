@@ -49,7 +49,7 @@ class MovieForm extends Component {
       handler = this.handleUpdatedMovie
     }
     return (
-      <form onSubmit={handler}>
+      <form className="movieForm" onSubmit={handler}>
         {this.props.errors.message && (
           <div className="alert alert-danger">{this.props.errors.message}</div>
         )}

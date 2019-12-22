@@ -52,7 +52,7 @@ class MealForm extends Component {
       handler = this.handleUpdatedMeal
     }
     return (
-      <form onSubmit={handler}>
+      <form className="mealForm" onSubmit={handler}>
         {this.props.errors.message && (
           <div className="alert alert-danger">{this.props.errors.message}</div>
         )}

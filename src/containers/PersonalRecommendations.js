@@ -20,7 +20,7 @@ class PersonalRecommendations extends Component {
     }
     let personalRecommendationsList = personalRecommendations.map(m => {
       return (
-        <div key={m._id} className="personalRecommendationItem">
+        <div key={m._id}>
           <PersonalRecommendationItem
             date={m.createdAt}
             sender={m.sender.username}

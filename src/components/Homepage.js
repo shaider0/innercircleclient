@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import RecommendationsFeed from "./RecommendationsFeed";
 import UserAside from "./UserAside";
 import CreateItem from "../containers/CreateItem"
+import WelcomeMessage from "./WelcomeMessage.js"
 
 
 const Homepage = ({ currentUser }) => {
@@ -19,6 +20,7 @@ const Homepage = ({ currentUser }) => {
   }
   return (
     <div>
+      <WelcomeMessage />
       <RecommendationsFeed
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}

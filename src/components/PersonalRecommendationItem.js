@@ -35,17 +35,19 @@ class PersonalRecommendationItem extends Component {
   };
 
   render() {
-    console.log(this.props)
     const { date, sender, item, category } = this.props
+    console.log('sender is', sender)
     return (
-      <div>
-        <span><Moment className="text-muted" format="D MMM YYYY">
-        {date}
-        </Moment></span>
-        <span> @<Link to='#'>{sender}</Link> thinks you'll like the {category} {item}</span>
+      <div className="personalRecommendationItem">
         <p>
-        <button className="btn btn-primary" onClick={this.handleAddToWatchList}>Add To My Bookmarks</button>
-        <button className="btn btn-danger" onClick={this.handleDelete}>Ignore</button>
+          <Moment className="text-muted" format="D MMM YYYY">
+          {date}
+          </Moment>
+        </p>
+        <p>@<Link to='#'>{sender}</Link> thinks you'll like the {category} {item}</p>
+        <p>
+          <button className="btn btn-primary" onClick={this.handleAddToWatchList}>Add To My Bookmarks</button>
+          <button className="btn btn-danger" onClick={this.handleDelete}>Ignore</button>
         </p>
       </div>
     )

@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, UPDATE_USER_PROFILE_IMAGE } from "../actionTypes";
+import { SET_CURRENT_USER, UPDATE_USER_PROFILE_IMAGE, CLOSE_WELCOME_MESSAGE } from "../actionTypes";
 
 const DEFAULT_STATE = {
   isAuthenticated: false, // hopefully be true, when logged in
@@ -15,6 +15,8 @@ export default (state = DEFAULT_STATE, action) => {
       }
     case UPDATE_USER_PROFILE_IMAGE:
       return {...state, user: {...state.user, profileImageUrl: action.user.profileImageUrl}}
+    case CLOSE_WELCOME_MESSAGE:
+      return {...state, user: {...state.user, welcomeMessage: false }}
     default:
       return state;
   }

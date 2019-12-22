@@ -7,6 +7,7 @@ import WelcomeMessage from "./WelcomeMessage.js"
 
 
 const Homepage = ({ currentUser }) => {
+  console.log('curr user ', currentUser)
   if (!currentUser.isAuthenticated) {
     return (
       <div className="home-hero">
@@ -20,7 +21,7 @@ const Homepage = ({ currentUser }) => {
   }
   return (
     <div>
-      <WelcomeMessage />
+      {currentUser.user.welcomeMessage ? <WelcomeMessage /> : null}
       <RecommendationsFeed
         profileImageUrl={currentUser.user.profileImageUrl}
         username={currentUser.user.username}

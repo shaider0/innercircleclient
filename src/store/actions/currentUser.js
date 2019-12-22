@@ -1,11 +1,16 @@
 import { apiCall } from "../../services/api";
 import { addError } from "./errors";
-import { UPDATE_USER_PROFILE_IMAGE } from "../actionTypes";
+import { UPDATE_USER_PROFILE_IMAGE, CLOSE_WELCOME_MESSAGE } from "../actionTypes";
 
 export const updateUser = user => ({
   type: UPDATE_USER_PROFILE_IMAGE,
   user
 });
+
+export const closeMessage = () => ({
+  type: CLOSE_WELCOME_MESSAGE
+});
+
 
 export const updateUserProfileImage = props => (dispatch, getState) => {
   const { image } = props
@@ -32,4 +37,14 @@ export const updateUserProfileImage = props => (dispatch, getState) => {
       })
       .catch(err => addError(err))
   }
+}
+
+export const closeWelcomeMessage = () => (dispatch, getState) => {
+  let { currentUser } = getState();
+  const id = currentUser.user.id;
+  return apiCall("patch", `/api/users/${id}/welcomeMessage`)
+    .then(res => {
+      dispatch(closeMessage())
+    })
+    .catch(err => addError(err.message));
 }

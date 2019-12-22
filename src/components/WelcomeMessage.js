@@ -1,15 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { closeWelcomeMessage } from "../store/actions/currentUser"
 
 class WelcomeMessage extends Component {
   constructor(props) {
     super(props)
+    this.closeMessage = this.closeMessage.bind(this)
   }
+
+  closeMessage() {
+    this.props.closeWelcomeMessage()
+  }
+
   render() {
     const currentUser = this.props
     return (
       <div className="welcomeMessage">
-      <button style={{"float": "right"}} className="btn btn-danger">Don't Show This Message Again</button>
+      <button onClick={this.closeMessage} style={{"float": "right"}} className="btn btn-danger">Don't Show This Message Again</button>
       <em>
         <h4>Welcome to InnerCircle!</h4>
         <p>To get started and make the most of the app:</p>
@@ -33,4 +40,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {})(WelcomeMessage)
+export default connect(mapStateToProps, { closeWelcomeMessage })(WelcomeMessage)

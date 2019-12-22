@@ -206,7 +206,6 @@ a.btn.btn-danger:hover {
   border-radius: 5px;
   background-color: rgb(21, 32, 43);
   color: white;
-  width: 250px;
   font-size: 13px;
   margin: 0 auto;
   display: block;
@@ -230,6 +229,9 @@ a.btn.btn-danger:hover {
 
 .profilePictureForm {
   background-color: white;
+  width: 800px;
+  margin: 0 auto;
+  border-radius: 10px;
 }
 .profilePictureForm * {
   display: block;
@@ -333,14 +335,17 @@ a.btn.btn-danger:hover {
 
 .fa-film {
   font-size: 20px;
+  color: #6c757d;
 }
 
 .fa-tv {
   font-size: 16px;
+  color: #6c757d;
 }
 
 .fa-hamburger {
   font-size: 19px;
+  color: #6c757d;
 }
 
 .availableOn {
@@ -361,4 +366,28 @@ a.btn.btn-danger:hover {
   background-color: white;
   margin: 0 auto;
   padding: 10px;
+}
+
+.auth-form {
+  width: 400px;
+  margin: 0 auto;
+  display: block;
+}
+
+.feedButtons {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.feedButtons * {
+  display: inline;
+  width: 200px;
+}
+
+.fa-plus {
+  color: #02afb1;
+}
+
+.fa-search {
+  color: #d22e11;
 }

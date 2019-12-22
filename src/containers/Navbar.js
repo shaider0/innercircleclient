@@ -34,11 +34,6 @@ class Navbar extends Component {
                   Inbox
                 </Link>
               </li>
-              <li>
-                <Link to={`/users/${currentUser}/create-item`}>
-                  Create
-                </Link>
-              </li>
 
               <li>
                 <Link
@@ -47,7 +42,7 @@ class Navbar extends Component {
                   Friends
                 </Link>
               </li>
-              
+
               <li>
                 <Link
                   to={`/users/${this.props.currentUser.user.id}/settings`}

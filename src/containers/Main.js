@@ -36,7 +36,7 @@ const Main = props => {
                 errors={errors}
                 onAuth={authUser}
                 buttonText="Log in"
-                heading="Welcome Back."
+                heading="Welcome Back!"
                 {...props}
               />
             );
@@ -53,7 +53,7 @@ const Main = props => {
                 onAuth={authUser}
                 signUp
                 buttonText="Sign me up!"
-                heading="Join Warbler today."
+                heading="Sign Up For Inner Circle"
                 {...props}
               />
             );

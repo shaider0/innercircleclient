@@ -294,7 +294,7 @@ a.btn.btn-danger:hover {
 
 .friendFilter {
   width: 800px;
-  background-color: #191529;
+  background-color: #140f27;
   padding: 9px;
   margin-bottom: 2px;
   border-radius: 0;
@@ -302,7 +302,7 @@ a.btn.btn-danger:hover {
 
 .typeFilter {
   width: 800px;
-  background-color: #3595ab;
+  background-color: #0a1d4c;
   padding: 10px;
   margin-bottom: 2px;
   border-radius: 0;
@@ -318,7 +318,7 @@ a.btn.btn-danger:hover {
 
 .onlyFilter {
   width: 800px;
-  background-color: #0e1461;
+  background-color: #556188;
   padding: 10px;
   margin-bottom: 2px;
   border-radius: 0;
@@ -429,4 +429,17 @@ a.btn.btn-danger:hover {
 }
 .changeProfilePicImage {
   max-width: 200px;
+}
+
+.fa-heart {
+  color: #c11c1c;
+  font-size: 16px;
+}
+.fa-bookmark {
+  color: orange;
+  font-size: 16px;
+}
+
+.light {
+  color: #eeeeee;
 }

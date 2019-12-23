@@ -34,6 +34,7 @@ return (
 
     <div className="feedItem">
       <div className="feedItemMain">
+        {status==="recommendation" ? <i class="fas fa-heart"></i> : <i class="fas fa-bookmark"></i> }
         <i className="fas fa-film"></i>
         <img
           src={profileImageUrl || DefaultProfileImg}

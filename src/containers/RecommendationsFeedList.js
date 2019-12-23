@@ -13,7 +13,7 @@ class RecommendationsFeedList extends Component{
     super(props);
 
     console.log('this.props.location', this.props.location)
-    
+
     this.state = {
       filterMenu: true,
       showMovies: true,
@@ -176,7 +176,7 @@ class RecommendationsFeedList extends Component{
                 name="showRecommendations"
                 checked={this.state.showRecommendations}
                 />
-              Recommendations
+                <i class="fas fa-heart"></i> Recommendations
               <input
                 className="filterCheckbox"
                 type="checkbox"
@@ -184,7 +184,7 @@ class RecommendationsFeedList extends Component{
                 name="showBookmarks"
                 checked={this.state.showBookmarks}
                 />
-              Bookmarks
+                <i class="fas fa-bookmark"></i> Bookmarks
             </p>
 
           <p className="includeFilter">
@@ -196,7 +196,7 @@ class RecommendationsFeedList extends Component{
             name="showMovies"
             checked={this.state.showMovies}
             />
-          Movies
+          <i className="fas light fa-film"></i> Movies
           <input
             className="filterCheckbox"
             type="checkbox"
@@ -204,7 +204,7 @@ class RecommendationsFeedList extends Component{
             name="showTvshows"
             checked={this.state.showTvshows}
             />
-          TV Shows
+          <i className="fas light fa-tv"></i> TV Shows
           <input
             className="filterCheckbox"
             type="checkbox"
@@ -212,7 +212,7 @@ class RecommendationsFeedList extends Component{
             name="showMeals"
             checked={this.state.showMeals}
             />
-          Meals
+          <i className="fas light fa-hamburger"></i> Meals
           </p>
 
           <p className="onlyFilter">
@@ -225,7 +225,7 @@ class RecommendationsFeedList extends Component{
             checked={this.state.showMoviesOnly}
             disabled={this.state.showTvshowsOnly || this.state.showMealsOnly}
             />
-          Movies
+          <i className="fas light fa-film"></i> Movies
 
           <input
             className="filterCheckbox"
@@ -235,7 +235,7 @@ class RecommendationsFeedList extends Component{
             checked={this.state.showTvshowsOnly}
             disabled={this.state.showMoviesOnly || this.state.showMealsOnly}
             />
-          TV Shows
+          <i className="fas light fa-tv"></i> TV Shows
           <input
             className="filterCheckbox"
             type="checkbox"
@@ -244,7 +244,7 @@ class RecommendationsFeedList extends Component{
             checked={this.state.showMealsOnly}
             disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly}
             />
-          Meals
+          <i className="fas light fa-hamburger"></i> Meals
           </p>
         </div>
     )

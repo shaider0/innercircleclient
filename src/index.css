@@ -292,14 +292,12 @@ a.btn.btn-danger:hover {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #f1f1f1}
 
-/* Show the dropdown menu on hover */
 .showMenu {
   display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+.dropdown:hover .dropbtn .ellipsis {
+  color: black;
 }
 
 .friendFilter {

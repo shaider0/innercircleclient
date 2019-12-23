@@ -219,6 +219,7 @@ class RecommendationsFeedList extends Component{
             onChange={this.handleInputChange}
             name="showMoviesOnly"
             checked={this.state.showMoviesOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMealsOnly}
             />
           Movies
 
@@ -228,6 +229,7 @@ class RecommendationsFeedList extends Component{
             onChange={this.handleInputChange}
             name="showTvshowsOnly"
             checked={this.state.showTvshowsOnly}
+            disabled={this.state.showMoviesOnly || this.state.showMealsOnly}
             />
           TV Shows
           <input
@@ -236,6 +238,7 @@ class RecommendationsFeedList extends Component{
             onChange={this.handleInputChange}
             name="showMealsOnly"
             checked={this.state.showMealsOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly}
             />
           Meals
           </p>

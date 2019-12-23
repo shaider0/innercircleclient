@@ -44,8 +44,7 @@ return (
         className="timeline-image"
       />
 
-      <Link to="/">@{username} &nbsp;</Link>
-      <span>{
+      <span>{username} {
         status === "recommendation"? "recommends the " : "wants to try the "} {name}
       </span>
       <span> at {restaurant}</span>

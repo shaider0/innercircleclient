@@ -40,8 +40,9 @@ return (
             width="100"
             className="timeline-image"
           />
-            <Link to="/">@{username} &nbsp;</Link>
-            {status === "recommendation"? "recommends the show " : "wants to watch the show "} {title}
+            <span>
+            {username} {status === "recommendation"? "recommends the show " : "wants to watch the show "} {title}
+            </span>
             {impressionsjsx}
             {!!availableOn? <p className="availableOn">Available On {availableOn}</p> : null}
         </div>

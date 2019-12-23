@@ -42,8 +42,7 @@ return (
           width="100"
           className="timeline-image"
         />
-        <Link to="/">@{username} &nbsp;</Link>
-        <span>{
+        <span>{username} {
           status === "recommendation"? "recommends the movie" : "wants to watch the movie "} {title}
         </span>
         {!!availableOn? <p>Available On: {availableOn}</p> : null}

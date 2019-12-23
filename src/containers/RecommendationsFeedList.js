@@ -11,6 +11,9 @@ import { Link } from "react-router-dom"
 class RecommendationsFeedList extends Component{
   constructor(props) {
     super(props);
+
+    console.log('this.props.location', this.props.location)
+    
     this.state = {
       filterMenu: true,
       showMovies: true,
@@ -51,6 +54,7 @@ class RecommendationsFeedList extends Component{
   }
 
   render() {
+
     const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, meals, removeMeal, updateMeal, currentUser } = this.props;
 
     let items = [...movies, ...tvshows, ...meals]

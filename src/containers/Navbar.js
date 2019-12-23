@@ -54,12 +54,16 @@ class Navbar extends Component {
               <li>
                   <a onClick={this.logout}>Log out</a>
               </li>
+
+              {currentUser.user.profileImageUrl ?
               <li>
                 <img
                   src={currentUser.user.profileImageUrl}
                   className="navProfilePic"
                 />
               </li>
+              : null
+              }
             </ul>
           ) : (
             <ul className="nav navbar-nav navbar-right">

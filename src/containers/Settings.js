@@ -18,6 +18,7 @@ class Settings extends Component {
         <h5>Set/Change Profile Picture</h5>
         <img
           src={currentUser.user.profileImageUrl}
+          className="changeProfilePicImage"
         />
         <ProfilePictureForm />
       </div>

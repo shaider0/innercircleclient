@@ -24,14 +24,14 @@ class Navbar extends Component {
                 <Link
                   to="/"
                 >
-                  Home
+                  <i class="fas fa-home"></i>
                 </Link>
               </li>
               <li>
                 <Link
                   to={`/users/${this.props.currentUser.user.id}/personalRecommendations`}
                 >
-                  Inbox
+                  <i class="far fa-envelope"></i>
                 </Link>
               </li>
 
@@ -39,7 +39,7 @@ class Navbar extends Component {
                 <Link
                   to={`/users/${this.props.currentUser.user.id}/friends`}
                 >
-                  Friends
+                  <i class="fas fa-users"></i>
                 </Link>
               </li>
 
@@ -47,20 +47,22 @@ class Navbar extends Component {
                 <Link
                   to={`/users/${this.props.currentUser.user.id}/settings`}
                 >
-                  Settings
+                  <i class="fas fa-cog"></i>
                 </Link>
               </li>
 
               <li>
-                  <a onClick={this.logout}>Log out</a>
+                  <a onClick={this.logout}><i class="fas fa-sign-out-alt"></i></a>
               </li>
 
               {currentUser.user.profileImageUrl ?
               <li>
-                <img
-                  src={currentUser.user.profileImageUrl}
-                  className="navProfilePic"
-                />
+                <div className="navImageContainer">
+                  <img
+                    src={currentUser.user.profileImageUrl}
+                    className="navImage"
+                  />
+                </div>
               </li>
               : null
               }

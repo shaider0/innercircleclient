@@ -187,8 +187,11 @@ a.btn.btn-danger:hover {
 }
 
 .navProfilePic {
-  width: 40px;
-  border: 2px solid white;
+  max-width: 40px;
+  max-height: 40px;
+  width: auto;
+  height: auto;
+  border-radius: 50%;
 }
 
 .customButton1 {
@@ -199,17 +202,6 @@ a.btn.btn-danger:hover {
   width: 250px;
   font-size: 13px;
   margin: 0;
-  /* font-family: 'Archivo Black', sans-serif; */
-}
-
-.customButton2 {
-  padding: 10px;
-  border-radius: 5px;
-  background-color: rgb(21, 32, 43);
-  color: white;
-  font-size: 13px;
-  margin: 0 auto;
-  display: block;
   /* font-family: 'Archivo Black', sans-serif; */
 }
 
@@ -373,20 +365,68 @@ a.btn.btn-danger:hover {
   display: block;
 }
 
-.feedButtons {
-  width: 800px;
-  margin: 0 auto;
-}
-
-.feedButtons * {
-  display: inline;
-  width: 200px;
-}
-
 .fa-plus {
   color: #02afb1;
 }
 
 .fa-search {
   color: #d22e11;
+}
+
+.feedButtons {
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.createNewButton {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(21, 32, 43);
+  color: white;
+  font-size: 13px;
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+  /* font-family: 'Archivo Black', sans-serif; */
+}
+
+.createNewButton i, .searchButton i {
+  margin-right: 5px;
+}
+
+.searchButton {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(21, 32, 43);
+  color: white;
+  font-size: 13px;
+  margin: 0 auto;
+  width: 200px;
+  text-align: center;
+  /* font-family: 'Archivo Black', sans-serif; */
+}
+
+.fa-home,
+.fa-envelope,
+.fa-users,
+.fa-cog,
+.fa-sign-out-alt {
+  font-size: 16px;
+  margin: 10px;
+}
+
+.navImageContainer {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.navImage {
+  height: 40px;
+  border-radius: 5px;
+}
+.changeProfilePicImage {
+  max-width: 200px;
 }

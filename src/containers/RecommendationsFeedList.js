@@ -248,10 +248,10 @@ class RecommendationsFeedList extends Component{
       <div className="feed">
         <br/>
         <div className="feedButtons">
-          <Link to={`/users/${currentUser}/create-item`} className="customButton2"><i className="fas fa-plus"></i> Create New</Link>
 
+          <Link to={`/users/${currentUser}/create-item`} className="createNewButton"><i className="fas fa-plus"></i>        Create New</Link>
 
-          <button className="searchButton customButton2" onClick={this.toggleFilterMenu}><i className="fas fa-search">
+          <button className="searchButton" onClick={this.toggleFilterMenu}><i className="fas fa-search">
             </i> Show/Hide Filters
           </button>
 

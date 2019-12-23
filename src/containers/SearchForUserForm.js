@@ -46,7 +46,7 @@ class SearchForUser extends Component {
             width="100"
             className="timeline-image"
           />
-          <Link to="#"><p>{user.user.username}</p></Link>
+          {user.user.username}
         </div>
     }
     if (user.message === "this is you") {
@@ -60,7 +60,6 @@ class SearchForUser extends Component {
             className="timeline-image"
           />
           {user.user.username}
-          <Link to="#"><p>Go to your profile</p></Link>
         </div>
     }
     if (Object. keys(user).includes("username")) {

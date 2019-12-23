@@ -38,7 +38,7 @@ class Friends extends Component {
                     height="100"
                     width="100"
                     className="timeline-image"/>
-                  <Link to="#">{friend.username}</Link>
+                    {friend.username}
                 </p>
               </div>
               )

@@ -44,7 +44,7 @@ class PersonalRecommendationItem extends Component {
           {date}
           </Moment>
         </p>
-        <p>@<Link to='#'>{sender}</Link> thinks you'll like the {category} {item}</p>
+        <p>{sender} thinks you'll like the {category} {item}</p>
         <p>
           <button className="btn btn-primary" onClick={this.handleAddToWatchList}>Add To My Bookmarks</button>
           <button className="btn btn-danger" onClick={this.handleDelete}>Ignore</button>

@@ -1,25 +1,25 @@
 import { apiCall } from "../../services/api";
 import { addError } from "./errors";
-import { LOAD_MEALS, REMOVE_MEAL, UPDATE_MEAL, ADD_MEAL } from "../actionTypes";
+import { LOAD_RESTAURANTS, REMOVE_RESTAURANT, UPDATE_RESTAURANT, ADD_RESTAURANT } from "../actionTypes";
 
 export const loadRestaurants = restaurants => ({
-  type: LOAD_MEALS,
+  type: LOAD_RESTAURANTS,
   restaurants: restaurants
 });
 
 export const remove = id => ({
-  type: REMOVE_MEAL,
+  type: REMOVE_RESTAURANT,
   id
 });
 
 export const update = restaurant => ({
-  type: UPDATE_MEAL,
+  type: UPDATE_RESTAURANT,
   restaurant
 })
 
 
 export const addRestaurant = restaurant => ({
-  type: ADD_MEAL,
+  type: ADD_RESTAURANT,
   restaurant
 });
 
@@ -37,7 +37,6 @@ export const updateRestaurant = props => (dispatch, getState) => {
 
   const updatedRestaurant = {
     name: props.name,
-    restaurant: props.restaurant,
     impressions: props.impressions,
     status: props.status,
     image: props.image

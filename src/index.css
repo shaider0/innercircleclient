@@ -343,6 +343,11 @@ a.btn.btn-danger:hover {
   color: #6c757d;
 }
 
+.fa-utensils {
+  font-size: 19px;
+  color: #6c757d;
+}
+
 .availableOn {
   font-size: 10px;
 }

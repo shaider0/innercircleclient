@@ -3,6 +3,7 @@ import currentUser from "./currentUser";
 import errors from "./errors";
 import movies from "./movies";
 import tvshows from "./tvshows";
+import restaurants from "./restaurants";
 import meals from "./meals";
 import users from "./users";
 import friendRequests from "./friendRequests"
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   errors,
   movies,
   tvshows,
+  restaurants,
   meals,
   users,
   friendRequests,

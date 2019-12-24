@@ -32,7 +32,7 @@ return (
       <li className="list-group-item">
       <div className="feedItem">
         <div className="feedItemMain">
-          {status==="recommendation" ? <i class="fas fa-heart"></i> : <i class="fas fa-bookmark"></i> }
+          {status==="recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i> }
           <i className="fas fa-tv"></i>
           <img
             src={profileImageUrl || DefaultProfileImg}

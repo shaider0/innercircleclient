@@ -3,21 +3,20 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 import { withRouter } from "react-router-dom";
-import MealItemMenu from "./MealItemMenu"
+import RestaurantItemMenu from "./RestaurantItemMenu"
 
 
-const MealItem = ({
+const RestaurantItem = ({
   date,
   name,
-  restaurant,
   imageUrl,
   impressions,
   status,
-  mealId,
+  restaurantId,
   username,
   userId,
-  removeMeal,
-  updateMeal,
+  removeRestaurant,
+  updateRestaurant,
   isCorrectUser,
   currentUser,
   category,
@@ -36,7 +35,7 @@ return (
   <div className="feedItem">
     <div className="feedItemMain">
       {status==="recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i> }
-      <i className="fas fa-hamburger"></i>
+      <i className="fas fa-utensils"></i>
       <img
         src={profileImageUrl || DefaultProfileImg}
         alt={username}
@@ -46,30 +45,28 @@ return (
       />
 
       <span>{username} {
-        status === "recommendation"? "recommends the " : "wants to try the "} {name}
+        status === "recommendation"? "recommends the " : "wants to try the "} restaurant {name}
       </span>
-      <span> at {restaurant}</span>
       {impressionsjsx}
 
       {imageUrl ?  <img
         src={imageUrl || "#"}
         alt={username}
-        className="mealImage"
+        className="restaurantImage"
       />
       : null
       }
     </div>
 
     <div className="feedItemRight">
-      <MealItemMenu
-      removeMeal={removeMeal}
-      updateMeal={updateMeal}
+      <RestaurantItemMenu
+      removeRestaurant={removeRestaurant}
+      updateRestaurant={updateRestaurant}
       isCorrectUser={isCorrectUser}
       name={name}
-      restaurant={restaurant}
       impressions={impressions}
       status={status}
-      mealId={mealId}
+      restaurantId={restaurantId}
       userId={userId}
       category={category}
       currentUser={currentUser}
@@ -85,4 +82,4 @@ return (
 );
 }
 
-export default withRouter(MealItem);
+export default withRouter(RestaurantItem);

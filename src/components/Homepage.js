@@ -7,7 +7,6 @@ import WelcomeMessage from "./WelcomeMessage.js"
 
 
 const Homepage = ({ currentUser }) => {
-  console.log('curr user ', currentUser)
   if (!currentUser.isAuthenticated) {
     return (
       <div className="home-hero">

@@ -232,6 +232,10 @@ a.btn.btn-danger:hover {
   text-align: center;
 }
 
+.profilePictureForm img {
+  border: 6px solid #bbbbbb;
+  border-radius: 5px;
+}
 .friendRequests {
   background-color: white;
 }

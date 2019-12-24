@@ -15,7 +15,7 @@ class Settings extends Component {
     console.log('user', currentUser.user.profileImageUrl)
     return (
       <div className="profilePictureForm">
-        <h5>Set/Change Profile Picture</h5>
+        <p>Set/Change Profile Picture</p>
         <img
           src={currentUser.user.profileImageUrl}
           className="changeProfilePicImage"

@@ -40,7 +40,7 @@ ul.nav.navbar-nav li {
 }
 
 .onboarding > .navbar {
-  background-image: linear-gradient(to right, black, grey);
+  background-image: linear-gradient(to right, #00004d , #151515);
   background-size: 100% 100%;
 }
 
@@ -414,6 +414,7 @@ a.btn.btn-danger:hover {
 .fa-sign-out-alt {
   font-size: 16px;
   margin: 10px;
+  color: white;
 }
 
 .navImageContainer {

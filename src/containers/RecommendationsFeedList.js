@@ -216,7 +216,7 @@ class RecommendationsFeedList extends Component{
           </p>
 
           <p className="onlyFilter">
-          Show Only: (choose one)
+          <span>Show Only: (choose one)</span>
           <input
             className="filterCheckbox"
             type="checkbox"

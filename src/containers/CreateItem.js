@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import MovieForm from "./MovieForm"
 import TvshowForm from "./TvshowForm"
 import MealForm from "./MealForm"
+import { Link } from "react-router-dom"
 
 class CreateItem extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class CreateItem extends Component {
           <option value="Meal">Meal</option>
         </select>
         {form}
+        <Link className="btn btn-secondary" to="/">Done</Link>
       </div>
     )
   }

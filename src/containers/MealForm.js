@@ -69,6 +69,7 @@ class MealForm extends Component {
 
         <h5>Enter Meal Information</h5>
         <input
+          autoFocus
           required
           type="text"
           placeholder="Name"

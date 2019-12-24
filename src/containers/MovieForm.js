@@ -64,6 +64,7 @@ class MovieForm extends Component {
         </select>
         <h5>Enter Movie Information</h5>
         <input
+          autoFocus
           required
           type="text"
           placeholder="Title"

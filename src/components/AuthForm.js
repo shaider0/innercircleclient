@@ -47,7 +47,7 @@ class AuthForm extends Component {
     return (
       <div>
         <div className="row justify-content-md-center text-center">
-          <div className="col-md-6">
+          <div className="authForm">
             <form onSubmit={this.handleSubmit}>
               <h2>{heading}</h2>
               {errors.message && (
@@ -89,7 +89,7 @@ class AuthForm extends Component {
               )}
               <button
                 type="submit"
-                className="btn btn-primary btn-block btn-lg"
+                className="btn btn-primary btn-block btn-md"
               >
                 {buttonText}
               </button>

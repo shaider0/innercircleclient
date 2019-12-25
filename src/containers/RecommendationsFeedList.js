@@ -4,11 +4,13 @@ import { fetchMovies, removeMovie, updateMovie } from "../store/actions/movies";
 import { fetchTvshows, removeTvshow, updateTvshow } from "../store/actions/tvshows";
 import { fetchRestaurants, removeRestaurant, updateRestaurant } from "../store/actions/restaurants";
 import { fetchMeals, removeMeal, updateMeal } from "../store/actions/meals";
+import { fetchDestinations, removeDestination, updateDestination } from "../store/actions/destinations";
 
 import MovieItem from "../components/MovieItem";
 import TvshowItem from "../components/TvshowItem";
 import RestaurantItem from "../components/RestaurantItem";
 import MealItem from "../components/MealItem";
+import DestinationItem from "../components/DestinationItem";
 
 import { Link } from "react-router-dom"
 
@@ -26,6 +28,8 @@ class RecommendationsFeedList extends Component{
       showRestaurantsOnly: false,
       showMeals: true,
       showMealsOnly: false,
+      showDestinations: true,
+      showDestinationsOnly: false,
       singleUserContent: "",
       showRecommendations: true,
       showBookmarks: true
@@ -56,14 +60,15 @@ class RecommendationsFeedList extends Component{
     this.props.fetchTvshows(currentUser);
     this.props.fetchRestaurants(currentUser);
     this.props.fetchMeals(currentUser);
+    this.props.fetchDestinations(currentUser);
   }
 
   render() {
 
-    const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, meals, removeMeal, updateMeal, restaurants, removeRestaurant, updateRestaurant, currentUser } = this.props;
+    const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, meals, removeMeal, updateMeal, restaurants, removeRestaurant, updateRestaurant, destinations, removeDestination, updateDestination, currentUser } = this.props;
 
-// add restaurnts
-    let items = [...movies, ...tvshows, ...meals, ...restaurants]
+// add destinations
+    let items = [...movies, ...tvshows, ...meals, ...restaurants, ...destinations ]
 
     if (!this.state.showMovies) {
       items = items.filter(item => item.category !== "movie")
@@ -95,6 +100,14 @@ class RecommendationsFeedList extends Component{
 
     if (this.state.showRestaurantsOnly) {
     items = items.filter(item => item.category === "restaurant")
+    }
+
+    if (!this.state.showDestinations) {
+      items = items.filter(item => item.category !== "destination")
+    }
+
+    if (this.state.showDestinationsOnly) {
+    items = items.filter(item => item.category === "destination")
     }
 
     if (this.state.singleUserContent) {
@@ -187,6 +200,28 @@ class RecommendationsFeedList extends Component{
         currentUser={currentUser}
         isCorrectUser={currentUser === m.user._id || currentUser === m.user}
       />)}
+
+      else if (m.category === 'destination') {
+      return (<DestinationItem
+        key={m._id}
+        date={m.updatedAt}
+        category={m.category}
+        city={m.city}
+        state={m.state}
+        country={m.country}
+        imageUrl={m.imageUrl}
+        impressions={m.impressions}
+        status={m.status}
+        destinationId={m._id}
+        username={m.user.username}
+        userId={m.user._id}
+        profileImageUrl={m.user.profileImageUrl}
+        removeDestination={removeDestination.bind(this, m.user._id, m._id)}
+        updateDestination={updateMeal.bind(this, m.user._id, m._id)}
+        currentUser={currentUser}
+        isCorrectUser={currentUser === m.user._id || currentUser === m.user}
+      />)}
+
     }
   );
 
@@ -254,6 +289,15 @@ class RecommendationsFeedList extends Component{
             checked={this.state.showMeals}
             />
           <i className="fas light fa-hamburger"></i> Meals
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showDestinations"
+            checked={this.state.showDestinations}
+            />
+          <i className="fas light fa-plane"></i> Destinations
+
           </p>
 
           <p className="onlyFilter">
@@ -264,7 +308,7 @@ class RecommendationsFeedList extends Component{
             onChange={this.handleInputChange}
             name="showMoviesOnly"
             checked={this.state.showMoviesOnly}
-            disabled={this.state.showTvshowsOnly || this.state.showMealsOnly || this.state.showRestaurantsOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMealsOnly || this.state.showRestaurantsOnly || this.state.showDestinationsOnly}
             />
           <i className="fas light fa-film"></i> Movies
 
@@ -274,7 +318,7 @@ class RecommendationsFeedList extends Component{
             onChange={this.handleInputChange}
             name="showTvshowsOnly"
             checked={this.state.showTvshowsOnly}
-            disabled={this.state.showMoviesOnly || this.state.showMealsOnly || this.state.showRestaurantsOnly}
+            disabled={this.state.showMoviesOnly || this.state.showMealsOnly || this.state.showRestaurantsOnly || this.state.showDestinationsOnly}
             />
           <i className="fas light fa-tv"></i> TV Shows
 
@@ -284,7 +328,7 @@ class RecommendationsFeedList extends Component{
             onChange={this.handleInputChange}
             name="showRestaurantsOnly"
             checked={this.state.showRestaurantsOnly}
-            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showMealsOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showMealsOnly || this.state.showDestinationsOnly}
             />
           <i className="fas light fa-utensils"></i> Restaurants
 
@@ -294,9 +338,20 @@ class RecommendationsFeedList extends Component{
             onChange={this.handleInputChange}
             name="showMealsOnly"
             checked={this.state.showMealsOnly}
-            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showRestaurantsOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showRestaurantsOnly || this.state.showDestinationsOnly}
             />
           <i className="fas light fa-hamburger"></i> Meals
+
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showDestinationsOnly"
+            checked={this.state.showDestinationsOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showRestaurantsOnly || this.state.showMealsOnly}
+            />
+          <i className="fas light fa-plane"></i> Destinations
+
           </p>
 
         </div>
@@ -333,6 +388,7 @@ function mapStateToProps(state) {
     tvshows: state.tvshows,
     meals: state.meals,
     restaurants: state.restaurants,
+    destinations: state.destinations,
     currentUser: state.currentUser.user.id
   };
 }
@@ -349,7 +405,10 @@ export default connect(mapStateToProps, {
   updateMeal,
   fetchRestaurants,
   removeRestaurant,
-  updateRestaurant
+  updateRestaurant,
+  fetchDestinations,
+  removeDestination,
+  updateDestination
 })(
   RecommendationsFeedList
 );

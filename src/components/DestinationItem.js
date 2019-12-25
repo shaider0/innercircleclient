@@ -3,21 +3,22 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 import { withRouter } from "react-router-dom";
-import MealItemMenu from "./MealItemMenu"
+import DestinationItemMenu from "./DestinationItemMenu"
 
 
-const MealItem = ({
+const DestinationItem = ({
   date,
-  name,
-  restaurant,
+  city,
+  state,
+  country,
   imageUrl,
   impressions,
   status,
-  mealId,
+  destinationId,
   username,
   userId,
-  removeMeal,
-  updateMeal,
+  removeDestination,
+  updateDestination,
   isCorrectUser,
   currentUser,
   category,
@@ -36,7 +37,7 @@ return (
   <div className="feedItem">
     <div className="feedItemMain">
       {status==="recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i> }
-      <i className="fas fa-hamburger"></i>
+      <i className="fas fa-plane"></i>
       <img
         src={profileImageUrl || DefaultProfileImg}
         alt={username}
@@ -46,30 +47,31 @@ return (
       />
 
       <span>{username} {
-        status === "recommendation"? "recommends trying the " : "wants to try the "} {name}
+        status === "recommendation"? "recommends visiting " : "wants to visit "}
+        {city} {state} {country}
       </span>
-      <span> at {restaurant}</span>
       {impressionsjsx}
 
       {imageUrl ?  <img
         src={imageUrl || "#"}
         alt={username}
-        className="mealImage"
+        className="destinationImage"
       />
       : null
       }
     </div>
 
     <div className="feedItemRight">
-      <MealItemMenu
-      removeMeal={removeMeal}
-      updateMeal={updateMeal}
+      <DestinationItemMenu
+      removeDestination={removeDestination}
+      updateDestination={updateDestination}
       isCorrectUser={isCorrectUser}
-      name={name}
-      restaurant={restaurant}
+      city={city}
+      state={state}
+      country={country}
       impressions={impressions}
       status={status}
-      mealId={mealId}
+      destinationId={destinationId}
       userId={userId}
       category={category}
       currentUser={currentUser}
@@ -85,4 +87,4 @@ return (
 );
 }
 
-export default withRouter(MealItem);
+export default withRouter(DestinationItem);

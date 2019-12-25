@@ -45,7 +45,7 @@ return (
       />
 
       <span>{username} {
-        status === "recommendation"? "recommends the " : "wants to try the "} restaurant {name}
+        status === "recommendation"? "recommends eating at the " : "wants to try the "} restaurant {name}
       </span>
       {impressionsjsx}
 

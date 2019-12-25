@@ -4,6 +4,7 @@ import MovieForm from "./MovieForm"
 import TvshowForm from "./TvshowForm"
 import MealForm from "./MealForm"
 import RestaurantForm from "./RestaurantForm"
+import DestinationForm from "./DestinationForm"
 
 import { Link } from "react-router-dom"
 
@@ -24,6 +25,8 @@ class CreateItem extends Component {
       form = <RestaurantForm />
     } else if (this.state.category === "Meal"){
       form = <MealForm />
+    } else if (this.state.category === "Destination"){
+      form = <DestinationForm />
     }
 
     return (
@@ -38,6 +41,7 @@ class CreateItem extends Component {
           <option value="TV Show">TV Show</option>
           <option value="Restaurant">Restaurant</option>
           <option value="Meal">Meal</option>
+          <option value="Destination">Destination</option>
         </select>
         {form}
         <Link className="btn btn-secondary" to="/">Done</Link>

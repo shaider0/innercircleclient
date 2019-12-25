@@ -10,6 +10,7 @@ import UpdateMovieForm from "./UpdateMovieForm";
 import UpdateRestaurantForm from "./UpdateRestaurantForm";
 import UpdateMealForm from "./UpdateMealForm";
 import UpdateTvshowForm from "./UpdateTvshowForm";
+import UpdateDestinationForm from "./UpdateDestinationForm";
 import FriendRequests from "./FriendRequests"
 import Friends from "./Friends"
 import Settings from "./Settings"
@@ -91,6 +92,10 @@ const Main = props => {
         <Route
           path="/users/:id/meals/:id/update"
           component={UpdateMealForm}
+        />
+        <Route
+          path="/users/:id/destinations/:id/update"
+          component={UpdateDestinationForm}
         />
         <Route
           path="/users/:id/friendRequests"

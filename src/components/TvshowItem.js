@@ -42,7 +42,7 @@ return (
             className="timeline-image"
           />
             <span>
-            {username} {status === "recommendation"? "recommends the show " : "wants to watch the show "} {title}
+            {username} {status === "recommendation"? "recommends watching the show " : "wants to watch the show "} {title}
             </span>
             {impressionsjsx}
             {!!availableOn? <p className="availableOn">Available On {availableOn}</p> : null}

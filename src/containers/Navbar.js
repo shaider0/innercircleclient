@@ -22,13 +22,6 @@ class Navbar extends Component {
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <Link
-                  to={`/users/${this.props.currentUser.user.id}/map`}
-                >
-                  Map
-                </Link>
-              </li>
-              <li>
-                <Link
                   to="/"
                 >
                   <i className="fas fa-home"></i>

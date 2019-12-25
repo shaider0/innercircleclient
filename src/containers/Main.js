@@ -17,7 +17,6 @@ import Settings from "./Settings"
 import PersonalRecommendationForm from "./PersonalRecommendationForm"
 import PersonalRecommendations from "./PersonalRecommendations"
 import CreateItem from "./CreateItem"
-import Map from "./Map"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
@@ -65,10 +64,6 @@ const Main = props => {
         <Route
           path="/users/:id/create-item"
           component={CreateItem}
-        />
-        <Route
-          path="/users/:id/map"
-          component={Map}
         />
         <Route
           path="/users/:id/personalRecommendations"

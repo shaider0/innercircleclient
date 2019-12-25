@@ -7,6 +7,7 @@ import { authUser } from "../store/actions/auth";
 import { removeError } from "../store/actions/errors";
 import withAuth from "../hocs/withAuth";
 import UpdateMovieForm from "./UpdateMovieForm";
+import UpdateRestaurantForm from "./UpdateRestaurantForm";
 import UpdateMealForm from "./UpdateMealForm";
 import UpdateTvshowForm from "./UpdateTvshowForm";
 import FriendRequests from "./FriendRequests"
@@ -82,6 +83,10 @@ const Main = props => {
         <Route
           path="/users/:id/tvshows/:id/update"
           component={UpdateTvshowForm}
+        />
+        <Route
+          path="/users/:id/restaurants/:id/update"
+          component={UpdateRestaurantForm}
         />
         <Route
           path="/users/:id/meals/:id/update"

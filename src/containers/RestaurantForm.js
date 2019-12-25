@@ -66,7 +66,6 @@ class RestaurantForm extends Component {
 
         <h5>Enter Restaurant Information</h5>
         <input
-          autoFocus
           required
           type="text"
           placeholder="Name"

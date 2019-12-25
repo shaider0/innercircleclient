@@ -40,7 +40,7 @@ ul.nav.navbar-nav li {
 }
 
 .onboarding > .navbar {
-  background-image: linear-gradient(to right, #008c96 , #151515);
+  background-image: linear-gradient(to right, #259bd5, #151515);
   background-size: 100% 100%;
 }
 
@@ -168,8 +168,9 @@ a.btn.btn-danger:hover {
   border-radius: 10px;
 }
 
-.mealImage {
-  width: 100%;
+.mealImage,
+.restaurantImage {
+  width: 200px;
 }
 
 .btn-primary {

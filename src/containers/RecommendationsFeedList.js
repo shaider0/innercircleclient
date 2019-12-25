@@ -264,7 +264,7 @@ class RecommendationsFeedList extends Component{
             onChange={this.handleInputChange}
             name="showMoviesOnly"
             checked={this.state.showMoviesOnly}
-            disabled={this.state.showTvshowsOnly || this.state.showMealsOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMealsOnly || this.state.showRestaurantsOnly}
             />
           <i className="fas light fa-film"></i> Movies
 
@@ -274,7 +274,7 @@ class RecommendationsFeedList extends Component{
             onChange={this.handleInputChange}
             name="showTvshowsOnly"
             checked={this.state.showTvshowsOnly}
-            disabled={this.state.showMoviesOnly || this.state.showMealsOnly}
+            disabled={this.state.showMoviesOnly || this.state.showMealsOnly || this.state.showRestaurantsOnly}
             />
           <i className="fas light fa-tv"></i> TV Shows
 
@@ -284,7 +284,7 @@ class RecommendationsFeedList extends Component{
             onChange={this.handleInputChange}
             name="showRestaurantsOnly"
             checked={this.state.showRestaurantsOnly}
-            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showMealsOnly}
             />
           <i className="fas light fa-utensils"></i> Restaurants
 
@@ -294,7 +294,7 @@ class RecommendationsFeedList extends Component{
             onChange={this.handleInputChange}
             name="showMealsOnly"
             checked={this.state.showMealsOnly}
-            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showRestaurantsOnly}
             />
           <i className="fas light fa-hamburger"></i> Meals
           </p>

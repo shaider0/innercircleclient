@@ -64,7 +64,6 @@ class TvshowForm extends Component {
           </select>
         <h5>Enter Show Information</h5>
         <input
-          autoFocus
           required
           type="text"
           placeholder="Title"

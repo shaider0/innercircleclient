@@ -5,7 +5,7 @@
   },
   "proxies": {
     "/api": {
-      "origin": "https://warbler-server-es.herokuapp.com/api"
+      "origin": "https://innerCircle-server-es.herokuapp.com/api"
     }
   }
 }

@@ -21,10 +21,7 @@ class SearchForUser extends Component {
 
   handleFriendRequest = event => {
     event.preventDefault();
-    console.log('friend request sent')
-    console.log('requestor is', this.props.currentUser.user.id)
     const requestorId = this.props.currentUser.user.id
-    console.log('recipient is: '+ this.props.user._id)
     const recipientId = this.props.user._id
     this.props.submitFriendRequest(requestorId, recipientId)
   }

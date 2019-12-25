@@ -370,9 +370,6 @@ class RecommendationsFeedList extends Component{
         </div>
         {this.state.filterMenu ? filterMenu : null}
         <div>
-          <p>
-            {feedList.length === 0 ? "No matches found." : null}
-          </p>
           <ul className="list-group">
             {feedList}
           </ul>

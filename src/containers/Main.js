@@ -9,6 +9,7 @@ import withAuth from "../hocs/withAuth";
 import UpdateMovieForm from "./UpdateMovieForm";
 import UpdateRestaurantForm from "./UpdateRestaurantForm";
 import UpdateMealForm from "./UpdateMealForm";
+import UpdateDiscoveryForm from "./UpdateDiscoveryForm";
 import UpdateTvshowForm from "./UpdateTvshowForm";
 import UpdateDestinationForm from "./UpdateDestinationForm";
 import FriendRequests from "./FriendRequests"
@@ -92,6 +93,10 @@ const Main = props => {
         <Route
           path="/users/:id/meals/:id/update"
           component={UpdateMealForm}
+        />
+        <Route
+          path="/users/:id/discoveries/:id/update"
+          component={UpdateDiscoveryForm}
         />
         <Route
           path="/users/:id/destinations/:id/update"

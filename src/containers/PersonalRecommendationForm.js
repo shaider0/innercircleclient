@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom"
 import { postNewPersonalRecommendation } from "../store/actions/personalRecommendations"
 
 class PersonalRecommendationForm extends Component {
@@ -65,9 +66,24 @@ class PersonalRecommendationForm extends Component {
     }
   }
 
+  resetMessage = () => {
+    this.setState({
+      message: ""
+    })
+  }
+
   handleNewPersonalRecommendation = event => {
     event.preventDefault()
     this.props.postNewPersonalRecommendation(this.state)
+      .then(res => {
+        if(res ==="success") {
+          this.setState({
+            username: "",
+            message: "Recommendation Sent!"
+        });
+      }
+    })
+    .then(setTimeout(this.resetMessage, 2200))
   }
 
   render() {
@@ -89,8 +105,10 @@ class PersonalRecommendationForm extends Component {
           <button>
             Send
           </button>
+          {this.state.message ? <p className="successMessage">{this.state.message}</p> : null}
         </span>
       </form>
+      <Link className="btn btn-secondary" to="/">Return to Homepage</Link>
       </div>
     )
   }
@@ -103,4 +121,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { postNewPersonalRecommendation })(PersonalRecommendationForm);
+export default connect(mapStateToProps, { postNewPersonalRecommendation })(PersonalRecommendationForm)

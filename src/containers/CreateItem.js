@@ -48,7 +48,7 @@ class CreateItem extends Component {
           <option value="Discovery">Discovery</option>
         </select>
         {form}
-        <Link className="btn btn-secondary" to="/">Done</Link>
+        <Link className="btn btn-secondary" to="/">Return to Homepage</Link>
       </div>
     )
   }

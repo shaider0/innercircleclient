@@ -23,6 +23,7 @@ export const postNewPersonalRecommendation = personalRecommendation => (dispatch
   return apiCall("post", `/api/users/${id}/personalRecommendations`, personalRecommendation)
     .then(res => {
       dispatch(addPersonalRecommendation(res))
+      return('success')
     })
     .catch(err => addError(err.personalRecommendation));
 };

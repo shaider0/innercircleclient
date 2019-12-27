@@ -177,6 +177,7 @@ a.btn.btn-danger:hover {
 .btn-primary {
   background-color: #18366d !important;
   border: 1px solid white !important;
+  width: 300px; 
 }
 
 .btn-danger {

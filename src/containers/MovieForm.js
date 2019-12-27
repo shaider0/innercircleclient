@@ -119,7 +119,7 @@ class MovieForm extends Component {
         <button type="submit" className="btn btn-primary">
           {buttonText}
         </button>
-        <p className="successMessage">{this.state.message}</p>
+        {this.state.message ? <p className="successMessage">{this.state.message}</p> : null}
       </form>
     );
   }

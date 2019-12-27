@@ -69,7 +69,8 @@ class TvshowItemMenu extends Component {
           pathname: personalRecommendationUrl,
           state: {
             title,
-            category
+            category,
+            tvshowId
           }}}>Recommend To A Friend</Link>
         </div>
       </div>

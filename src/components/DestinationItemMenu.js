@@ -73,7 +73,8 @@ class DestinationItemMenu extends Component {
             city,
             state,
             country,
-            category
+            category,
+            destinationId
           }}}>Recommend To A Friend</Link>
         </div>
       </div>

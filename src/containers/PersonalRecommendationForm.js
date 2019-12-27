@@ -5,20 +5,62 @@ import { postNewPersonalRecommendation } from "../store/actions/personalRecommen
 class PersonalRecommendationForm extends Component {
   constructor(props) {
     super(props);
-    let { category } = this.props.location.state
-    if (category === "movie" || category ==="tv show") {
+    let { category, title, name, description, movieId, tvshowId, mealId, restaurant, restaurantId, destinationId, city, state, country, discoveryId } = this.props.location.state
+    category = category.charAt(0).toUpperCase() + category.substring(1)
+    console.log('cat is', category)
+
+    if (category === "Movie") {
       this.state = {
         recipientUsername: "",
-        item: `${this.props.location.state.title}`,
-        category: `${this.props.location.state.category}`
+        description: title,
+        item: movieId,
+        category
       }
     }
 
-    if (category === "meal") {
+    if (category === "Tv show") {
+      let categoryWithoutSpace = "Tvshow"
       this.state = {
         recipientUsername: "",
-        item: `${this.props.location.state.name} at ${this.props.location.state.restaurant}`,
-        category: `${this.props.location.state.category}`
+        description: title,
+        item: tvshowId,
+        category: categoryWithoutSpace
+      }
+    }
+
+    if (category === "Meal") {
+      this.state = {
+        recipientUsername: "",
+        description: `${name} at ${restaurant}`,
+        item: mealId,
+        category
+      }
+    }
+
+    if (category === "Restaurant") {
+      this.state = {
+        recipientUsername: "",
+        description: name,
+        item: restaurantId,
+        category
+      }
+    }
+
+    if (category === "Destination") {
+      this.state = {
+        recipientUsername: "",
+        description: `${city} ${state} ${country}`,
+        item: destinationId,
+        category
+      }
+    }
+
+    if (category === "Discovery") {
+      this.state = {
+        recipientUsername: "",
+        description,
+        item: discoveryId,
+        category
       }
     }
   }
@@ -43,13 +85,7 @@ class PersonalRecommendationForm extends Component {
             className="form-control"
           />
           <label>Recommendation: </label>
-          <input
-            readOnly
-            type="textArea"
-            placeholder="item"
-            value={this.state.item}
-            className="form-control"
-          />
+          <p>{this.state.description}</p>
           <button>
             Send
           </button>

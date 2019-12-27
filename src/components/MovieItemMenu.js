@@ -69,6 +69,7 @@ class MovieItemMenu extends Component {
           pathname: personalRecommendationUrl,
           state: {
             title,
+            movieId,
             category
           }}}>Recommend To A Friend</Link>
         </div>

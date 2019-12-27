@@ -71,6 +71,7 @@ class MealItemMenu extends Component {
           state: {
             name,
             category,
+            mealId,
             restaurant
           }}}>Recommend To A Friend</Link>
         </div>

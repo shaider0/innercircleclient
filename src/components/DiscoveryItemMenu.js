@@ -70,7 +70,8 @@ class DiscoveryItemMenu extends Component {
           state: {
             title,
             description,
-            category
+            category,
+            discoveryId
           }}}>Recommend To A Friend</Link>
         </div>
       </div>

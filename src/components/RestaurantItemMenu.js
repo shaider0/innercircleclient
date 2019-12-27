@@ -69,7 +69,8 @@ class RestaurantItemMenu extends Component {
           pathname: personalRecommendationUrl,
           state: {
             name,
-            category
+            category,
+            restaurantId
           }}}>Recommend To A Friend</Link>
         </div>
       </div>

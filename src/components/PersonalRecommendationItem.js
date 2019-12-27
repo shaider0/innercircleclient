@@ -35,7 +35,8 @@ class PersonalRecommendationItem extends Component {
   };
 
   render() {
-    const { date, sender, item, category } = this.props
+    const { date, sender, item} = this.props
+    const category = item.category
     console.log('sender is', sender)
     return (
       <div className="personalRecommendationItem">
@@ -44,7 +45,7 @@ class PersonalRecommendationItem extends Component {
           {date}
           </Moment>
         </p>
-        <p>{sender} thinks you'll like the {category} {item}</p>
+        <p>{sender} thinks you'll like the {category} {item.title || item.name } {item.restaurant ? `at ${item.restaurant}` : null}</p>
         <p>
           <button className="btn btn-primary" onClick={this.handleAddToWatchList}>Add To My Bookmarks</button>
           <button className="btn btn-danger" onClick={this.handleDelete}>Ignore</button>

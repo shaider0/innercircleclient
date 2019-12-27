@@ -18,12 +18,13 @@ class PersonalRecommendations extends Component {
     if (personalRecommendations.length === 0) {
       return <div className="personalRecMessage">No personalized recommendations at this time. Check back soon!</div>
     }
-    let personalRecommendationsList = personalRecommendations.map(m => {
+    let sortedItems = personalRecommendations.sort((a, b) => (a.updatedAt > b.updatedAt) ? -1 : 1)
+    let personalRecommendationsList = sortedItems.map(m => {
       return (
         <div key={m._id}>
           <PersonalRecommendationItem
             date={m.createdAt}
-            sender={m.sender.username}
+            sender={m.sender}
             item={m.item}
             category={m.category}
             id={m._id}

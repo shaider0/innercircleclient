@@ -85,7 +85,7 @@ class PersonalRecommendationForm extends Component {
             className="form-control"
           />
           <label>Recommendation: </label>
-          <p>{this.state.description}</p>
+          <p>{this.state.category}:   {this.state.description}</p>
           <button>
             Send
           </button>

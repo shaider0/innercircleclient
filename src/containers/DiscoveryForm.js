@@ -10,7 +10,6 @@ class DiscoveryForm extends Component {
       this.state = this.props.state
     } else {
       this.state = {
-        title: "",
         description: "",
         image: null,
         status: "recommendation",
@@ -23,7 +22,6 @@ class DiscoveryForm extends Component {
 
     this.props.postNewDiscovery(this.state);
     this.setState({
-      title: "",
       description: "",
       image: null,
       status: "recommendation",
@@ -34,7 +32,6 @@ class DiscoveryForm extends Component {
     event.preventDefault();
     this.props.updateDiscovery(this.state);
     this.setState({
-      title: "",
       description: "",
       image: null,
       status: "recommendation",
@@ -65,14 +62,6 @@ class DiscoveryForm extends Component {
         </select>
 
         <h5>Enter Discovery Information</h5>
-        <input
-          required
-          type="text"
-          placeholder="Title"
-          className="form-control"
-          value={this.state.title}
-          onChange={e => this.setState({ title: e.target.value })}
-        />
         <input
           required
           type="text"

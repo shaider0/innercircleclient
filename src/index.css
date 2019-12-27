@@ -177,7 +177,7 @@ a.btn.btn-danger:hover {
 .btn-primary {
   background-color: #18366d !important;
   border: 1px solid white !important;
-  width: 300px; 
+  width: 300px;
 }
 
 .btn-danger {
@@ -352,6 +352,11 @@ a.btn.btn-danger:hover {
 }
 
 .fa-plane {
+  font-size: 17px;
+  color: #6c757d;
+}
+
+.fa-lightbulb {
   font-size: 17px;
   color: #6c757d;
 }

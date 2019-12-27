@@ -31,8 +31,6 @@ return (
     <div className="feedItemMain">
       {status==="recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i> }
       <i className="fas fa-lightbulb"></i>
-      {title}
-      {description}
       <img
         src={profileImageUrl || DefaultProfileImg}
         alt={username}
@@ -40,10 +38,9 @@ return (
         width="100"
         className="timeline-image"
       />
-
-      <span>{username}
+      <span>{username} recently discovered: 
       </span>
-
+      {description}
       {imageUrl ?  <img
         src={imageUrl || "#"}
         alt={username}

@@ -6,14 +6,14 @@ import DiscoveryForm from "./DiscoveryForm"
 class UpdateDiscoveryForm extends Component {
   constructor(props) {
     super(props);
+    const { description, imageUrl, status, userId, discoveryId } = this.props.location.state
     this.state = {
-      title: this.props.location.state.title,
-      description: this.props.location.state.description,
-      imageUrl: this.props.location.state.imageUrl,
-      status: this.props.location.state.status,
-      userId: this.props.location.state.userId,
-      discoveryId: this.props.location.state.discoveryId
-    };
+      description,
+      imageUrl,
+      status,
+      userId,
+      discoveryId
+    }
   }
 
   render() {

@@ -36,8 +36,7 @@ export const removeDiscovery = (user_id, discovery_id) => {
 export const updateDiscovery = props => (dispatch, getState) => {
 
   const updatedDiscovery = {
-    name: props.name,
-    restaurant: props.restaurant,
+    description: props.description,
     impressions: props.impressions,
     status: props.status,
     image: props.image

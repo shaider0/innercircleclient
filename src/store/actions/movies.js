@@ -69,6 +69,7 @@ export const postNewMovie = newMovie => (dispatch, getState) => {
   return apiCall("post", `/api/users/${id}/movies`, newMovie)
     .then(res => {
       dispatch(addMovie(res))
+      return('success')
     })
     .catch(err => addError(err.movie));
 };

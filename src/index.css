@@ -464,3 +464,9 @@ a.btn.btn-danger:hover {
 .authForm {
   width: 300px;
 }
+
+.successMessage {
+  font-size: 16px;
+  color: #009900;
+  width: 300px;
+}

@@ -14,20 +14,33 @@ class MovieForm extends Component {
         availableOn: "",
         impressions: "",
         status: "recommendation",
+        message: ""
       }
     }
+  }
+
+  resetMessage = () => {
+    this.setState({
+      message: ""
+    })
   }
 
   handleNewMovie = event => {
     event.preventDefault();
 
-    this.props.postNewMovie(this.state);
-    this.setState({
-      title: "",
-      availableOn: "",
-      impressions: "",
-      status: "recommendation",
-    });
+    this.props.postNewMovie(this.state)
+      .then(res => {
+        if(res ==="success") {
+          this.setState({
+            title: "",
+            availableOn: "",
+            impressions: "",
+            status: "recommendation",
+            message: "Movie Successfully added"
+          });
+        }
+      })
+      .then(setTimeout(this.resetMessage, 2200))
   };
 
   handleUpdatedMovie = event => {
@@ -106,6 +119,7 @@ class MovieForm extends Component {
         <button type="submit" className="btn btn-primary">
           {buttonText}
         </button>
+        <p className="successMessage">{this.state.message}</p>
       </form>
     );
   }

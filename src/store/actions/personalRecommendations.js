@@ -22,6 +22,9 @@ export const postNewPersonalRecommendation = personalRecommendation => (dispatch
   const id = currentUser.user.id;
   return apiCall("post", `/api/users/${id}/personalRecommendations`, personalRecommendation)
     .then(res => {
+      if (res === 'user not found') {
+        return res
+      }
       dispatch(addPersonalRecommendation(res))
       return('success')
     })

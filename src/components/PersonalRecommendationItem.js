@@ -101,8 +101,8 @@ class PersonalRecommendationItem extends Component {
           {date}
           </Moment>
         </p>
+        <i className={this.state.icon}></i>
         {sender.profileImageUrl ? <img className="timeline-image" src={sender.profileImageUrl}/> : null}
-        <p><i className={this.state.icon}></i></p>
         <p>{this.state.message}</p>
         <p>
           <button className="btn btn-primary" onClick={this.handleAddToWatchList}>Add To My Bookmarks</button>

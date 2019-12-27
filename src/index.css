@@ -180,9 +180,14 @@ a.btn.btn-danger:hover {
   width: 300px;
 }
 
+.btn-secondary {
+  width: 300px;
+}
+
 .btn-danger {
   background-color: #451562 !important;
   border: 1px solid white !important;
+  width: 300px;
 }
 
 .btn-dark {
@@ -471,8 +476,20 @@ a.btn.btn-danger:hover {
   width: 300px;
 }
 
-.successMessage {
+.uiMessage {
   font-size: 16px;
-  color: #009900;
+  color: #029691;
   width: 300px;
+}
+
+.deleteItemDialog {
+  height: auto;
+  z-index: 100;
+  border: none;
+  border-radius: 15px;
+  opacity: 80%;
+  background-color: black;
+  color: white;
+  margin: 0 auto;
+  position: fixed;
 }

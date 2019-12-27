@@ -78,8 +78,14 @@ class PersonalRecommendationForm extends Component {
       .then(res => {
         if(res ==="success") {
           this.setState({
-            username: "",
+            recipientUsername: "",
             message: "Recommendation Sent!"
+        });
+      }
+        else if(res ==="user not found") {
+          this.setState({
+            recipientUsername: "",
+            message: "User not found. Please try again."
         });
       }
     })
@@ -105,7 +111,7 @@ class PersonalRecommendationForm extends Component {
           <button>
             Send
           </button>
-          {this.state.message ? <p className="successMessage">{this.state.message}</p> : null}
+          {this.state.message ? <p className="uiMessage">{this.state.message}</p> : null}
         </span>
       </form>
       <Link className="btn btn-secondary" to="/">Return to Homepage</Link>

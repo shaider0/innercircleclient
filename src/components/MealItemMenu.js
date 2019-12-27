@@ -5,7 +5,8 @@ class MealItemMenu extends Component {
   constructor(props){
     super(props)
     this.state = {
-      showMenu: false
+      showMenu: false,
+      showDialog: false
     }
     this.toggleMenu = this.toggleMenu.bind(this)
     this.hideMenu = this.hideMenu.bind(this)
@@ -40,8 +41,26 @@ class MealItemMenu extends Component {
     this.hideMenu()
   }
 
+  showDialog = () => {
+    this.setState({
+      showMenu: false,
+      showDialog: true
+    })
+  }
+  hideDialog = () => {
+    this.setState({
+      showDialog: false
+    })
+  }
+
   render() {
+
     const { removeMeal, updateMeal, isCorrectUser, availableOn, impressions, status, mealId, userId, category, currentUser, name, restaurant, imageUrl } = this.props
+
+    const dialog =
+    <dialog className="deleteItemDialog" open={this.state.showDialog}>Are you sure you want to delete this?       <p><button className="btn btn-primary" onClick={removeMeal}>Yes, Delete Now</button></p>
+    <p><button className="btn btn-danger" onClick={this.hideDialog}>Nevermind</button></p>
+    </dialog>
 
     const personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 
@@ -65,7 +84,8 @@ class MealItemMenu extends Component {
           }}>
             Update
           </Link>
-          <Link to="#" onClick={removeMeal}>Delete</Link>
+          <Link to="#" onClick={this.showDialog}>Delete</Link>
+
         <Link to={{
           pathname: personalRecommendationUrl,
           state: {
@@ -75,6 +95,7 @@ class MealItemMenu extends Component {
             restaurant
           }}}>Recommend To A Friend</Link>
         </div>
+        {dialog}
       </div>
     )
     return isCorrectUser ? menu : (<div ref={node => this.node = node}></div>)

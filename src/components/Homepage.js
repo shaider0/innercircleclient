@@ -12,7 +12,7 @@ const Homepage = ({ currentUser }) => {
       <div className="home-hero">
         <h1>What's Happening?</h1>
         <h4>New to Inner Circle?</h4>
-        <Link to="/signup" className="btn btn-primary">
+        <Link to="/signup" className="btn btn-primary sign-up-button">
           Sign up here
         </Link>
       </div>

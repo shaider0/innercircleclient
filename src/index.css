@@ -493,3 +493,27 @@ a.btn.btn-danger:hover {
   margin: 0 auto;
   position: fixed;
 }
+
+
+.sign-up-button {
+  margin: 0 auto;
+}
+
+.settings {
+  margin: 0 auto;
+  width: 800px;
+  display: block;
+  text-align: center;
+}
+.changePasswordForm {
+  background: white;
+  width: 900px;
+  border-radius: 10px;
+  padding: 10px; 
+}
+
+.changePasswordForm input {
+  width: 300px;
+  margin: 10px auto;
+
+}

@@ -7,8 +7,7 @@ class AuthForm extends Component {
     this.state = {
       email: "",
       username: "",
-      password: "",
-      profileImageUrl: ""
+      password: ""
     };
   }
 

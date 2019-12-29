@@ -23,7 +23,6 @@ export function logout() {
 
 export function authUser(type, userData) {
   return dispatch => {
-    // wrap our thunk in a promise so we can wait for the API call
     return new Promise((resolve, reject) => {
       return apiCall("post", `/api/auth/${type}`, userData)
         .then(({ token, ...user }) => {
@@ -31,12 +30,21 @@ export function authUser(type, userData) {
           setAuthorizationToken(token);
           dispatch(setCurrentUser(user));
           dispatch(removeError());
-          resolve(); // indicate that the API call succeeded
+          resolve();
         })
         .catch(err => {
           dispatch(addError(err.message));
-          reject(); // indicate the API call failed
+          reject();
         });
     });
   };
+}
+
+export const changePassword = (props) => (dispatch, getState) => {
+  const { currentUser } = props
+  return apiCall("patch", `/api/auth/${currentUser}/change-password`, props)
+    .then(res => {
+      return res
+    })
+    .catch(err => addError(err.message));
 }

@@ -55,6 +55,18 @@ class MovieForm extends Component {
   };
 
   render() {
+    const { movies } = this.props
+    const movieTitles = movies.map(movie => {
+      return movie.title
+    })
+    let sortedMovies = movieTitles.sort((a, b) => (a > b) ? -1 : 1)
+    let uniqueMovies = [...new Set(sortedMovies)]
+    const moviesDataList = (
+      uniqueMovies.map(movie => {
+        return <option value={movie} key="movie"/>
+      })
+    )
+
     let handler = this.handleNewMovie
     let buttonText = "Add Movie"
     if(this.props.type === "update") {
@@ -76,7 +88,11 @@ class MovieForm extends Component {
           <option value="bookmark">Bookmark</option>
         </select>
         <h5>Enter Movie Information</h5>
+        <datalist id="movies">
+          {moviesDataList}
+        </datalist>
         <input
+          list="movies"
           required
           type="text"
           placeholder="Title"
@@ -116,6 +132,7 @@ class MovieForm extends Component {
           <option value="Showtime"/>
           <option value="Starz"/>
         </datalist>
+
         <button type="submit" className="btn btn-primary">
           {buttonText}
         </button>
@@ -127,7 +144,8 @@ class MovieForm extends Component {
 
 function mapStateToProps(state) {
   return {
-    errors: state.errors
+    errors: state.errors,
+    movies: state.movies
   };
 }
 

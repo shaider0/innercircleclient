@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom"
 import { updateDestination, postNewDestination } from "../store/actions/destinations";
 
 
@@ -16,14 +17,23 @@ class DestinationForm extends Component {
         impressions: "",
         image: null,
         status: "recommendation",
+        message: ""
       }
     }
+  }
+
+  resetMessage = () => {
+    this.setState({
+      message: ""
+    })
   }
 
   handleNewDestination = event => {
     event.preventDefault();
 
-    this.props.postNewDestination(this.state);
+  this.props.postNewDestination(this.state)
+    .then(res => {
+      if(res==="success") {
     this.setState({
       city: "",
       state: "",
@@ -31,23 +41,64 @@ class DestinationForm extends Component {
       impressions: "",
       image: null,
       status: "recommendation",
-    });
+      message: "Destination Successfully Added"
+        });
+      }
+    })
+    .then(setTimeout(this.resetMessage, 2200))
   };
 
   handleUpdatedDestination = event => {
     event.preventDefault();
-    this.props.updateDestination(this.state);
-    this.setState({
+    this.props.updateDestination(this.state)
+    .then(this.setState({
       city: "",
       state: "",
       country: "",
       impressions: "",
       image: null,
       status: "recommendation",
-    });
+    }))
+    .then(this.props.history.push("/"))
   };
 
   render() {
+
+    const { destinations } = this.props
+
+    const cities = destinations.map(destination => {
+      return destination.city
+    })
+    let sortedCities = cities.sort((a, b) => (a > b) ? -1 : 1)
+    let uniqueCities = [...new Set(sortedCities)]
+    const citiesDataList = (
+      uniqueCities.map(city => {
+        return <option value={city} key={city}/>
+      })
+    )
+
+    const states = destinations.map(destination => {
+      return destination.state
+    })
+    let sortedStates = states.sort((a, b) => (a > b) ? -1 : 1)
+    let uniqueStates = [...new Set(sortedStates)]
+    const statesDataList = (
+      uniqueStates.map(state => {
+        return <option value={state} key={state}/>
+      })
+    )
+
+    const countries = destinations.map(destination => {
+      return destination.country
+    })
+    let sortedCountries = countries.sort((a, b) => (a > b) ? -1 : 1)
+    let uniqueCountries = [...new Set(sortedCountries)]
+    const countriesDataList = (
+      uniqueCountries.map(country => {
+        return <option value={country} key={country}/>
+      })
+    )
+
     let handler = this.handleNewDestination
     let buttonText = "Add Destination"
     if(this.props.type === "update") {
@@ -71,8 +122,11 @@ class DestinationForm extends Component {
         </select>
 
         <h5>Enter Destination Information</h5>
-
+        <datalist id="cities">
+          {citiesDataList}
+        </datalist>
         <input
+          list="cities"
           required
           type="text"
           placeholder="City"
@@ -80,7 +134,11 @@ class DestinationForm extends Component {
           value={this.state.city}
           onChange={e => this.setState({ city: e.target.value })}
         />
+        <datalist id="states">
+          {statesDataList}
+        </datalist>
         <input
+          list="states"
           required
           type="text"
           placeholder="State"
@@ -88,7 +146,11 @@ class DestinationForm extends Component {
           value={this.state.state}
           onChange={e => this.setState({ state: e.target.value })}
         />
+        <datalist id="countries">
+          {countriesDataList}
+        </datalist>
         <input
+          list="countries"
           required
           type="text"
           placeholder="Country"
@@ -119,6 +181,7 @@ class DestinationForm extends Component {
         <button type="submit" className="btn btn-primary">
           {buttonText}
         </button>
+        {this.state.message ? <p className="uiMessage">{this.state.message}</p> : null}
       </form>
     );
   }
@@ -126,8 +189,9 @@ class DestinationForm extends Component {
 
 function mapStateToProps(state) {
   return {
-    errors: state.errors
+    errors: state.errors,
+    destinations: state.destinations
   };
 }
 
-export default connect(mapStateToProps, { postNewDestination, updateDestination })(DestinationForm);
+export default withRouter(connect(mapStateToProps, { postNewDestination, updateDestination })(DestinationForm));

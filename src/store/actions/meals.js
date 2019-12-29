@@ -64,6 +64,7 @@ export const updateMeal = props => (dispatch, getState) => {
         return apiCall("patch", `/api/users/${props.userId}/meals/${props.mealId}`, updatedMeal)
           .then(res => {
             dispatch(update(res));
+            return "success"
           })
           .catch(err => {
             dispatch(addError(err.message))

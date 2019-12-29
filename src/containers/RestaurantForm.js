@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom"
 import { updateRestaurant, postNewRestaurant } from "../store/actions/restaurants";
 
 
@@ -14,34 +15,61 @@ class RestaurantForm extends Component {
         impressions: "",
         image: null,
         status: "recommendation",
+        message: ""
       }
     }
+  }
+
+  resetMessage = () => {
+    this.setState({
+      message: ""
+    })
   }
 
   handleNewRestaurant = event => {
     event.preventDefault();
 
-    this.props.postNewRestaurant(this.state);
+    this.props.postNewRestaurant(this.state)
+    .then(res => {
+      if(res==="success") {
     this.setState({
       name: "",
       impressions: "",
       image: null,
       status: "recommendation",
-    });
-  };
+      message: "Restaurant Successfully Added"
+      });
+    }
+  })
+  .then(setTimeout(this.resetMessage, 2200))
+};
 
   handleUpdatedRestaurant = event => {
     event.preventDefault();
-    this.props.updateRestaurant(this.state);
-    this.setState({
+    this.props.updateRestaurant(this.state)
+    .then(this.setState({
       name: "",
       impressions: "",
       image: null,
       status: "recommendation",
-    });
+    }))
+    .then(this.props.history.push("/"))
   };
 
   render() {
+
+    const { restaurants } = this.props
+    const restaurantNames = restaurants.map(restaurant => {
+      return restaurant.name
+    })
+    let sortedRestaurants = restaurantNames.sort((a, b) => (a > b) ? -1 : 1)
+    let uniqueRestaurants = [...new Set(sortedRestaurants)]
+    const restaurantsDataList = (
+      uniqueRestaurants.map(restaurant => {
+        return <option value={restaurant} key={restaurant}/>
+      })
+    )
+
     let handler = this.handleNewRestaurant
     let buttonText = "Add Restaurant"
     if(this.props.type === "update") {
@@ -65,7 +93,11 @@ class RestaurantForm extends Component {
         </select>
 
         <h5>Enter Restaurant Information</h5>
+        <datalist id="restaurants">
+          {restaurantsDataList}
+        </datalist>
         <input
+          list="restaurants"
           required
           type="text"
           placeholder="Name"
@@ -96,6 +128,7 @@ class RestaurantForm extends Component {
         <button type="submit" className="btn btn-primary">
           {buttonText}
         </button>
+        {this.state.message ? <p className="uiMessage">{this.state.message}</p> : null}
       </form>
     );
   }
@@ -103,8 +136,9 @@ class RestaurantForm extends Component {
 
 function mapStateToProps(state) {
   return {
-    errors: state.errors
+    errors: state.errors,
+    restaurants: state.restaurants
   };
 }
 
-export default connect(mapStateToProps, { postNewRestaurant, updateRestaurant })(RestaurantForm);
+export default withRouter(connect(mapStateToProps, { postNewRestaurant, updateRestaurant })(RestaurantForm));

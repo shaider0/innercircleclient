@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom"
 import { updateMovie, postNewMovie } from "../store/actions/movies";
 
 class MovieForm extends Component {
@@ -44,13 +45,14 @@ class MovieForm extends Component {
 
   handleUpdatedMovie = event => {
     event.preventDefault();
-    this.props.updateMovie(this.state);
-    this.setState({
-      title: "",
-      availableOn: "",
-      impressions: "",
-      status: "",
-    });
+    this.props.updateMovie(this.state)
+      .then(this.setState({
+        title: "",
+        availableOn: "",
+        impressions: "",
+        status: "",
+      }))
+      .then(this.props.history.push("/"))
   };
 
   render() {
@@ -148,4 +150,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { postNewMovie, updateMovie })(MovieForm);
+export default withRouter(connect(mapStateToProps, { postNewMovie, updateMovie })(MovieForm));

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom"
 import { updateDiscovery, postNewDiscovery } from "../store/actions/discoveries";
 
 
@@ -13,29 +14,44 @@ class DiscoveryForm extends Component {
         description: "",
         image: null,
         status: "recommendation",
+        message: ""
       }
     }
+  }
+
+  resetMessage = () => {
+    this.setState({
+      message: ""
+    })
   }
 
   handleNewDiscovery = event => {
     event.preventDefault();
 
-    this.props.postNewDiscovery(this.state);
+    this.props.postNewDiscovery(this.state)
+    .then(res => {
+      if(res==="success") {
     this.setState({
       description: "",
       image: null,
       status: "recommendation",
+      message: "Discovery Successfully Added"
     });
+  }
+  })
+  .then(setTimeout(this.resetMessage, 2200))
   };
 
   handleUpdatedDiscovery = event => {
     event.preventDefault();
-    this.props.updateDiscovery(this.state);
-    this.setState({
-      description: "",
-      image: null,
-      status: "recommendation",
-    });
+    this.props.updateDiscovery(this.state)
+    .then(
+      this.setState({
+        description: "",
+        image: null,
+        status: "recommendation",
+      }))
+    .then(this.props.history.push("/"))
   };
 
   render() {
@@ -80,6 +96,7 @@ class DiscoveryForm extends Component {
         <button type="submit" className="btn btn-primary">
           {buttonText}
         </button>
+        {this.state.message ? <p className="uiMessage">{this.state.message}</p> : null}
       </form>
     );
   }
@@ -91,4 +108,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { postNewDiscovery, updateDiscovery })(DiscoveryForm);
+export default withRouter(connect(mapStateToProps, { postNewDiscovery, updateDiscovery })(DiscoveryForm));

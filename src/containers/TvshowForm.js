@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom"
 import { updateTvshow, postNewTvshow } from "../store/actions/tvshows";
 
 class TvshowForm extends Component {
@@ -44,13 +45,14 @@ class TvshowForm extends Component {
 
     handleUpdatedTvshow = event => {
       event.preventDefault();
-      this.props.updateTvshow(this.state);
-      this.setState({
+      this.props.updateTvshow(this.state)
+      .then(this.setState({
         title: "",
         availableOn: "",
         impressions: "",
         status: "",
-      });
+      }))
+      .then(this.props.history.push("/"))
     };
 
   render() {
@@ -135,6 +137,7 @@ class TvshowForm extends Component {
         <button type="submit" className="btn btn-primary">
           {buttonText}
         </button>
+        {this.state.message ? <p className="uiMessage">{this.state.message}</p> : null}
       </form>
     );
   }
@@ -147,4 +150,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { updateTvshow, postNewTvshow })(TvshowForm);
+export default withRouter(connect(mapStateToProps, { updateTvshow, postNewTvshow })(TvshowForm));

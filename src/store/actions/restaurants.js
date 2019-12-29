@@ -113,6 +113,7 @@ export const postNewRestaurant = newRestaurant => (dispatch, getState) => {
         return apiCall("post", `/api/users/${id}/restaurants`, newRestaurant)
           .then(res => {
             dispatch(addRestaurant(res))
+            return('success')
           })
           .catch(err => addError(err.restaurant));
       })

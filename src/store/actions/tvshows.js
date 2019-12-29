@@ -69,6 +69,7 @@ export const postNewTvshow = newTvshow => (dispatch, getState) => {
   return apiCall("post", `/api/users/${id}/tvshows`, newTvshow)
     .then(res => {
       dispatch(addTvshow(res))
+      return('success')
     })
     .catch(err => addError(err.tvshow));
 };

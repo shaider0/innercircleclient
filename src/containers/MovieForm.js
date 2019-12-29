@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateMovie, postNewMovie } from "../store/actions/movies";
 
-
 class MovieForm extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +35,7 @@ class MovieForm extends Component {
             availableOn: "",
             impressions: "",
             status: "recommendation",
-            message: "Movie Successfully added"
+            message: "Movie Successfully Added"
           });
         }
       })
@@ -63,7 +62,7 @@ class MovieForm extends Component {
     let uniqueMovies = [...new Set(sortedMovies)]
     const moviesDataList = (
       uniqueMovies.map(movie => {
-        return <option value={movie} key="movie"/>
+        return <option value={movie} key={movie}/>
       })
     )
 

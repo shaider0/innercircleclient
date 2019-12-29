@@ -113,6 +113,7 @@ export const postNewDiscovery = newDiscovery => (dispatch, getState) => {
         return apiCall("post", `/api/users/${id}/discoveries`, newDiscovery)
           .then(res => {
             dispatch(addDiscovery(res))
+            return('success')
           })
           .catch(err => addError(err.discovery));
       })
@@ -122,6 +123,7 @@ export const postNewDiscovery = newDiscovery => (dispatch, getState) => {
     return apiCall("post", `/api/users/${id}/discoveries`, newDiscovery)
       .then(res => {
         dispatch(addDiscovery(res))
+        return('success')
       })
       .catch(err => addError(err.discovery));
   }

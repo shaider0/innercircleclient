@@ -13,26 +13,38 @@ class TvshowForm extends Component {
         availableOn: "",
         impressions: "",
         status: "recommendation",
+        message: ""
       }
     }
+  }
+
+  resetMessage = () => {
+    this.setState({
+      message: ""
+    })
   }
 
   handleNewTvshow = event => {
     event.preventDefault();
 
-    this.props.postNewTvshow(this.state);
-    this.setState({
-      title: "",
-      availableOn: "",
-      impressions: "",
-      status: "recommendation",
-    });
-  };
+    this.props.postNewTvshow(this.state)
+      .then(res => {
+        if(res==="success") {
+          this.setState({
+            title: "",
+            availableOn: "",
+            impressions: "",
+            status: "recommendation",
+            message: "TV Show Successfully Added"
+          });
+        }
+      })
+      .then(setTimeout(this.resetMessage, 2200))
+    };
 
     handleUpdatedTvshow = event => {
       event.preventDefault();
       this.props.updateTvshow(this.state);
-
       this.setState({
         title: "",
         availableOn: "",
@@ -42,6 +54,19 @@ class TvshowForm extends Component {
     };
 
   render() {
+
+    const { tvshows } = this.props
+    const tvshowTitles = tvshows.map(tvshow => {
+      return tvshow.title
+    })
+    let sortedTvshows = tvshowTitles.sort((a, b) => (a > b) ? -1 : 1)
+    let uniqueTvshows = [...new Set(sortedTvshows)]
+    const tvshowsDataList = (
+      uniqueTvshows.map(tvshow => {
+        return <option value={tvshow} key={tvshow}/>
+      })
+    )
+
     let handler = this.handleNewTvshow
     let buttonText = "Add Show"
     if(this.props.type === "update") {
@@ -63,7 +88,11 @@ class TvshowForm extends Component {
             <option value="bookmark">Bookmark</option>
           </select>
         <h5>Enter Show Information</h5>
+        <datalist id="tvshows">
+          {tvshowsDataList}
+        </datalist>
         <input
+          list="tvshows"
           required
           type="text"
           placeholder="Title"
@@ -113,7 +142,8 @@ class TvshowForm extends Component {
 
 function mapStateToProps(state) {
   return {
-    errors: state.errors
+    errors: state.errors,
+    tvshows: state.tvshows
   };
 }
 

@@ -115,6 +115,7 @@ export const postNewDestination = newDestination => (dispatch, getState) => {
         return apiCall("post", `/api/users/${id}/destinations`, newDestination)
           .then(res => {
             dispatch(addDestination(res))
+            return('success')
           })
           .catch(err => addError(err.destination));
       })
@@ -124,6 +125,7 @@ export const postNewDestination = newDestination => (dispatch, getState) => {
     return apiCall("post", `/api/users/${id}/destinations`, newDestination)
       .then(res => {
         dispatch(addDestination(res))
+        return('success')
       })
       .catch(err => addError(err.destination));
   }

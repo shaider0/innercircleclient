@@ -114,6 +114,7 @@ export const postNewMeal = newMeal => (dispatch, getState) => {
         return apiCall("post", `/api/users/${id}/meals`, newMeal)
           .then(res => {
             dispatch(addMeal(res))
+            return('success')
           })
           .catch(err => addError(err.meal));
       })
@@ -123,6 +124,7 @@ export const postNewMeal = newMeal => (dispatch, getState) => {
     return apiCall("post", `/api/users/${id}/meals`, newMeal)
       .then(res => {
         dispatch(addMeal(res))
+        return('success')
       })
       .catch(err => addError(err.meal));
   }

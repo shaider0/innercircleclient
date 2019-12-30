@@ -7,9 +7,9 @@ const discovery = (state = [], action) => {
     case REMOVE_DISCOVERY:
       return (state.filter(discovery => discovery._id !== action.id))
     case ADD_DISCOVERY:
-      return [...action.discovery, ...state]
+      return [action.discovery, ...state]
     case UPDATE_DISCOVERY:
-      return [...action.discovery, state.filter(discovery => discovery._id !== action.id)]
+      return [action.discovery, state.filter(discovery => discovery._id !== action.id)]
     default:
       return state;
   }

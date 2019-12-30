@@ -7,9 +7,9 @@ const destination = (state = [], action) => {
     case REMOVE_DESTINATION:
       return (state.filter(destination => destination._id !== action.id))
     case ADD_DESTINATION:
-      return [...action.destination, ...state]
+      return [action.destination, ...state]
     case UPDATE_DESTINATION:
-      return [...action.destination, state.filter(destination => destination._id !== action.id)]
+      return [action.destination, state.filter(destination => destination._id !== action.id)]
     default:
       return state;
   }

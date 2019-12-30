@@ -63,6 +63,7 @@ export const updateMeal = props => (dispatch, getState) => {
         updatedMeal.imageUrl = url
         return apiCall("patch", `/api/users/${props.userId}/meals/${props.mealId}`, updatedMeal)
           .then(res => {
+            console.log('res is ', res)
             dispatch(update(res));
             return "success"
           })

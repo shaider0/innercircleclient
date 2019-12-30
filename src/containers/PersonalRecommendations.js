@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PersonalRecommendationItem from "../components/PersonalRecommendationItem"
 import { fetchPersonalRecommendations } from "../store/actions/personalRecommendations"
+import { Link } from "react-router-dom"
 
 
 class PersonalRecommendations extends Component {
@@ -16,7 +17,12 @@ class PersonalRecommendations extends Component {
   render(){
     const { personalRecommendations } = this.props
     if (personalRecommendations.length === 0) {
-      return <div className="personalRecMessage">No personalized recommendations at this time. Check back soon!</div>
+      return (
+        <div className="personalRecMessage">
+        <Link className="btn btn-secondary" to="/">Return to Homepage</Link>
+          <p>No personalized recommendations at this time. Check back soon!</p>
+        </div>
+      )
     }
     let sortedItems = personalRecommendations.sort((a, b) => (a.updatedAt > b.updatedAt) ? -1 : 1)
     let personalRecommendationsList = sortedItems.map(m => {
@@ -33,7 +39,8 @@ class PersonalRecommendations extends Component {
       )
     })
   return (
-    <div>
+    <div className="personalRecommendations">
+    <Link className="btn btn-secondary" to="/">Return to Homepage</Link>
       {personalRecommendationsList}
     </div>
   )

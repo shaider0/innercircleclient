@@ -8,7 +8,7 @@ export const submitFriendRequest = (requestorId, recipientId) => {
   return dispatch => {
     return apiCall("post", `/api/users/${requestorId}/friendRequests/${recipientId}`)
       .then(res => {
-        console.log('friend request created: ', res)
+        return("success")
       })
       .catch(err => {
         dispatch(addError(err.message))

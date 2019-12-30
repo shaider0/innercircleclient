@@ -7,9 +7,9 @@ const tvshow = (state = [], action) => {
     case REMOVE_TVSHOW:
       return state.filter(tvshow => tvshow._id !== action.id)
     case ADD_TVSHOW:
-      return [...action.tvshow, ...state]
+      return [action.tvshow, ...state]
     case UPDATE_TVSHOW:
-      return [...action.tvshow, state.filter(tvshow => tvshow._id !== action.id)]
+      return [action.tvshow, state.filter(tvshow => tvshow._id !== action.id)]
     default:
       return state;
   }

@@ -22,7 +22,8 @@ class Friends extends Component {
   render() {
     const { friends } = this.props
     return (
-      <div>
+      <div className="friends">
+      <Link className="btn btn-secondary" to="/">Return to Homepage</Link>
         <SearchForUserForm/>
         <FriendRequests />
         <div className="friendsList">

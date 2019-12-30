@@ -5,12 +5,15 @@ import { searchForUser } from "../store/actions/users"
 import { submitFriendRequest } from "../store/actions/friendRequests"
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 
+let result = ""
+
 class SearchForUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
-      currentUser: this.props.currentUser
+      currentUser: this.props.currentUser,
+      message: ""
     }
   }
 
@@ -19,12 +22,27 @@ class SearchForUser extends Component {
     this.props.searchForUser(this.state);
   };
 
+  resetMessage = () => {
+    this.setState({
+      message: ""
+    })
+  }
+
   handleFriendRequest = event => {
     event.preventDefault();
     const requestorId = this.props.currentUser.user.id
     const recipientId = this.props.user._id
     this.props.submitFriendRequest(requestorId, recipientId)
-  }
+      .then(res => {
+        if(res ==="success") {
+          this.setState({
+            username: "",
+            message: "Friend Request Sent"
+          });
+        }
+      })
+      .then(setTimeout(this.resetMessage, 2200))
+    };
 
   render() {
     const { user } = this.props
@@ -59,7 +77,7 @@ class SearchForUser extends Component {
           {user.user.username}
         </div>
     }
-    if (Object. keys(user).includes("username")) {
+    if (Object.keys(user).includes("username")) {
       result =
         <div>
           <img
@@ -94,6 +112,7 @@ class SearchForUser extends Component {
           </button>
         </form>
         {result}
+        {this.state.message}
       </div>
     );
   }

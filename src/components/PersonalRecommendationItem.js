@@ -25,7 +25,7 @@ class PersonalRecommendationItem extends Component {
     if (category === "Movie") {
       postNewMovie({title: item.title, status: "bookmark" })
     }
-    else if (category === "Tv show") {
+    else if (category === "Tvshow") {
       postNewTvshow({title: item.title, status: "bookmark" })
     }
     else if (category === "Meal") {
@@ -57,21 +57,21 @@ class PersonalRecommendationItem extends Component {
         icon: 'fas fa-film'
       })
     }
-    if (category === "Tv show") {
+    if (category === "Tvshow") {
       this.setState({
         message: `${sender.username} thinks you'll like watching the show ${item.title}`,
-        icon: 'fas fa-fv'
+        icon: 'fas fa-tv'
       })
     }
     if (category === "Meal") {
       this.setState({
-        message: `${sender.username} thinks you'll like watching the ${item.name} at ${item.restaurant}`,
+        message: `${sender.username} thinks you'll like eating the ${item.name} at ${item.restaurant}`,
         icon: 'fas fa-hamburger'
       })
     }
     if (category === "Restaurant") {
       this.setState({
-        message: `${sender.username} thinks you'll like eating the ${item.name} at ${item.restaurant}`,
+        message: `${sender.username} thinks you'll like eating at the restaurant ${item.name}`,
         icon: 'fas fa-utensils'
       })
     }

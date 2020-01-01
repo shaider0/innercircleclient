@@ -7,6 +7,9 @@ import { withRouter } from "react-router-dom"
 import { postNewMovie } from "../store/actions/movies"
 import { postNewTvshow } from "../store/actions/tvshows"
 import { postNewMeal } from "../store/actions/meals"
+import { postNewRestaurant } from "../store/actions/restaurants"
+import { postNewDiscovery } from "../store/actions/discoveries"
+import { postNewDestination } from "../store/actions/destinations"
 import { deletePersonalRecommendation } from "../store/actions/personalRecommendations"
 
 class PersonalRecommendationItem extends Component {
@@ -20,8 +23,8 @@ class PersonalRecommendationItem extends Component {
 
   handleAddToWatchList = event => {
     event.preventDefault()
-    const { postNewMovie, postNewTvshow, postNewMeal, sender, item, category } = this.props
-
+    const { postNewMovie, postNewTvshow, postNewMeal, postNewRestaurant, postNewDestination, postNewDiscovery, sender, item, category } = this.props
+    console.log("category is ", category)
     if (category === "Movie") {
       postNewMovie({title: item.title, status: "bookmark" })
     }
@@ -32,13 +35,13 @@ class PersonalRecommendationItem extends Component {
       postNewMeal({name: item.name, restaurant: item.restaurant, status: "bookmark" })
     }
     else if (category === "Restaurant") {
-      postNewMeal({name: item.name, status: "bookmark" })
+      postNewRestaurant({name: item.name, status: "bookmark" })
     }
     else if (category === "Destination") {
-      postNewMeal({city: item.city, state: item.state, country: item.country, status: "bookmark" })
+      postNewDestination({city: item.city, state: item.state, country: item.country, status: "bookmark" })
     }
     else if (category === "Discovery") {
-      postNewMeal({description: item.description, status: "bookmark" })
+      postNewDiscovery({description: item.description, status: "bookmark" })
     }
     this.handleDelete()
   }
@@ -120,4 +123,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { deletePersonalRecommendation, postNewMovie, postNewTvshow, postNewMeal })(PersonalRecommendationItem);
+export default connect(mapStateToProps, { deletePersonalRecommendation, postNewMovie, postNewTvshow, postNewMeal, postNewRestaurant, postNewDiscovery, postNewDestination })(PersonalRecommendationItem);

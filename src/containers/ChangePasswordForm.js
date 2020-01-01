@@ -32,7 +32,7 @@ class ChangePasswordForm extends Component {
         newPassword: "",
         newPasswordConfirmed: ""
       })
-      setTimeout(this.resetMessage, 3000)
+      setTimeout(this.resetMessage, 10000)
       return
     }
 
@@ -43,7 +43,7 @@ class ChangePasswordForm extends Component {
         newPassword: "",
         newPasswordConfirmed: ""
       })
-      setTimeout(this.resetMessage, 3000)
+      setTimeout(this.resetMessage, 10000)
       return
     }
 
@@ -56,7 +56,7 @@ class ChangePasswordForm extends Component {
             newPassword: "",
             newPasswordConfirmed: ""
           })
-          setTimeout(this.resetMessage, 3000)
+          setTimeout(this.resetMessage, 10000)
         }
         if (res === "Password Updated") {
           this.setState({
@@ -65,7 +65,7 @@ class ChangePasswordForm extends Component {
             newPassword: "",
             newPasswordConfirmed: ""
           })
-          setTimeout(this.resetMessage, 3000)
+          setTimeout(this.resetMessage, 10000)
         }
       })
   }

@@ -41,7 +41,7 @@ class SearchForUser extends Component {
           });
         }
       })
-      .then(setTimeout(this.resetMessage, 2200))
+      .then(setTimeout(this.resetMessage, 10000))
     };
 
   render() {

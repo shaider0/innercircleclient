@@ -50,6 +50,10 @@ class SearchForUser extends Component {
       displayedResult = ""
     }
 
+    if (user.message === "friend request already sent") {
+      displayedResult = <div>Friend request already sent</div>
+    }
+
     if (user.message === "user not found") {
       displayedResult = <div>User not found</div>
     }

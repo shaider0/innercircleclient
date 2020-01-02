@@ -1,6 +1,6 @@
 import { apiCall } from "../../services/api";
 import { addError } from "./errors";
-import { LOAD_FRIEND_REQUESTS_SENT, ADD_FRIEND_REQUEST_SENT } from "../actionTypes";
+import { LOAD_FRIEND_REQUESTS_SENT, ADD_FRIEND_REQUEST_SENT, REMOVE_FRIEND_REQUEST_SENT} from "../actionTypes";
 
 export const loadFriendRequestsSent = friendRequests => ({
   type: LOAD_FRIEND_REQUESTS_SENT,
@@ -12,6 +12,11 @@ export const addFriendRequestSent = friendRequest => ({
   friendRequest
 });
 
+export const removeFriendRequestSent = request => ({
+  type: REMOVE_FRIEND_REQUEST_SENT,
+  request
+});
+
 export const getFriendRequestsSent = (userId) => {
   return dispatch => {
     return apiCall("get", `/api/users/${userId}/friendRequestsSent`)
@@ -21,6 +26,18 @@ export const getFriendRequestsSent = (userId) => {
       })
       .catch(err => {
         dispatch(addError(err.message));
+      });
+  };
+};
+
+export const cancelFriendRequestSent = (user_id, request_id) => {
+  return dispatch => {
+    return apiCall("delete", `/api/users/${user_id}/friendRequestsSent/${request_id}`)
+      .then(() => {
+        dispatch(removeFriendRequestSent({id: request_id}))
+      })
+      .catch(err => {
+        addError(err.message);
       });
   };
 };

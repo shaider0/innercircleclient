@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 import { acceptFriendRequest, rejectFriendRequest, getFriendRequests } from "../store/actions/friendRequests"
-import { getFriendRequestsSent } from "../store/actions/friendRequestsSent"
+import { getFriendRequestsSent, cancelFriendRequestSent } from "../store/actions/friendRequestsSent"
 import { getFriends } from "../store/actions/friends"
+
 
 class FriendRequests extends Component {
   constructor(props) {
@@ -38,12 +39,19 @@ class FriendRequests extends Component {
     rejectFriendRequest(userId, requestId)
   }
 
+  handleCancel = (event) => {
+    event.preventDefault()
+    const userId = this.state.currentUser
+    const requestId = event.target.id
+    const { cancelFriendRequestSent, getFriendRequestsSent } = this.props
+    cancelFriendRequestSent(userId, requestId)
+  }
+
   render() {
     let receivedRequests
     let sentRequests
 
     const { friendRequests, friendRequestsSent } = this.props
-    console.log("friend requests are (to see id)", friendRequests)
     const noRequestsMessage = (
       <div>
         <p>None at this time.</p>
@@ -85,6 +93,7 @@ class FriendRequests extends Component {
               className="timeline-image"/>
             {request.recipient.username}
             </p>
+            <button id={request._id} onClick={this.handleCancel} className="btn btn-primary">Cancel Request</button>
           </div>
         )
       })
@@ -118,4 +127,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getFriendRequests, acceptFriendRequest, rejectFriendRequest, getFriendRequestsSent, getFriends })(FriendRequests);
+export default connect(mapStateToProps, { getFriendRequests, acceptFriendRequest, rejectFriendRequest, getFriendRequestsSent, getFriends, cancelFriendRequestSent })(FriendRequests);

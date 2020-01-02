@@ -5,7 +5,7 @@ const friendRequests = (state = [], action) => {
     case LOAD_FRIEND_REQUESTS:
       return [...action.friendRequests]
     case REMOVE_FRIEND_REQUEST:
-      return (state.filter(request => request._id !== action._id))
+      return state.filter(request => request._id !== action.friendRequest._id)
     default:
       return state;
   }

@@ -5,21 +5,20 @@ import { searchForUser } from "../store/actions/users"
 import { submitFriendRequest } from "../store/actions/friendRequests"
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 
-let result = ""
+// this.state.user refers to the user being searched for
 
 class SearchForUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
-      currentUser: this.props.currentUser,
-      message: ""
+      currentUser: this.props.currentUser
     }
   }
 
-  handleSubmit = event => {
+  handleSearch = event => {
     event.preventDefault();
-    this.props.searchForUser(this.state);
+    this.props.searchForUser(this.state)
   };
 
   resetMessage = () => {
@@ -28,7 +27,7 @@ class SearchForUser extends Component {
     })
   }
 
-  handleFriendRequest = event => {
+  handleSubmitFriendRequest = event => {
     event.preventDefault();
     const requestorId = this.props.currentUser.user.id
     const recipientId = this.props.user._id
@@ -45,13 +44,18 @@ class SearchForUser extends Component {
     };
 
   render() {
-    const { user } = this.props
-    let result = <div></div>
-    if (user.message === "user not found") {
-      result = <div>User not found</div>
+    let user = this.props.user
+    let displayedResult
+    if (!user) {
+      displayedResult = ""
     }
+
+    if (user.message === "user not found") {
+      displayedResult = <div>User not found</div>
+    }
+
     if (user.message === "user is already a friend") {
-      result =
+      displayedResult =
         <div>
           <p>&#10004; Friends</p>
           <img
@@ -65,7 +69,7 @@ class SearchForUser extends Component {
         </div>
     }
     if (user.message === "this is you") {
-      result =
+      displayedResult =
         <div>
           <img
             src={user.user.profileImageUrl || DefaultProfileImg}
@@ -78,7 +82,7 @@ class SearchForUser extends Component {
         </div>
     }
     if (Object.keys(user).includes("username")) {
-      result =
+      displayedResult =
         <div>
           <img
             src={user.profileImageUrl || DefaultProfileImg}
@@ -88,14 +92,14 @@ class SearchForUser extends Component {
             className="timeline-image"
           />
           <p>{user.username}</p>
-          <button onClick={this.handleFriendRequest}className="btn btn-primary">Send Friend Request</button>
+          <button onClick={this.handleSubmitFriendRequest}className="btn btn-primary">Send Friend Request</button>
         </div>
     }
 
     return (
       <div className = "friendsSearch">
         <h3>Friends Search</h3>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSearch}>
           {this.props.errors.message && (
             <div className="alert alert-danger">{this.props.errors.message}</div>
           )}
@@ -111,7 +115,7 @@ class SearchForUser extends Component {
             Search
           </button>
         </form>
-        {result}
+        {displayedResult}
         {this.state.message}
       </div>
     );

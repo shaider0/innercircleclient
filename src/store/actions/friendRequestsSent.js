@@ -33,8 +33,8 @@ export const getFriendRequestsSent = (userId) => {
 export const cancelFriendRequestSent = (user_id, request_id) => {
   return dispatch => {
     return apiCall("delete", `/api/users/${user_id}/friendRequestsSent/${request_id}`)
-      .then(() => {
-        dispatch(removeFriendRequestSent({id: request_id}))
+      .then(cancelledRequest => {
+        dispatch(removeFriendRequestSent(cancelledRequest))
       })
       .catch(err => {
         addError(err.message);

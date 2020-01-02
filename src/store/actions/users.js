@@ -1,9 +1,14 @@
 import { apiCall } from "../../services/api";
 import { addError } from "./errors";
-import { LOAD_USER } from "../actionTypes";
+import { LOAD_USER, REMOVE_USER } from "../actionTypes";
 
 export const loadUser = user => ({
   type: LOAD_USER,
+  user
+});
+
+export const removeUser = user => ({
+  type: REMOVE_USER,
   user
 });
 

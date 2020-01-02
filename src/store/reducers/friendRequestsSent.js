@@ -7,11 +7,7 @@ const friendRequestsSent = (state = [], action) => {
     case ADD_FRIEND_REQUEST_SENT:
       return [action.friendRequest, ...state]
     case REMOVE_FRIEND_REQUEST_SENT:
-    return (
-      state.filter(request => {
-        request._id !== action.request.id
-      })
-    )
+    return state.filter(request => request._id !== action.request._id)
     default:
       return state;
   }

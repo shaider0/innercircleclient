@@ -5,7 +5,7 @@ const friends = (state = [], action) => {
     case LOAD_FRIENDS:
       return [...action.friends]
     case ADD_FRIEND:
-      return [...state, {id: action._id, username: action.username, profileImgUrl: action.profileImgUrl}]
+      return [...state, {id: action.friend._id, username: action.friend.username, profileImageUrl: action.friend.profileImageUrl}]
     default:
       return state;
   }

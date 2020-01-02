@@ -82,7 +82,7 @@ class SearchForUser extends Component {
             width="100"
             className="timeline-image"
           />
-          {user.user.username}
+          <Link to="/">{user.user.username}</Link>
         </div>
     }
     if (Object.keys(user).includes("username")) {

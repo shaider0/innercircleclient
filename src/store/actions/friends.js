@@ -1,6 +1,7 @@
 import { apiCall } from "../../services/api";
 import { addError } from "./errors";
-import { LOAD_FRIENDS, ADD_FRIEND } from "../actionTypes";
+import { LOAD_FRIENDS, ADD_FRIEND, REMOVE_FRIEND } from "../actionTypes";
+import { removeUser } from "./users"
 
 export const loadFriends = friends => ({
   type: LOAD_FRIENDS,
@@ -11,6 +12,13 @@ export const addFriend = friend => ({
   type: ADD_FRIEND,
   friend
 });
+
+export const removeFriend = friend => ({
+  type: REMOVE_FRIEND,
+  friend
+});
+
+
 
 export const getFriends = (user) => {
   return dispatch => {
@@ -23,3 +31,16 @@ export const getFriends = (user) => {
       })
   };
 };
+
+export const deleteFriend = (userId, friendId) => {
+  return dispatch => {
+    return apiCall("delete", `/api/users/${userId}/friends/${friendId}`)
+      .then(res => {
+      console.log('deleted friend request is', res)
+      dispatch(removeFriend({ _id: friendId }))
+      })
+      .catch(err => {
+        addError(err.message);
+      })
+  }
+}

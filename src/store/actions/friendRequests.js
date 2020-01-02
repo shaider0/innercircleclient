@@ -46,7 +46,6 @@ export const acceptFriendRequest = (user, request) => {
   return dispatch => {
     return apiCall("patch", `/api/users/${user}/friendRequests/${request}`, { status: 2 })
       .then((res) => {
-        console.log('res after accepting friend request is', res)
         dispatch(addFriend(res.requestor))
         dispatch(removeFriendRequest(res))
       })

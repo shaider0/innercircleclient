@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DefaultProfileImg from "../images/default-profile-image.jpg";
-import { getFriends } from "../store/actions/friends"
+import { getFriends, deleteFriend } from "../store/actions/friends"
 import FriendRequests from "./FriendRequests"
 import SearchForUserForm from "./SearchForUserForm"
 import { Link } from "react-router-dom"
@@ -19,6 +19,13 @@ class Friends extends Component {
     getFriends(this.state.currentUser)
   }
 
+  handleRemoveFriend = (event) => {
+    event.preventDefault()
+    const currentUserId = this.state.currentUser
+    const friendId = event.target.id
+    this.props.deleteFriend(currentUserId, friendId)
+  }
+
   render() {
     const { friends } = this.props
     console.log('friends are', friends)
@@ -34,6 +41,7 @@ class Friends extends Component {
             className="timeline-image"/>
             {friend.username}
         </p>
+        <button id={friend.id} onClick={this.handleRemoveFriend}>Remove Friend</button>
       </div>
       ))
 
@@ -59,4 +67,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getFriends })(Friends);
+export default connect(mapStateToProps, { getFriends, deleteFriend })(Friends);

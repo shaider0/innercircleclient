@@ -97,13 +97,13 @@ class FriendRequests extends Component {
         <h3>Friend Requests</h3>
 
         <div>
-          <h5>Sent Requests</h5>
-          {sentRequests ? sentRequests : noRequestsMessage}
+          <h4>Received Requests</h4>
+          {receivedRequests ? receivedRequests : noRequestsMessage}
         </div>
 
         <div>
-          <p>Received Requests</p>
-          {receivedRequests ? receivedRequests : noRequestsMessage}
+          <h4>Sent Requests</h4>
+          {sentRequests ? sentRequests : noRequestsMessage}
         </div>
 
       </div>

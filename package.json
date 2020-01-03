@@ -17,7 +17,6 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   },
-  "proxy": "https://mighty-brook-91967.herokuapp.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

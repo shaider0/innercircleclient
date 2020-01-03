@@ -8,9 +8,11 @@ export function setTokenHeader(token) {
   }
 }
 
+let api = "https://mighty-brook-91967.herokuapp.com/"
+
 export function apiCall(method, path, data) {
   return new Promise((resolve, reject) => {
-    return axios[method.toLowerCase()](path, data)
+    return axios[method.toLowerCase()](api + path, data)
       .then(res => {
         return resolve(res.data);
       })

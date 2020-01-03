@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom"
 import { searchForUser } from "../store/actions/users"
+import { removeUser } from "../store/actions/users"
 import { submitFriendRequest } from "../store/actions/friendRequests"
 import DefaultProfileImg from "../images/default-profile-image.jpg";
 
@@ -12,14 +13,74 @@ class SearchForUser extends Component {
     super(props);
     this.state = {
       username: "",
-      currentUser: this.props.currentUser
+      currentUser: this.props.currentUser,
+      displayedResult: ""
     }
   }
 
   handleSearch = event => {
     event.preventDefault();
     this.props.searchForUser(this.state)
-  };
+    .then(
+      (user) => {
+      if (user.message === "friend request already sent") {
+        this.setState({
+          displayedResult: (<div>Friend request already sent</div>)
+        })
+      }
+      if (user.message === "user not found") {
+        this.setState({
+          displayedResult: (<div>User not found</div>)
+        })
+      }
+      if (user.message === "user is already a friend") {
+        this.setState({
+          displayedResult: (<div>
+            <p>&#10004; Friends</p>
+            <img
+              src={user.user.profileImageUrl || DefaultProfileImg}
+              alt={user.user.username}
+              height="100"
+              width="100"
+              className="timeline-image"
+            />
+            {user.user.username}
+          </div>)
+        })
+      }
+      if (user.message === "this is you") {
+        this.setState({
+          displayedResult: (
+            <div>
+              <img
+                src={user.user.profileImageUrl || DefaultProfileImg}
+                alt={user.user.username}
+                height="100"
+                width="100"
+                className="timeline-image"
+              />
+              <Link to="/">{user.user.username}</Link>
+            </div>
+          )
+        })
+      }
+      if (Object.keys(user).includes("username")) {
+        this.setState({
+          displayedResult: (<div>
+            <img
+              src={user.profileImageUrl || DefaultProfileImg}
+              alt={user.username}
+              height="100"
+              width="100"
+              className="timeline-image"
+            />
+            <p>{user.username}</p>
+            <button onClick={this.handleSubmitFriendRequest}className="btn btn-primary">Send Friend Request</button>
+          </div>)
+        })
+      }
+    })
+  }
 
   resetMessage = () => {
     this.setState({
@@ -29,6 +90,7 @@ class SearchForUser extends Component {
 
   handleSubmitFriendRequest = event => {
     event.preventDefault();
+    const { removeUser } = this.props
     const requestorId = this.props.currentUser.user.id
     const recipientId = this.props.user._id
     this.props.submitFriendRequest(requestorId, recipientId)
@@ -40,65 +102,14 @@ class SearchForUser extends Component {
           });
         }
       })
+      .then(this.props.removeUser)
+      .then(this.setState({
+        displayedResult: ""
+      }))
       .then(setTimeout(this.resetMessage, 10000))
     };
 
   render() {
-    let user = this.props.user
-    let displayedResult
-    if (!user) {
-      displayedResult = ""
-    }
-
-    if (user.message === "friend request already sent") {
-      displayedResult = <div>Friend request already sent</div>
-    }
-
-    if (user.message === "user not found") {
-      displayedResult = <div>User not found</div>
-    }
-
-    if (user.message === "user is already a friend") {
-      displayedResult =
-        <div>
-          <p>&#10004; Friends</p>
-          <img
-            src={user.user.profileImageUrl || DefaultProfileImg}
-            alt={user.user.username}
-            height="100"
-            width="100"
-            className="timeline-image"
-          />
-          {user.user.username}
-        </div>
-    }
-    if (user.message === "this is you") {
-      displayedResult =
-        <div>
-          <img
-            src={user.user.profileImageUrl || DefaultProfileImg}
-            alt={user.user.username}
-            height="100"
-            width="100"
-            className="timeline-image"
-          />
-          <Link to="/">{user.user.username}</Link>
-        </div>
-    }
-    if (Object.keys(user).includes("username")) {
-      displayedResult =
-        <div>
-          <img
-            src={user.profileImageUrl || DefaultProfileImg}
-            alt={user.username}
-            height="100"
-            width="100"
-            className="timeline-image"
-          />
-          <p>{user.username}</p>
-          <button onClick={this.handleSubmitFriendRequest}className="btn btn-primary">Send Friend Request</button>
-        </div>
-    }
 
     return (
       <div className = "friendsSearch">
@@ -119,7 +130,7 @@ class SearchForUser extends Component {
             Search
           </button>
         </form>
-        {displayedResult}
+        {this.state.displayedResult}
         {this.state.message}
       </div>
     );
@@ -134,4 +145,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { searchForUser, submitFriendRequest })(SearchForUser);
+export default connect(mapStateToProps, { searchForUser, submitFriendRequest, removeUser })(SearchForUser);

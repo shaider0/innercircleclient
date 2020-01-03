@@ -17,6 +17,7 @@ export const searchForUser = (props) => {
     return apiCall("get", `/api/users/${props.currentUser.user.id}/potentialFriends/${props.username}`)
       .then(res => {
         dispatch(loadUser(res));
+        return res
       })
       .catch(err => {
         dispatch(addError(err.message))

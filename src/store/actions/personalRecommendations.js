@@ -25,6 +25,9 @@ export const postNewPersonalRecommendation = personalRecommendation => (dispatch
       if (res === 'user not found') {
         return res
       }
+      if (res === 'user not a friend') {
+        return res
+      }
       dispatch(addPersonalRecommendation(res))
       return('success')
     })

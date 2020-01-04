@@ -76,18 +76,28 @@ class PersonalRecommendationForm extends Component {
     event.preventDefault()
     this.props.postNewPersonalRecommendation(this.state)
       .then(res => {
+        console.log('res is', res)
+        return res
+      })
+      .then(res => {
         if(res ==="success") {
           this.setState({
             recipientUsername: "",
             message: "Recommendation Sent!"
         });
       }
-        else if(res ==="user not found") {
+        else if(res === "user not found") {
           this.setState({
             recipientUsername: "",
             message: "User not found. Please try again."
         });
       }
+        else if(res === "user not a friend") {
+          this.setState({
+            recipientUsername: "",
+            message: 'Please send the user a friend request before trying to send a recommendation.'
+          })
+        }
     })
     .then(setTimeout(this.resetMessage, 10000))
   }

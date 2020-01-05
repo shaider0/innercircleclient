@@ -486,6 +486,7 @@ a.btn.btn-danger:hover {
 
 .authForm {
   width: 300px;
+  margin: 0 auto;
 }
 
 .uiMessage {

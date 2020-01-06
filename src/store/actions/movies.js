@@ -51,6 +51,18 @@ export const updateMovie = (props) => {
   };
 };
 
+export const likeMovie = (userId, movieId) => {
+  return dispatch => {
+    return apiCall("patch", `/api/users/${userId}/movies/${movieId}/like`)
+      .then(res => {
+        console.log('server res is', res)
+      })
+      .catch(err => {
+        dispatch(addError(err.message))
+      })
+  }
+}
+
 export const fetchMovies = (userId) => {
   return dispatch => {
     return apiCall("get", `/api/users/${userId}/movies`)

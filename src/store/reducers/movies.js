@@ -9,7 +9,7 @@ const movie = (state = [], action) => {
     case ADD_MOVIE:
       return [action.movie, ...state]
     case UPDATE_MOVIE:
-      return [action.movie, state.filter(movie => movie._id !== action.id)]
+      return [action.movie, ...(state.filter(movie => movie._id !== action.movie._id))]
     default:
       return state;
   }

@@ -17,7 +17,7 @@ class MovieItem extends Component {
 
   toggleLike = event => {
     event.preventDefault()
-    this.props.likeMovie(this.props.userId, event.target.id)
+    this.props.likeMovie(this.props.currentUser, event.target.id)
   }
 
   render(){
@@ -29,6 +29,7 @@ class MovieItem extends Component {
     impressions,
     status,
     movieId,
+    likedBy,
     username,
     userId,
     removeMovie,
@@ -42,6 +43,17 @@ class MovieItem extends Component {
     if (status === "recommendation" && !!impressions) {
       impressionsjsx = (<p><em>"{impressions}"</em></p>)
     }
+
+    let likedByList = null
+    if (likedBy.length > 0) {
+      likedByList = likedBy.map(user => {
+        return <p>{user.username}</p>
+      })
+    }
+
+    let likeCount = likedBy.length
+
+    let likedStatus = !!likedBy.filter(user => user._id === currentUser).length
 
     return(
       <li className="list-group-item">
@@ -81,7 +93,10 @@ class MovieItem extends Component {
           <Moment className="text-muted itemDate" format="D MMM YYYY">
             {date}
           </Moment>
-          <i id={movieId} className="far fa-thumbs-up" onClick={this.toggleLike}></i>
+          <i id={movieId} className={"fas fa-hands-helping " + (likedStatus ? "liked" : null)} onClick={this.toggleLike}></i>
+          <div className="likeCount">
+            {likeCount > 0 ? likeCount : null}
+          </div>
         </div>
       </div>
       </li>

@@ -72,7 +72,6 @@ class RecommendationsFeedList extends Component{
 
     const { movies, removeMovie, updateMovie, tvshows, removeTvshow, updateTvshow, meals, removeMeal, updateMeal, restaurants, removeRestaurant, updateRestaurant, destinations, removeDestination, updateDestination, discoveries, removeDiscovery, updateDiscovery, currentUser } = this.props;
 
-// add destinations
     let items = [...movies, ...tvshows, ...meals, ...restaurants, ...destinations, ...discoveries ]
 
     if (!this.state.showMovies) {
@@ -166,6 +165,7 @@ class RecommendationsFeedList extends Component{
         status={m.status}
         movieId={m._id}
         username={m.user.username}
+        likedBy={m.likedBy}
         userId={m.user._id}
         profileImageUrl={m.user.profileImageUrl}
         removeMovie={removeMovie.bind(this, m.user._id, m._id)}

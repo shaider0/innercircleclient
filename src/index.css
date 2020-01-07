@@ -534,7 +534,15 @@ a.btn.btn-danger:hover {
 
 }
 
-.fa-thumbs-up {
+.fa-hands-helping {
   text-align: right;
   font-size: 20px;
+}
+
+.likeCount {
+  text-align: right;
+}
+
+.liked {
+  color: green;
 }

@@ -9,7 +9,7 @@ const restaurant = (state = [], action) => {
     case ADD_RESTAURANT:
       return [action.restaurant, ...state]
     case UPDATE_RESTAURANT:
-      return [action.restaurant, state.filter(restaurant => restaurant._id !== action.id)]
+      return [action.restaurant, ...(state.filter(restaurant => restaurant._id !== action.id))]
     default:
       return state;
   }

@@ -56,6 +56,7 @@ export const likeMovie = (userId, movieId) => {
     return apiCall("patch", `/api/users/${userId}/movies/${movieId}/like`)
       .then(res => {
         console.log('server res is', res)
+        dispatch(update(res))
       })
       .catch(err => {
         dispatch(addError(err.message))

@@ -8,8 +8,10 @@ html {
 }
 
 .navbar {
-  margin-bottom: 1rem;
   width: !important 100%;
+  display: flex;
+  background-image: linear-gradient(to right, #170b2e, #151515);
+  background-size: 100% 100%;
 }
 
 .navbar a {
@@ -23,10 +25,6 @@ html {
   cursor: pointer;
 }
 
-.navbar {
-  display: flex;
-}
-
 .navbar-brand > img {
   width: 35px;
 }
@@ -37,11 +35,6 @@ ul.nav.navbar-nav li {
 
 .onboarding {
   background-color: rgb(234, 234, 234)
-}
-
-.onboarding > .navbar {
-  background-image: linear-gradient(to right, #170b2e, #151515);
-  background-size: 100% 100%;
 }
 
 .home-hero {
@@ -83,7 +76,7 @@ ul.nav.navbar-nav li {
 }
 
 @media (max-width: 1000px) {
-  .feedItem {
+  .list-group-item {
     width: 100%;
   }
 }
@@ -191,6 +184,7 @@ a.btn.btn-danger:hover {
 
 .btn-secondary {
   margin: 0 auto;
+  width: 300px;
 }
 
 .friends {
@@ -243,22 +237,6 @@ a.btn.btn-danger:hover {
   margin: 0 10px;
 }
 
-.profilePictureForm {
-  background-color: white;
-  width: 900px;
-  margin: 0 auto;
-  border-radius: 10px;
-}
-.profilePictureForm * {
-  display: block;
-  margin: 10px auto;
-  text-align: center;
-}
-
-.profilePictureForm img {
-  border: 6px solid #bbbbbb;
-  border-radius: 5px;
-}
 .friendRequests {
   background-color: white;
 }
@@ -390,7 +368,7 @@ a.btn.btn-danger:hover {
 }
 
 .createItemForm * {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .welcomeMessage {
@@ -421,6 +399,14 @@ a.btn.btn-danger:hover {
   justify-content: space-between;
   margin: 0 auto;
 }
+
+@media (max-width: 1000px) {
+  .feedButtons {
+    width: 100%;
+  }
+}
+
+
 .createNewButton {
   padding: 10px;
   border-radius: 5px;
@@ -510,7 +496,6 @@ a.btn.btn-danger:hover {
   position: fixed;
 }
 
-
 .sign-up-button {
   margin: 0 auto;
 }
@@ -521,11 +506,49 @@ a.btn.btn-danger:hover {
   display: block;
   text-align: center;
 }
+
+@media (max-width: 1000px) {
+  .settings {
+    width: 100%;
+  }
+}
+
+
+.profilePictureForm {
+  background-color: white;
+  width: 900px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 1000px) {
+  .profilePictureForm {
+    width: 100%;
+  }
+}
+
+.profilePictureForm * {
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.profilePictureForm img {
+  border: 6px solid #bbbbbb;
+  border-radius: 5px;
+}
+
 .changePasswordForm {
   background: white;
   width: 900px;
   border-radius: 10px;
   padding: 10px;
+}
+
+@media (max-width: 1000px) {
+  .changePasswordForm {
+    width: 100%;
+  }
 }
 
 .changePasswordForm input {

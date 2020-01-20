@@ -47,7 +47,6 @@ class Friends extends Component {
 
     return (
       <div className="friends">
-      <Link className="btn btn-secondary" to="/">Return to Homepage</Link>
         <SearchForUserForm/>
         <FriendRequests />
         <div className="friendsList">

@@ -19,7 +19,6 @@ class PersonalRecommendations extends Component {
     if (personalRecommendations.length === 0) {
       return (
         <div className="personalRecMessage">
-        <Link className="btn btn-secondary" to="/">Return to Homepage</Link>
           <p>No personalized recommendations at this time. Check back soon!</p>
         </div>
       )
@@ -40,7 +39,6 @@ class PersonalRecommendations extends Component {
     })
   return (
     <div className="personalRecommendations">
-    <Link className="btn btn-secondary" to="/">Return to Homepage</Link>
       {personalRecommendationsList}
     </div>
   )

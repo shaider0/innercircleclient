@@ -21,7 +21,7 @@ class RecommendationsFeedList extends Component{
     super(props);
 
     this.state = {
-      filterMenu: true,
+      filterMenu: false,
       showMovies: true,
       showMoviesOnly: false,
       showTvshows: true,
@@ -412,7 +412,7 @@ class RecommendationsFeedList extends Component{
           <Link to={`/users/${currentUser}/create-item`} className="createNewButton"><i className="fas fa-plus"></i>Create New</Link>
 
           <button className="searchButton" onClick={this.toggleFilterMenu}><i className="fas fa-search">
-            </i> Show/Hide Filters
+            </i> Filters &#9660;
           </button>
 
         </div>

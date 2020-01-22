@@ -32,7 +32,7 @@ class PersonalRecommendationForm extends Component {
       }
     }
 
-    if (category === "Meal") {
+    if (category === "meal") {
       this.state = {
         recipientUsername: "",
         customMessage: "",
@@ -44,7 +44,7 @@ class PersonalRecommendationForm extends Component {
       }
     }
 
-    if (category === "Restaurant") {
+    if (category === "restaurant") {
       this.state = {
         recipientUsername: "",
         customMessage: "",
@@ -55,7 +55,7 @@ class PersonalRecommendationForm extends Component {
       }
     }
 
-    if (category === "Destination") {
+    if (category === "destination") {
       this.state = {
         recipientUsername: "",
         customMessage: "",
@@ -68,7 +68,7 @@ class PersonalRecommendationForm extends Component {
       }
     }
 
-    if (category === "Discovery") {
+    if (category === "discovery") {
       this.state = {
         recipientUsername: "",
         customMessage: "",

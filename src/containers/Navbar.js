@@ -15,11 +15,13 @@ class Navbar extends Component {
     const { currentUser } = this.props;
     return (
       <nav className="navbar navbar-expand">
+        <Link to="/">
         <img
           src={Logo}
           width="35"
           display="stretch"
         />
+        </Link>
         <div className="container-fluid">
           <div className="navbar-header">
           </div>

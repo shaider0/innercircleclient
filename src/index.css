@@ -594,3 +594,7 @@ a.btn.btn-danger:hover {
 .liked {
   color: green;
 }
+
+.personalRecMessage {
+  height: 40px !important;
+}

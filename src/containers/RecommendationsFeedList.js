@@ -156,6 +156,7 @@ class RecommendationsFeedList extends Component{
       />)}
       else if (m.category === 'movie') {
       return (<MovieItem
+        movie={m}
         key={m._id}
         date={m.updatedAt}
         category={m.category}

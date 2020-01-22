@@ -8,61 +8,74 @@ class PersonalRecommendationForm extends Component {
   constructor(props) {
     super(props);
     let { category, title, name, description, movieId, tvshowId, mealId, restaurant, restaurantId, destinationId, city, state, country, discoveryId } = this.props.location.state
-    category = category.charAt(0).toUpperCase() + category.substring(1)
-    console.log('cat is', category)
 
-    if (category === "Movie") {
+
+    if (category === "movie") {
       this.state = {
         recipientUsername: "",
-        description: title,
-        item: movieId,
-        category
+        customMessage: "",
+        title,
+        itemId: movieId,
+        category,
+        model: "Movie"
       }
     }
 
-    if (category === "Tv show") {
-      let categoryWithoutSpace = "Tvshow"
+    if (category === "tv show") {
       this.state = {
         recipientUsername: "",
-        description: title,
-        item: tvshowId,
-        category: categoryWithoutSpace
+        customMessage: "",
+        title,
+        itemId: tvshowId,
+        category,
+        model: "Tvshow"
       }
     }
 
     if (category === "Meal") {
       this.state = {
         recipientUsername: "",
-        description: `${name} at ${restaurant}`,
-        item: mealId,
-        category
+        customMessage: "",
+        name,
+        itemId: mealId,
+        restaurant,
+        category,
+        model: "Meal"
       }
     }
 
     if (category === "Restaurant") {
       this.state = {
         recipientUsername: "",
-        description: name,
-        item: restaurantId,
-        category
+        customMessage: "",
+        name,
+        itemId: restaurantId,
+        category,
+        model: "Restaurant"
       }
     }
 
     if (category === "Destination") {
       this.state = {
         recipientUsername: "",
-        description: `${city} ${state} ${country}`,
-        item: destinationId,
-        category
+        customMessage: "",
+        city,
+        state,
+        country,
+        itemId: destinationId,
+        category,
+        model: "Destination"
       }
     }
 
     if (category === "Discovery") {
       this.state = {
         recipientUsername: "",
+        customMessage: "",
         description,
-        item: discoveryId,
-        category
+        itemId: discoveryId,
+        category,
+        model: "Discovery"
       }
     }
   }
@@ -77,25 +90,27 @@ class PersonalRecommendationForm extends Component {
     event.preventDefault()
     this.props.postNewPersonalRecommendation(this.state)
       .then(res => {
-        console.log('res is', res)
         return res
       })
       .then(res => {
         if(res ==="success") {
           this.setState({
             recipientUsername: "",
+            customMessage: "",
             message: "Recommendation Sent!"
         });
       }
         else if(res === "user not found") {
           this.setState({
             recipientUsername: "",
+            customMessage: "",
             message: "User not found. Please try again."
         });
       }
         else if(res === "user not a friend") {
           this.setState({
             recipientUsername: "",
+            customMessage: "",
             message: 'Please send the user a friend request before trying to send a recommendation.'
           })
         }
@@ -104,20 +119,26 @@ class PersonalRecommendationForm extends Component {
   }
 
   render() {
+    const { name, title, city, state, country } = this.state
     return (
       <form onSubmit={this.handleNewPersonalRecommendation} className="personalRecommendationForm">
-        <p>Send a Personal Recommendation To A Friend</p>
+        <p>Recommend {name || title || city || state || country} To A Friend</p>
         <label>To: </label>
         <span>
           <input
             type="text"
-            placeholder="username"
+            placeholder="Username"
             value={this.state.recipientUsername}
             onChange={e => this.setState({ recipientUsername: e.target.value })}
             className="form-control"
           />
-          <label>Recommendation: </label>
-          <p>{this.state.category}:   {this.state.description}</p>
+          <input
+            type="textarea"
+            placeholder="Optional - include a message"
+            value={this.state.customMessage}
+            onChange={e => this.setState({ customMessage: e.target.value })}
+            className="form-control personalRecMessage"
+          />
           <button className="btn btn-primary">
             Send
           </button>

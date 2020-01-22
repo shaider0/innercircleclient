@@ -23,24 +23,25 @@ class PersonalRecommendationItem extends Component {
 
   handleAddToWatchList = event => {
     event.preventDefault()
-    const { postNewMovie, postNewTvshow, postNewMeal, postNewRestaurant, postNewDestination, postNewDiscovery, sender, item, category } = this.props
-    console.log("category is ", category)
-    if (category === "Movie") {
+    const { postNewMovie, postNewTvshow, postNewMeal, postNewRestaurant, postNewDestination, postNewDiscovery, sender, item} = this.props
+    const category = item.category
+
+    if (category === "movie") {
       postNewMovie({title: item.title, status: "bookmark" })
     }
-    else if (category === "Tvshow") {
+    else if (category === "tv show") {
       postNewTvshow({title: item.title, status: "bookmark" })
     }
-    else if (category === "Meal") {
+    else if (category === "meal") {
       postNewMeal({name: item.name, restaurant: item.restaurant, status: "bookmark" })
     }
-    else if (category === "Restaurant") {
+    else if (category === "restaurant") {
       postNewRestaurant({name: item.name, status: "bookmark" })
     }
-    else if (category === "Destination") {
+    else if (category === "destination") {
       postNewDestination({city: item.city, state: item.state, country: item.country, status: "bookmark" })
     }
-    else if (category === "Discovery") {
+    else if (category === "discovery") {
       postNewDiscovery({description: item.description, status: "bookmark" })
     }
     this.handleDelete()
@@ -53,50 +54,58 @@ class PersonalRecommendationItem extends Component {
   };
 
   componentDidMount(){
-    const { sender, item, category } = this.props
-    if (category === "Movie") {
+    const { sender, item, customMessage } = this.props
+    const category = item.category
+    if (category === "movie") {
       this.setState({
         message: `${sender.username} thinks you'll like the movie ${item.title}`,
-        icon: 'fas fa-film'
+        icon: 'fas fa-film',
+        customMessage: `${customMessage}`
       })
     }
-    if (category === "Tvshow") {
+    if (category === "tv show") {
       this.setState({
         message: `${sender.username} thinks you'll like watching the show ${item.title}`,
-        icon: 'fas fa-tv'
+        icon: 'fas fa-tv',
+        customMessage: `${customMessage}`
       })
     }
-    if (category === "Meal") {
+    if (category === "meal") {
       this.setState({
         message: `${sender.username} thinks you'll like eating the ${item.name} at ${item.restaurant}`,
-        icon: 'fas fa-hamburger'
+        icon: 'fas fa-hamburger',
+        customMessage: `${customMessage}`
       })
     }
-    if (category === "Restaurant") {
+    if (category === "restaurant") {
       this.setState({
         message: `${sender.username} thinks you'll like eating at the restaurant ${item.name}`,
-        icon: 'fas fa-utensils'
+        icon: 'fas fa-utensils',
+        customMessage: `${customMessage}`
       })
     }
-    if (category === "Destination") {
+    if (category === "destination") {
       this.setState({
         message: `${sender.username} thinks you'll like visiting ${item.city}, ${item.state}, ${item.country}`,
-        icon: 'fas fa-plane'
+        icon: 'fas fa-plane',
+        customMessage: `${customMessage}`
       })
     }
-    if (category === "Discovery") {
+    if (category === "discovery") {
       this.setState({
         message: `${sender.username} thought you'd like to know about a recent discovery:  ${item.description}`,
-        icon: 'fas fa-lightbulb'
+        icon: 'fas fa-lightbulb',
+        customMessage: `${customMessage}`
       })
     }
   }
 
   render() {
     let message=""
-    const { date, sender, item} = this.props
+    const { date, sender, item } = this.props
     const category = item.category
     console.log('sender is', sender)
+    console.log('item is', item)
     return (
       <div className="personalRecommendationItem">
         <p>
@@ -107,6 +116,7 @@ class PersonalRecommendationItem extends Component {
         <i className={this.state.icon}></i>
         {sender.profileImageUrl ? <img className="timeline-image" src={sender.profileImageUrl}/> : null}
         <p>{this.state.message}</p>
+        <p>Message: <em>{this.state.customMessage}</em></p>
         <p>
           <button className="btn btn-primary" onClick={this.handleAddToWatchList}>Add To My Bookmarks</button>
           <button className="btn btn-danger" onClick={this.handleDelete}>Ignore</button>

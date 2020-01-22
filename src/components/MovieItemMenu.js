@@ -36,15 +36,12 @@ class MovieItemMenu extends Component {
     if (this.node.contains(e.target)) {
       return
     }
-
     this.hideMenu()
   }
 
   render() {
     const { removeMovie, updateMovie, isCorrectUser, title, availableOn, impressions, status, movieId, userId, category, currentUser } = this.props
-
     const personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
-
     const shown = "dropdown-content showMenu"
     const hidden = "dropdown-content"
     const menu = (

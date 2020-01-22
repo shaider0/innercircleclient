@@ -22,6 +22,7 @@ class MovieItem extends Component {
 
   render(){
     const {
+    movie,
     date,
     profileImageUrl,
     title,
@@ -78,6 +79,7 @@ class MovieItem extends Component {
 
         <div className="feedItemRight">
           <MovieItemMenu
+          movie={movie}
           removeMovie={removeMovie}
           updateMovie={updateMovie}
           isCorrectUser={isCorrectUser}

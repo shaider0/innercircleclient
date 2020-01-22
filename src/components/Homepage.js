@@ -10,14 +10,14 @@ const Homepage = ({ currentUser }) => {
       <div className="home-hero">
         <h1>Welcome to InnerCircle</h1>
         <br/>
-        <h4>Already with us? </h4>
+        <h4>Have an account?</h4>
         <Link to="/signin" className="btn btn-primary sign-up-button">
           Sign In
         </Link>
         <br/>
         <h4>First time? </h4>
         <Link to="/signup" className="btn btn-primary sign-up-button">
-          Sign Up Now
+          Sign Up
         </Link>
       </div>
     );

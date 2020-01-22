@@ -113,7 +113,7 @@ class SearchForUser extends Component {
 
     return (
       <div className = "friendsSearch">
-        <h5 className="centered-title">Friends Search</h5>
+        <h5 className="centered-title">Add Friends</h5>
         <form onSubmit={this.handleSearch}>
           {this.props.errors.message && (
             <div className="alert alert-danger">{this.props.errors.message}</div>

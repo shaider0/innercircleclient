@@ -534,7 +534,7 @@ a.btn.btn-danger:hover {
 .personalRecommendationForm {
   background-color: white;
   width: 500px;
-  margin: 10px auto;
+  margin: 0px auto;
   border-radius: 5px;
   padding: 10px;
 }

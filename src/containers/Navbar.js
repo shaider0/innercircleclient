@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
-import Logo from "../images/inner-circle-logo.png";
+import Logo from "../images/temp-logo.png";
 
 class Navbar extends Component {
   logout = e => {
@@ -15,6 +15,11 @@ class Navbar extends Component {
     const { currentUser } = this.props;
     return (
       <nav className="navbar navbar-expand">
+        <img
+          src={Logo}
+          width="35"
+          display="stretch"
+        />
         <div className="container-fluid">
           <div className="navbar-header">
           </div>

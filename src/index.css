@@ -10,7 +10,8 @@ html, .main {
 .navbar {
   width: !important 100%;
   display: flex;
-  background-image: linear-gradient(to right, #232323, #000000);
+  /* background-image: linear-gradient(to right, #232323, #000000); */
+  background-color: black;
   background-size: 100%;
 }
 

@@ -15,7 +15,7 @@ class Navbar extends Component {
     const { currentUser } = this.props;
     return (
       <nav className="navbar navbar-expand">
-        <Link to="/">
+        <Link to="/" className="logo">
         <img
           src={Logo}
           width="35"

@@ -93,7 +93,7 @@ class MealForm extends Component {
           <option value="recommendation">Recommendation</option>
           <option value="bookmark">Bookmark</option>
         </select>
-
+        <i className="fas fa-hamburger"></i>
         <h5>Enter Meal Information</h5>
         <datalist id="meals">
           {mealsDataList}

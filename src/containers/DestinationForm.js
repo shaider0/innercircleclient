@@ -120,7 +120,7 @@ class DestinationForm extends Component {
           <option value="recommendation">Recommendation</option>
           <option value="bookmark">Bookmark</option>
         </select>
-
+        <i className="fas fa-plane"></i>
         <h5>Enter Destination Information</h5>
         <datalist id="cities">
           {citiesDataList}

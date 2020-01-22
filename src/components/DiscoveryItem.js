@@ -26,7 +26,7 @@ const DiscoveryItem = ({
 let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 
 return (
-  <li className="list-group-item">
+  <li>
   <div className="feedItem">
     <div className="feedItemMain">
       {status==="recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i> }
@@ -38,7 +38,7 @@ return (
         width="100"
         className="timeline-image"
       />
-      <span>{username} recently discovered: 
+      <span>{username} recently discovered:
       </span>
       {description}
       {imageUrl ?  <img

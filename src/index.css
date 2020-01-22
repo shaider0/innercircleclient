@@ -4,14 +4,14 @@
 }
 
 html {
-  background-color: rgb(234, 234, 234)
+  background-image: linear-gradient(to right, #000000, #117764);
 }
 
 .navbar {
   width: !important 100%;
   display: flex;
-  background-image: linear-gradient(to right, #170b2e, #151515);
-  background-size: 100% 100%;
+  background-image: linear-gradient(to right, #232323, #000000);
+  background-size: 100%;
 }
 
 .navbar a {
@@ -33,10 +33,6 @@ ul.nav.navbar-nav li {
   margin: 0 0.5rem;
 }
 
-.onboarding {
-  background-color: rgb(234, 234, 234)
-}
-
 .home-hero {
   width: 100vw;
   height: 100vh;
@@ -45,7 +41,7 @@ ul.nav.navbar-nav li {
   left: 0;
   display: flex;
   flex-direction: column;
-  align-s: center;
+  align-self: center;
   justify-content: center;
   z-index: -1;
   text-align: center;
@@ -55,9 +51,23 @@ ul.nav.navbar-nav li {
   text-shadow: 0 0 8px #66757f;
 }
 
+.feed {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.feed ul {
+  list-style: none;
+  display: inline;
+}
+
 .feedItem {
   display: grid;
   grid-template-columns: 75% 25%;
+  padding: 10px;
+  margin: 10px auto;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 5px;
 }
 
 .feedItemMain i {
@@ -70,13 +80,9 @@ ul.nav.navbar-nav li {
   justify-content: space-between;
 }
 
-.list-group-item {
-  width: 900px;
-  margin: 5px auto;
-}
 
-@media (max-width: 1000px) {
-  .list-group-item {
+@media (max-width: 500px) {
+  .feed {
     width: 100%;
   }
 }
@@ -108,14 +114,16 @@ a.btn.btn-danger:hover {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .personalRecommendationItem {
   margin: 5px auto;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: white;
-  width: 900px;
 }
 
 .personalRecommendationItem * {
@@ -125,20 +133,24 @@ a.btn.btn-danger:hover {
 .createItemForm {
   margin: 5px auto;
   padding: 35px;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: rgb(253, 253, 254);
-  width: 900px;
+  width: 500px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .createItemForm {
     width: 100%;
   }
 }
 
 .recommendationsFeed {
-  border-radius: 10px;
-  background-color: rgb(253, 253, 254);
+  border-radius: 5px;
+  background-image: linear-gradient(to right, #000000, #117764);
+}
+
+.friends {
+  background-image: linear-gradient(to right, #000000, #117764);
 }
 
 .friendsSearch,
@@ -146,12 +158,12 @@ a.btn.btn-danger:hover {
 .friendsList {
   margin: 10px auto;
   padding: 35px;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: white;
-  width: 900px;
+  width: 500px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .friendsSearch,
   .friendRequests,
   .friendsList {
@@ -166,7 +178,7 @@ a.btn.btn-danger:hover {
 
 .profile-pic {
   width: 100px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .mealImage,
@@ -225,8 +237,14 @@ a.btn.btn-danger:hover {
 .filterMenu {
   text-align: left;
   margin: 15px auto;
-  width: 900px;
+  width: 500px;
   color: white;
+}
+
+@media (max-width: 500px) {
+  .filterMenu {
+    width: 100%;
+  }
 }
 
 .create-form {
@@ -239,14 +257,6 @@ a.btn.btn-danger:hover {
 
 .friendRequests {
   background-color: white;
-}
-
-.feed {
-  background-color: rgb(234, 234, 234);
-}
-
-.personalRecMessage {
-  text-align: center;
 }
 
 .ellipsis {
@@ -297,36 +307,45 @@ a.btn.btn-danger:hover {
   color: black;
 }
 
+.categoryFilters {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
 .friendFilter {
-  width: 900px;
-  background-color: #140f27;
+  background-color: rgba(0, 0, 0, 0.9);
   padding: 9px;
   margin-bottom: 2px;
   border-radius: 0;
 }
 
+.friendFilter input {
+  width: 100%;
+}
+
 .typeFilter {
-  width: 900px;
-  background-color: #0a1d4c;
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 10px;
   margin-bottom: 2px;
   border-radius: 0;
 }
 
 .includeFilter {
-  width: 900px;
-  background-color: #275186;
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 10px;
   margin-bottom: 2px;
   border-radius: 0;
 }
 
 .onlyFilter {
-  width: 900px;
-  background-color: #556188;
+  background-color: rgba(0, 0, 0, 0.2);
   padding: 10px;
   margin-bottom: 2px;
   border-radius: 0;
+}
+
+.onlyFilter div, .includeFilter div {
+  margin-bottom: 20px;
 }
 
 .fa-film {
@@ -373,16 +392,27 @@ a.btn.btn-danger:hover {
 
 .welcomeMessage {
   width: 900px;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: white;
   margin: 0 auto;
   padding: 10px;
 }
 
-.auth-form {
-  width: 400px;
+.auth {
+  background-image: linear-gradient(to right, #000000, #0d774b);
+}
+
+.authForm {
+  width: 500px;
   margin: 0 auto;
-  display: block;
+  background-color: rgba(234, 234, 234, 0.8);
+  padding: 10px;
+}
+
+@media (max-width: 500px) {
+  .authForm {
+    width: 100%;
+  }
 }
 
 .fa-plus {
@@ -394,45 +424,28 @@ a.btn.btn-danger:hover {
 }
 
 .feedButtons {
-  width: 900px;
+  width: 500px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0 auto;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 500px) {
   .feedButtons {
     width: 100%;
   }
 }
 
 
-.createNewButton {
+.btn-success {
+  width: 45%;
   padding: 10px;
-  border-radius: 5px;
-  background-color: rgb(21, 32, 43);
-  color: white;
-  font-size: 13px;
-  margin: 0 auto;
-  width: 200px;
-  text-align: center;
-  /* font-family: 'Archivo Black', sans-serif; */
+  border: 1px solid white !important;
+  background-color: black !important;
 }
 
-.createNewButton i, .searchButton i {
+.btn-success i {
   margin-right: 5px;
-}
-
-.searchButton {
-  padding: 10px;
-  border-radius: 5px;
-  background-color: rgb(21, 32, 43);
-  color: white;
-  font-size: 13px;
-  margin: 0 auto;
-  width: 200px;
-  text-align: center;
-  /* font-family: 'Archivo Black', sans-serif; */
 }
 
 .fa-home,
@@ -473,11 +486,6 @@ a.btn.btn-danger:hover {
   color: #eeeeee;
 }
 
-.authForm {
-  width: 300px;
-  margin: 0 auto;
-}
-
 .uiMessage {
   font-size: 16px;
   color: #029691;
@@ -500,29 +508,36 @@ a.btn.btn-danger:hover {
   margin: 0 auto;
 }
 
-.settings {
-  margin: 0 auto;
-  width: 800px;
-  display: block;
-  text-align: center;
+.personalRecommendationForm {
+  background-color: white;
+  width: 500px;
+  margin: 10px auto;
+  border-radius: 5px;
+  padding: 10px;
 }
 
-@media (max-width: 1000px) {
+.settings {
+  text-align: center;
+  background-image: linear-gradient(to right, #000000, #117764);
+}
+
+@media (max-width: 500px) {
   .settings {
     width: 100%;
   }
 }
 
 
-.profilePictureForm {
+.profilePictureForm, .changePasswordForm {
   background-color: white;
-  width: 900px;
-  margin: 0 auto;
-  border-radius: 10px;
+  width: 500px;
+  margin: 10px auto;
+  border-radius: 5px;
+  padding-bottom: 10px;
 }
 
-@media (max-width: 1000px) {
-  .profilePictureForm {
+@media (max-width: 500px) {
+  .profilePictureForm, .changePasswordForm {
     width: 100%;
   }
 }
@@ -536,19 +551,6 @@ a.btn.btn-danger:hover {
 .profilePictureForm img {
   border: 6px solid #bbbbbb;
   border-radius: 5px;
-}
-
-.changePasswordForm {
-  background: white;
-  width: 900px;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-@media (max-width: 1000px) {
-  .changePasswordForm {
-    width: 100%;
-  }
 }
 
 .changePasswordForm input {
@@ -568,4 +570,10 @@ a.btn.btn-danger:hover {
 
 .liked {
   color: green;
+}
+
+.recs {
+  background-color: red;
+  width: 500px;
+  margin: 0 auto;
 }

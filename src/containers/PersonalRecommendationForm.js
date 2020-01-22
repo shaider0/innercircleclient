@@ -104,9 +104,8 @@ class PersonalRecommendationForm extends Component {
 
   render() {
     return (
-      <div>
-      <form onSubmit={this.handleNewPersonalRecommendation}>
-        <h3>Send a Personal Recommendation To A Friend</h3>
+      <form onSubmit={this.handleNewPersonalRecommendation} className="personalRecommendationForm">
+        <p>Send a Personal Recommendation To A Friend</p>
         <label>To: </label>
         <span>
           <input
@@ -118,14 +117,12 @@ class PersonalRecommendationForm extends Component {
           />
           <label>Recommendation: </label>
           <p>{this.state.category}:   {this.state.description}</p>
-          <button>
+          <button className="btn btn-primary">
             Send
           </button>
           {this.state.message ? <p className="uiMessage">{this.state.message}</p> : null}
         </span>
       </form>
-      <Link className="btn btn-secondary" to="/">Return to Homepage</Link>
-      </div>
     )
   }
 }

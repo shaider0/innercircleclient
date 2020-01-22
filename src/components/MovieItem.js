@@ -56,7 +56,7 @@ class MovieItem extends Component {
     let likedStatus = !!likedBy.filter(user => user._id === currentUser).length
 
     return(
-      <li className="list-group-item">
+      <li>
 
       <div className="feedItem">
         <div className="feedItemMain">

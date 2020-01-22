@@ -89,6 +89,7 @@ class TvshowForm extends Component {
             <option value="recommendation">Recommendation</option>
             <option value="bookmark">Bookmark</option>
           </select>
+        <i className="fas fa-tv"></i>
         <h5>Enter Show Information</h5>
         <datalist id="tvshows">
           {tvshowsDataList}

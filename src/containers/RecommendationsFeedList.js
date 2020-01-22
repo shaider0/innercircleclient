@@ -287,138 +287,172 @@ class RecommendationsFeedList extends Component{
                 <i className="fas fa-bookmark"></i> Bookmarks
             </p>
 
-          <p className="includeFilter">
-          Include: (choose multiple)
-          <input
-            className="filterCheckbox"
-            type="checkbox"
-            onChange={this.handleInputChange}
-            name="showMovies"
-            checked={this.state.showMovies}
-            />
-          <i className="fas light fa-film"></i> Movies
-          <input
-            className="filterCheckbox"
-            type="checkbox"
-            onChange={this.handleInputChange}
-            name="showTvshows"
-            checked={this.state.showTvshows}
-            />
-          <i className="fas light fa-tv"></i> TV Shows
-          <input
-            className="filterCheckbox"
-            type="checkbox"
-            onChange={this.handleInputChange}
-            name="showRestaurants"
-            checked={this.state.showRestaurants}
-            />
-          <i className="fas light fa-utensils"></i> Restaurants
-          <input
-            className="filterCheckbox"
-            type="checkbox"
-            onChange={this.handleInputChange}
-            name="showMeals"
-            checked={this.state.showMeals}
-            />
-          <i className="fas light fa-hamburger"></i> Meals
-          <input
-            className="filterCheckbox"
-            type="checkbox"
-            onChange={this.handleInputChange}
-            name="showDestinations"
-            checked={this.state.showDestinations}
-            />
-          <i className="fas light fa-plane"></i> Destinations
 
-          <input
-            className="filterCheckbox"
-            type="checkbox"
-            onChange={this.handleInputChange}
-            name="showDiscoveries"
-            checked={this.state.showDiscoveries}
-            />
-          <i className="fas light fa-lightbulb"></i> Discoveries
-          </p>
+          <div className="categoryFilters">
 
+          <div className="includeFilter">
+            Include (choose multiple):
+            <br/>
 
-          <p className="onlyFilter">
-            <span>Show Only: (choose one)</span>
+            <div>
+              <input
+                className="filterCheckbox"
+                type="checkbox"
+                onChange={this.handleInputChange}
+                name="showMovies"
+                checked={this.state.showMovies}
+                />
+              <i className="fas light fa-film"></i> Movies
+            </div>
+
+            <div>
+              <input
+                className="filterCheckbox"
+                type="checkbox"
+                onChange={this.handleInputChange}
+                name="showTvshows"
+                checked={this.state.showTvshows}
+                />
+              <i className="fas light fa-tv"></i> TV Shows
+            </div>
+
+            <div>
             <input
               className="filterCheckbox"
               type="checkbox"
               onChange={this.handleInputChange}
-              name="showMoviesOnly"
-              checked={this.state.showMoviesOnly}
-              disabled={this.state.showTvshowsOnly || this.state.showMealsOnly || this.state.showRestaurantsOnly || this.state.showDestinationsOnly || this.state.showDiscoveriesOnly}
-              />
-            <i className="fas light fa-film"></i> Movies
-
-            <input
-              className="filterCheckbox"
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showTvshowsOnly"
-              checked={this.state.showTvshowsOnly}
-              disabled={this.state.showMoviesOnly || this.state.showMealsOnly || this.state.showRestaurantsOnly || this.state.showDestinationsOnly || this.state.showDiscoveriesOnly}
-              />
-            <i className="fas light fa-tv"></i> TV Shows
-
-            <input
-              className="filterCheckbox"
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showRestaurantsOnly"
-              checked={this.state.showRestaurantsOnly}
-              disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showMealsOnly || this.state.showDestinationsOnly || this.state.showDiscoveriesOnly}
+              name="showRestaurants"
+              checked={this.state.showRestaurants}
               />
             <i className="fas light fa-utensils"></i> Restaurants
+            </div>
 
-            <input
-              className="filterCheckbox"
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showMealsOnly"
-              checked={this.state.showMealsOnly}
-              disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showRestaurantsOnly || this.state.showDestinationsOnly || this.state.showDiscoveriesOnly}
-              />
-            <i className="fas light fa-hamburger"></i> Meals
-            <input
-              className="filterCheckbox"
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showDestinationsOnly"
-              checked={this.state.showDestinationsOnly}
-              disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showRestaurantsOnly || this.state.showMealsOnly || this.state.showDiscoveriesOnly}
-              />
-            <i className="fas light fa-plane"></i> Destinations
-            <input
-              className="filterCheckbox"
-              type="checkbox"
-              onChange={this.handleInputChange}
-              name="showDiscoveriesOnly"
-              checked={this.state.showDiscoveriesOnly}
-              disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showRestaurantsOnly || this.state.showMealsOnly || this.state.showDestinationsOnly}
-              />
-            <i className="fas light fa-lightbulb"></i> Discoveries
-          </p>
+            <div>
+              <input
+                className="filterCheckbox"
+                type="checkbox"
+                onChange={this.handleInputChange}
+                name="showMeals"
+                checked={this.state.showMeals}
+                />
+              <i className="fas light fa-hamburger"></i> Meals
+            </div>
 
+            <div>
+              <input
+                className="filterCheckbox"
+                type="checkbox"
+                onChange={this.handleInputChange}
+                name="showDestinations"
+                checked={this.state.showDestinations}
+                />
+              <i className="fas light fa-plane"></i> Destinations
+            </div>
+
+            <div>
+              <input
+                className="filterCheckbox"
+                type="checkbox"
+                onChange={this.handleInputChange}
+                name="showDiscoveries"
+                checked={this.state.showDiscoveries}
+                />
+              <i className="fas light fa-lightbulb"></i> Discoveries
+            </div>
+          </div>
+
+        <div className="onlyFilter">
+          <span>Show Only (choose one):</span>
+          <br/>
+
+          <div>
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showMoviesOnly"
+            checked={this.state.showMoviesOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMealsOnly || this.state.showRestaurantsOnly || this.state.showDestinationsOnly || this.state.showDiscoveriesOnly}
+            />
+          <i className="fas light fa-film"></i> Movies
+          </div>
+
+          <div>
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showTvshowsOnly"
+            checked={this.state.showTvshowsOnly}
+            disabled={this.state.showMoviesOnly || this.state.showMealsOnly || this.state.showRestaurantsOnly || this.state.showDestinationsOnly || this.state.showDiscoveriesOnly}
+            />
+          <i className="fas light fa-tv"></i> TV Shows
+          </div>
+
+          <div>
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showRestaurantsOnly"
+            checked={this.state.showRestaurantsOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showMealsOnly || this.state.showDestinationsOnly || this.state.showDiscoveriesOnly}
+            />
+          <i className="fas light fa-utensils"></i> Restaurants
+          </div>
+
+          <div>
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showMealsOnly"
+            checked={this.state.showMealsOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showRestaurantsOnly || this.state.showDestinationsOnly || this.state.showDiscoveriesOnly}
+            />
+          <i className="fas light fa-hamburger"></i> Meals
+          </div>
+          <div>
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showDestinationsOnly"
+            checked={this.state.showDestinationsOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showRestaurantsOnly || this.state.showMealsOnly || this.state.showDiscoveriesOnly}
+            />
+          <i className="fas light fa-plane"></i> Destinations
+          </div>
+          <div>
+          <input
+            className="filterCheckbox"
+            type="checkbox"
+            onChange={this.handleInputChange}
+            name="showDiscoveriesOnly"
+            checked={this.state.showDiscoveriesOnly}
+            disabled={this.state.showTvshowsOnly || this.state.showMoviesOnly || this.state.showRestaurantsOnly || this.state.showMealsOnly || this.state.showDestinationsOnly}
+            />
+          <i className="fas light fa-lightbulb"></i> Discoveries
+          </div>
         </div>
+      </div>
+    </div>
     )
     return (
       <div className="feed">
         <br/>
         <div className="feedButtons">
 
-          <Link to={`/users/${currentUser}/create-item`} className="createNewButton"><i className="fas fa-plus"></i>Create New</Link>
+          <Link to={`/users/${currentUser}/create-item`} className="btn btn-success"><i className="fas fa-plus"></i>Create New</Link>
 
-          <button className="searchButton" onClick={this.toggleFilterMenu}><i className="fas fa-search">
+          <button className="btn btn-success" onClick={this.toggleFilterMenu}><i className="fas fa-search">
             </i> Filters &#9660;
           </button>
 
         </div>
         {this.state.filterMenu ? filterMenu : null}
         <div>
-          <ul className="list-group">
+          <ul>
             {feedList}
           </ul>
         </div>

@@ -88,6 +88,7 @@ class MovieForm extends Component {
           <option value="recommendation">Recommendation</option>
           <option value="bookmark">Bookmark</option>
         </select>
+        <i className="fas fa-film"></i>
         <h5>Enter Movie Information</h5>
         <datalist id="movies">
           {moviesDataList}

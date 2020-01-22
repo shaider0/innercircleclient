@@ -44,57 +44,53 @@ class AuthForm extends Component {
     });
 
     return (
-      <div>
-        <div className="row justify-content-md-center text-center">
-          <div className="authForm">
-            <form onSubmit={this.handleSubmit}>
-              <h2>{heading}</h2>
-              {errors.message && (
-                <div className="alert alert-danger">{errors.message}</div>
-              )}
-              <label htmlFor="email">E-mail</label>
-              <input
-                autoComplete="off"
-                className="form-control"
-                id="email"
-                name="email"
-                onChange={this.handleChange}
-                type="text"
-                value={email}
-              />
-              <label htmlFor="password">Password</label>
-              <input
-                autoComplete="off"
-                className="form-control"
-                id="password"
-                name="password"
-                onChange={this.handleChange}
-                type="password"
-                value={password}
-              />
-              {signUp && (
-                <div>
-                  <label htmlFor="username">Username</label>
-                  <input
-                    autoComplete="off"
-                    className="form-control"
-                    id="username"
-                    name="username"
-                    onChange={this.handleChange}
-                    type="text"
-                    value={username}
-                  />
-                </div>
-              )}
-              <button
-                type="submit"
-                className="btn btn-primary btn-block btn-md"
-              >
-                {buttonText}
-              </button>
-            </form>
+      <div className="auth">
+      <form onSubmit={this.handleSubmit} className="authForm">
+        <h2>{heading}</h2>
+        {errors.message && (
+          <div className="alert alert-danger">{errors.message}</div>
+        )}
+        <label htmlFor="email">E-mail</label>
+        <input
+          autoComplete="off"
+          className="form-control"
+          id="email"
+          name="email"
+          onChange={this.handleChange}
+          type="text"
+          value={email}
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          autoComplete="off"
+          className="form-control"
+          id="password"
+          name="password"
+          onChange={this.handleChange}
+          type="password"
+          value={password}
+        />
+        {signUp && (
+          <div>
+            <label htmlFor="username">Username</label>
+            <input
+              autoComplete="off"
+              className="form-control"
+              id="username"
+              name="username"
+              onChange={this.handleChange}
+              type="text"
+              value={username}
+            />
           </div>
-        </div>
+        )}
+        <button
+          type="submit"
+          className="btn btn-primary btn-block btn-md"
+        >
+          {buttonText}
+        </button>
+      </form>
       </div>
     );
   }

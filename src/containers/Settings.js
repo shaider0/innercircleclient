@@ -16,7 +16,7 @@ class Settings extends Component {
     console.log('user', currentUser.user.profileImageUrl)
     return (
       <div className="settings">
-        <h4>{currentUser.user.username}'s Settings</h4>
+        <h4 className="light">{currentUser.user.username}'s Settings</h4>
         <div className="profilePictureForm">
           <p>Set/Change Profile Picture</p>
           <img

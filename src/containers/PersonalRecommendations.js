@@ -16,13 +16,6 @@ class PersonalRecommendations extends Component {
   }
   render(){
     const { personalRecommendations } = this.props
-    if (personalRecommendations.length === 0) {
-      return (
-        <div className="personalRecMessage">
-          <p>No personalized recommendations at this time. Check back soon!</p>
-        </div>
-      )
-    }
     let sortedItems = personalRecommendations.sort((a, b) => (a.updatedAt > b.updatedAt) ? -1 : 1)
     let personalRecommendationsList = sortedItems.map(m => {
       return (
@@ -37,9 +30,12 @@ class PersonalRecommendations extends Component {
         </div>
       )
     })
+  let noRecsMessage = <p className="personalRecommendationsMessage">No personal recommendations at this time. Check back soon!</p>
   return (
-    <div className="personalRecommendations">
-      {personalRecommendationsList}
+    <div className="recs">
+      <div className="personalRecommendations">
+        {personalRecommendations.length === 0 ? noRecsMessage : personalRecommendationsList}
+      </div>
     </div>
   )
   }

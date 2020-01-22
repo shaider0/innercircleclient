@@ -45,6 +45,7 @@ class AuthForm extends Component {
 
     return (
       <div className="auth">
+
       <form onSubmit={this.handleSubmit} className="authForm">
         <h2>{heading}</h2>
         {errors.message && (
@@ -91,6 +92,7 @@ class AuthForm extends Component {
           {buttonText}
         </button>
       </form>
+      
       </div>
     );
   }

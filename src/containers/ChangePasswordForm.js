@@ -73,7 +73,7 @@ class ChangePasswordForm extends Component {
   render () {
     return (
       <form className="changePasswordForm" onSubmit={this.submitChangePassword}>
-      <p>Change your password</p>
+      <h5>Change your password</h5>
         <input
           required
           type="password"

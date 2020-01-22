@@ -94,16 +94,18 @@ class FriendRequests extends Component {
 
     return (
       <div className="friendRequests">
-        <h3>Friend Requests</h3>
-
+        <h5 className="centered-title">Friend Requests</h5>
+        <br/>
         <div>
-          <h4>Received</h4>
-          {receivedRequests ? receivedRequests : noRequestsMessage}
-        </div>
+          <div>
+            <h5>Received</h5>
+            {receivedRequests ? receivedRequests : noRequestsMessage}
+          </div>
 
-        <div>
-          <h4>Sent</h4>
-          {sentRequests ? sentRequests : noRequestsMessage}
+          <div>
+            <h5>Sent</h5>
+            {sentRequests ? sentRequests : noRequestsMessage}
+          </div>
         </div>
 
       </div>

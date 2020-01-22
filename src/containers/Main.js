@@ -22,7 +22,7 @@ import CreateItem from "./CreateItem"
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
   return (
-    <div>
+    <div className="main">
       <Switch>
         <Route
           exact
@@ -39,7 +39,7 @@ const Main = props => {
                 errors={errors}
                 onAuth={authUser}
                 buttonText="Log in"
-                heading="Welcome Back!"
+                heading="Welcome Back"
                 {...props}
               />
             );

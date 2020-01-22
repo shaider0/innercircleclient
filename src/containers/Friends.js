@@ -41,7 +41,7 @@ class Friends extends Component {
             className="timeline-image"/>
             {friend.username}
         </p>
-        <button id={friend.id} onClick={this.handleRemoveFriend}>Remove Friend</button>
+        <button className="btn btn-danger" id={friend.id} onClick={this.handleRemoveFriend}>Remove Friend</button>
       </div>
       ))
 
@@ -50,7 +50,7 @@ class Friends extends Component {
         <SearchForUserForm/>
         <FriendRequests />
         <div className="friendsList">
-          <h3>Friends List</h3>
+          <h5 className="centered-title">Friends List</h5>
           {friends.length === 0 ? <p>Get started by adding friends using the search tool above </p> : friendsList}
           </div>
       </div>

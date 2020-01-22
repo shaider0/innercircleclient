@@ -259,39 +259,48 @@ class RecommendationsFeedList extends Component{
 
     const filterMenu = (
       <div className="filterMenu">
-          <p className="friendFilter"><strong>Username: </strong>
+          <div className="friendFilter">
+          <h5>Username: </h5>
             <input
               type="text"
               onChange={this.handleInputChange}
               name="singleUserContent"
               value={this.state.singleUserContent}
               />
-          </p>
+          </div>
 
-            <p className="typeFilter">Type:
-              <input
-                className="filterCheckbox"
-                type="checkbox"
-                onChange={this.handleInputChange}
-                name="showRecommendations"
-                checked={this.state.showRecommendations}
+            <div className="typeFilter">
+              <h5>Types: </h5>
+
+              <div className="types">
+              <div>
+                <input
+                  className="filterCheckbox"
+                  type="checkbox"
+                  onChange={this.handleInputChange}
+                  name="showRecommendations"
+                  checked={this.state.showRecommendations}
                 />
                 <i className="fas fa-heart"></i> Recommendations
-              <input
-                className="filterCheckbox"
-                type="checkbox"
-                onChange={this.handleInputChange}
-                name="showBookmarks"
-                checked={this.state.showBookmarks}
+              </div>
+
+              <div>
+                <input
+                  className="filterCheckbox"
+                  type="checkbox"
+                  onChange={this.handleInputChange}
+                  name="showBookmarks"
+                  checked={this.state.showBookmarks}
                 />
                 <i className="fas fa-bookmark"></i> Bookmarks
-            </p>
-
+              </div>
+              </div>
+            </div>
 
           <div className="categoryFilters">
 
           <div className="includeFilter">
-            Include (choose multiple):
+            <h5>Include (choose multiple):</h5>
             <br/>
 
             <div>
@@ -362,7 +371,7 @@ class RecommendationsFeedList extends Component{
           </div>
 
         <div className="onlyFilter">
-          <span>Show Only (choose one):</span>
+          <h5>Show Only (choose one):</h5>
           <br/>
 
           <div>

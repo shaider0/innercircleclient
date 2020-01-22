@@ -30,12 +30,11 @@ class PersonalRecommendations extends Component {
         </div>
       )
     })
-  let noRecsMessage = <p className="personalRecommendationsMessage">No personal recommendations at this time. Check back soon!</p>
+  let noRecsMessage = <p className="personalRecommendationMessage">No personal recommendations at this time. Check back soon!</p>
+
   return (
-    <div className="recs">
-      <div className="personalRecommendations">
-        {personalRecommendations.length === 0 ? noRecsMessage : personalRecommendationsList}
-      </div>
+    <div className="personalRecommendations">
+      {personalRecommendations.length === 0 ? noRecsMessage : personalRecommendationsList}
     </div>
   )
   }

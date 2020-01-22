@@ -20,9 +20,12 @@ class UpdateDestinationForm extends Component {
 
   render() {
     return (
-      <DestinationForm
-        type="update" state={this.state}
-      />
+      <div className="update-form">
+      <h3>Update Item</h3>
+        <DestinationForm
+          type="update" state={this.state}
+        />
+      </div>
     );
   }
 }

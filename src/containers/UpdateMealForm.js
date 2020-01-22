@@ -19,9 +19,12 @@ class UpdateMealForm extends Component {
 
   render() {
     return (
+      <div className="update-form">
+      <h3>Update Item</h3>
       <MealForm
         type="update" state={this.state}
       />
+      </div>
     );
   }
 }

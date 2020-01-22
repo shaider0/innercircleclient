@@ -434,7 +434,7 @@ a.btn.btn-danger:hover {
 
 @media (max-width: 500px) {
   .authForm {
-    width: 100%;
+    width: 96%;
   }
 }
 
@@ -597,4 +597,17 @@ a.btn.btn-danger:hover {
 
 .personalRecMessage {
   height: 40px !important;
+}
+
+.update-form {
+  width: 500px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}
+
+@media (max-width: 500px) {
+  .update-form {
+    width: 100%;
+  }
 }

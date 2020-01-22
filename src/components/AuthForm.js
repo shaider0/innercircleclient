@@ -92,7 +92,7 @@ class AuthForm extends Component {
           {buttonText}
         </button>
       </form>
-      
+
       </div>
     );
   }

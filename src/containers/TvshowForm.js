@@ -76,7 +76,7 @@ class TvshowForm extends Component {
       handler = this.handleUpdatedTvshow
     }
     return (
-      <form onSubmit={handler}>
+      <form onSubmit={handler} className="tvshowForm">
         {this.props.errors.message && (
           <div className="alert alert-danger">{this.props.errors.message}</div>
         )}

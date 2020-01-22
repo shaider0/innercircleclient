@@ -8,10 +8,16 @@ const Homepage = ({ currentUser }) => {
   if (!currentUser.isAuthenticated) {
     return (
       <div className="home-hero">
-        <h1>What's Happening?</h1>
-        <h4>New to Inner Circle?</h4>
+        <h1>Welcome to InnerCircle</h1>
+        <br/>
+        <h4>Already with us? </h4>
+        <Link to="/signin" className="btn btn-primary sign-up-button">
+          Sign In
+        </Link>
+        <br/>
+        <h4>First time? </h4>
         <Link to="/signup" className="btn btn-primary sign-up-button">
-          Sign up here
+          Sign Up Now
         </Link>
       </div>
     );

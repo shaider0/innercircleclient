@@ -15,14 +15,14 @@ class Navbar extends Component {
     const { currentUser } = this.props;
     return (
       <nav className="navbar navbar-expand">
-        <Link to="/" className="logo">
+        <Link to="/">
         <img
+          className="logo"
           src={Logo}
           width="35"
           display="stretch"
         />
         </Link>
-        <p className="app-name">IC</p>
         <div className="container-fluid">
           <div className="navbar-header">
           </div>

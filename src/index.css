@@ -29,10 +29,13 @@ html, .main {
   display: none;
 }
 
+.logo {
+  width: 70px;
+}
+
 .logged-out-message {
   background-color: rgba(245, 245, 245, 0.95);
   width: 400px;
-  height: 250px;
   padding: 25px;
   border-radius: 25px;
   border: 10px solid #cbcbcb;
@@ -456,7 +459,7 @@ a.btn.btn-danger:hover {
 }
 
 .fa-plus {
-  color: #3ac8ff;
+  color: #ff4949;
 }
 
 .fa-search {

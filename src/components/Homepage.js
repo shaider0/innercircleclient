@@ -14,6 +14,7 @@ const Homepage = ({ currentUser }) => {
 
         <div class="logged-out-message">
           <h1>Welcome to InnerCircle!</h1>
+          <p>Use InnerCircle to share recommendations for movies, shows, books, and more with your closest friends.</p>
           <br/>
           <h4>Have an account?</h4>
           <Link to="/signin" className="btn btn-primary sign-up-button">

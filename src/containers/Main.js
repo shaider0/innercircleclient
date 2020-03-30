@@ -21,8 +21,9 @@ import CreateItem from "./CreateItem"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
+  console.log('users', currentUser)
   return (
-    <div className="main">
+    <div className={`main layout ${currentUser.isAuthenticated ? 'hide-background' : null} `}>
       <Switch>
         <Route
           exact
@@ -39,7 +40,7 @@ const Main = props => {
                 errors={errors}
                 onAuth={authUser}
                 buttonText="Sign in"
-                heading="Welcome Back"
+                heading="Welcome Back!"
                 {...props}
               />
             );
@@ -56,7 +57,7 @@ const Main = props => {
                 onAuth={authUser}
                 signUp
                 buttonText="Sign me up!"
-                heading="Sign Up For Inner Circle"
+                heading="Sign Up Now"
                 {...props}
               />
             );

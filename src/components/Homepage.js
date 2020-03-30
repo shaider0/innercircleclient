@@ -7,13 +7,13 @@ import WelcomeMessage from "./WelcomeMessage.js"
 const Homepage = ({ currentUser }) => {
   if (!currentUser.isAuthenticated) {
     return (
-      <div className="home-hero">
+      <div>
         <div>
           <img className="cover-image" src={require('../images/cover.jpg')}/>
         </div>
 
         <div class="logged-out-message">
-          <h1>Welcome to InnerCircle</h1>
+          <h1>Welcome to InnerCircle!</h1>
           <br/>
           <h4>Have an account?</h4>
           <Link to="/signin" className="btn btn-primary sign-up-button">
@@ -25,7 +25,7 @@ const Homepage = ({ currentUser }) => {
             Sign Up
           </Link>
         </div>
-        
+
       </div>
     );
   }

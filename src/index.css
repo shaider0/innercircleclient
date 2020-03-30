@@ -1,12 +1,58 @@
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 12px;
 }
 
+html, .main {
+  background-color: #efefef;
+}
+
+.layout {
+  height: 100vh;
+  text-align: center;
+  padding: 1rem;
+  color: #232323;
+  /* display: flex; */
+  /* justify-content: center; */
+  background-image: url("images/cover.jpg")
+}
+
+.hide-background {
+  background-image: none;
+  height: 100vh;
+  background-color: #cdcdcd;
+}
+
+.cover-image {
+  width: 500px;
+  border-radius: 25px;
+  display: none;
+}
+
+.logged-out-message {
+  background-color: rgba(245, 245, 245, 0.95);
+  width: 400px;
+  height: 250px;
+  padding: 25px;
+  border-radius: 25px;
+  border: 10px solid #cbcbcb;
+  margin: 20vh auto 0 auto;
+}
+
+.logged-out-message h1 {
+  font-family: 'Lato', sans-serif;
+}
+
+@media (max-width: 610px) {
+  .logged-out-message {
+    width: 100%;
+  }
+}
+
+/* NAVIGATION */
 .navbar {
   width: !important 100%;
   display: flex;
-  /* background-image: linear-gradient(to right, #232323, #000000); */
   background-color: black;
   background-size: 100%;
 }
@@ -30,15 +76,8 @@ ul.nav.navbar-nav li {
   margin: 0 0.5rem;
 }
 
-
-
-html, .main {
-  background-color: #efefef;
-}
-
 .feed {
   margin: 0 auto;
-  background-color: #efefef;
 }
 
 .feed ul {
@@ -50,9 +89,11 @@ html, .main {
   display: grid;
   grid-template-columns: 75% 25%;
   padding: 10px;
-  margin: 10px 100px;
     background-color: rgba(255, 255, 255, 0.75);
   border-radius: 5px;
+  border: 2px solid #b8b8b8;
+  width: 600px;
+  margin: 0 auto;
 }
 
 .feedItemMain i {
@@ -66,8 +107,8 @@ html, .main {
 }
 
 
-@media (max-width: 500px) {
-  .feed {
+@media (max-width: 800px) {
+  .feed, .feedItem {
     width: 100%;
   }
 }
@@ -402,9 +443,10 @@ a.btn.btn-danger:hover {
 .authForm {
   width: 500px;
   margin: 0 auto;
-  background-color: #b5b5b5cc;
-  padding: 10px;
-  border-radius: 5px;
+  background-color: rgba(245, 245, 245, 0.95);
+  padding: 40px;
+  border-radius: 25px;
+  border: 10px solid #cbcbcb;
 }
 
 @media (max-width: 500px) {
@@ -414,11 +456,11 @@ a.btn.btn-danger:hover {
 }
 
 .fa-plus {
-  color: #02afb1;
+  color: #3ac8ff;
 }
 
 .fa-search {
-  color: #d22e11;
+  color: #0fff00;
 }
 
 .feedButtons {
@@ -436,7 +478,7 @@ a.btn.btn-danger:hover {
 
 
 .btn-success {
-  width: 45%;
+  width: 30%;
   padding: 10px;
   border: 1px solid white !important;
   background-color: black !important;
@@ -530,7 +572,7 @@ a.btn.btn-danger:hover {
   width: 500px;
   margin: 10px auto;
   border-radius: 5px;
-  padding-bottom: 10px;
+  padding: 30px;
 }
 
 @media (max-width: 500px) {
@@ -586,35 +628,13 @@ a.btn.btn-danger:hover {
   }
 }
 
-.home-hero {
-  height: 100vh;
-  text-align: center;
-  padding: 1rem;
-  /* background-color: #efefef; */
-  color: #232323;
-  padding-top: 100px;
-  display: flex;
-  justify-content: center;
-  background-image: url("images/cover.jpg")
+.app-name {
+  color: #228270;
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+  padding-top: 10px;
 }
 
-.cover-image {
-  width: 500px;
-  border-radius: 25px;
-  display: none;
-}
-
-.logged-out-message {
-  background-color: #cccccc;
-  width: 400px;
-  height: 300px;
-  padding: 25px;
-  border-radius: 25px;
-  margin-left: 20px;
-}
-
-@media (max-width: 610px) {
-  .logged-out-message {
-    width: 100%;
-  }
+.btn {
+    border-radius: 25px !important;
 }

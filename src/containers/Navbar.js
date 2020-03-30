@@ -22,6 +22,7 @@ class Navbar extends Component {
           display="stretch"
         />
         </Link>
+        <p className="app-name">IC</p>
         <div className="container-fluid">
           <div className="navbar-header">
           </div>

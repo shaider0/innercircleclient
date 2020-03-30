@@ -3,10 +3,6 @@
   font-size: 12px;
 }
 
-html, .main {
-  background-image: linear-gradient(to right, #000000, #117764);
-}
-
 .navbar {
   width: !important 100%;
   display: flex;
@@ -34,27 +30,15 @@ ul.nav.navbar-nav li {
   margin: 0 0.5rem;
 }
 
-.home-hero {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  justify-content: center;
-  z-index: -1;
-  text-align: center;
-  padding: 1rem;
-  background-image: linear-gradient(to right, #000000, #117764);
-  color: #fff;
-  text-shadow: 0 0 8px #66757f;
+
+
+html, .main {
+  background-color: #efefef;
 }
 
 .feed {
-  width: 500px;
   margin: 0 auto;
+  background-color: #efefef;
 }
 
 .feed ul {
@@ -66,7 +50,7 @@ ul.nav.navbar-nav li {
   display: grid;
   grid-template-columns: 75% 25%;
   padding: 10px;
-  margin: 10px auto;
+  margin: 10px 100px;
     background-color: rgba(255, 255, 255, 0.75);
   border-radius: 5px;
 }
@@ -156,14 +140,6 @@ a.btn.btn-danger:hover {
   .createItemForm {
     width: 100%;
   }
-}
-
-.recommendationsFeed {
-  background-image: linear-gradient(to right, #000000, #117764);
-}
-
-.friends {
-  background-image: linear-gradient(to right, #000000, #117764);
 }
 
 .friendsSearch,
@@ -420,14 +396,13 @@ a.btn.btn-danger:hover {
 }
 
 .auth {
-  background-image: linear-gradient(to right, #000000, #117764);
   padding-top: 15vh;
 }
 
 .authForm {
   width: 500px;
   margin: 0 auto;
-  background-color: rgba(234, 234, 234, 0.8);
+  background-color: #b5b5b5cc;
   padding: 10px;
   border-radius: 5px;
 }
@@ -541,7 +516,6 @@ a.btn.btn-danger:hover {
 
 .settings {
   text-align: center;
-  background-image: linear-gradient(to right, #000000, #117764);
 }
 
 @media (max-width: 500px) {
@@ -608,6 +582,39 @@ a.btn.btn-danger:hover {
 
 @media (max-width: 500px) {
   .update-form {
+    width: 100%;
+  }
+}
+
+.home-hero {
+  height: 100vh;
+  text-align: center;
+  padding: 1rem;
+  /* background-color: #efefef; */
+  color: #232323;
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  background-image: url("images/cover.jpg")
+}
+
+.cover-image {
+  width: 500px;
+  border-radius: 25px;
+  display: none;
+}
+
+.logged-out-message {
+  background-color: #cccccc;
+  width: 400px;
+  height: 300px;
+  padding: 25px;
+  border-radius: 25px;
+  margin-left: 20px;
+}
+
+@media (max-width: 610px) {
+  .logged-out-message {
     width: 100%;
   }
 }

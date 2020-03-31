@@ -104,8 +104,6 @@ class PersonalRecommendationItem extends Component {
     let message=""
     const { date, sender, item } = this.props
     const category = item.category
-    console.log('sender is', sender)
-    console.log('item is', item)
     return (
       <div className="personalRecommendationItem">
         <p>

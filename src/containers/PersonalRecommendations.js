@@ -16,7 +16,6 @@ class PersonalRecommendations extends Component {
   }
   render(){
     const { personalRecommendations } = this.props
-    console.log('recommendations', personalRecommendations)
     let sortedItems = personalRecommendations.sort((a, b) => (a.updatedAt > b.updatedAt) ? -1 : 1)
     let personalRecommendationsList = sortedItems.map(m => {
       return (

@@ -36,7 +36,6 @@ export const deleteFriend = (userId, friendId) => {
   return dispatch => {
     return apiCall("delete", `/api/users/${userId}/friends/${friendId}`)
       .then(res => {
-      console.log('deleted friend request is', res)
       dispatch(removeFriend({ _id: friendId }))
       })
       .catch(err => {

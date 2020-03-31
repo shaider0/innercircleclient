@@ -21,7 +21,6 @@ import CreateItem from "./CreateItem"
 
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
-  console.log('users', currentUser)
   return (
     <div className={`main layout ${currentUser.isAuthenticated ? 'hide-background' : null} `}>
       <Switch>

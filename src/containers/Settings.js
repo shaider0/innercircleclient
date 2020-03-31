@@ -13,7 +13,6 @@ class Settings extends Component {
 
   render(){
     const { currentUser } = this.props
-    console.log('user', currentUser.user.profileImageUrl)
     return (
       <div className="settings">
         <h3 className="light">{currentUser.user.username}'s Settings</h3>

@@ -28,7 +28,6 @@ class Friends extends Component {
 
   render() {
     const { friends } = this.props
-    console.log('friends are', friends)
 
     let friendsList = friends.map(friend => (
       <div key={friend.id}>

@@ -21,7 +21,6 @@ export const getFriendRequestsSent = (userId) => {
   return dispatch => {
     return apiCall("get", `/api/users/${userId}/friendRequestsSent`)
       .then(res => {
-        console.log('friendrequestssentres', res)
         dispatch(loadFriendRequestsSent(res));
       })
       .catch(err => {

@@ -33,7 +33,6 @@ export const removeMovie = (user_id, movie_id) => {
 };
 
 export const updateMovie = (props) => {
-  console.log(props)
   const updatedMovie = {
     title: props.title,
     availableOn: props.availableOn,
@@ -55,7 +54,6 @@ export const likeMovie = (userId, movieId) => {
   return dispatch => {
     return apiCall("patch", `/api/users/${userId}/movies/${movieId}/like`)
       .then(res => {
-        console.log('server res is', res)
         dispatch(update(res))
       })
       .catch(err => {

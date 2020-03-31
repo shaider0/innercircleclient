@@ -31,7 +31,6 @@ export const submitFriendRequest = (requestorId, recipientId) => {
   return dispatch => {
     return apiCall("post", `/api/users/${requestorId}/friendRequests/${recipientId}`)
       .then(res => {
-        console.log('submitted friend request is', res)
         dispatch(addFriendRequestSent(res))
         dispatch(removeUser(res.recipient))
         return("success")

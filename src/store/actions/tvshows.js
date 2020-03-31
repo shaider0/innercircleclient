@@ -33,7 +33,6 @@ export const removeTvshow = (user_id, tvshow_id) => {
 };
 
 export const updateTvshow = (props) => {
-  console.log(props)
   const updatedTvshow = {
     title: props.title,
     availableOn: props.availableOn,

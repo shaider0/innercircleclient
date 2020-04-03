@@ -34,48 +34,49 @@ let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
 return (
   <li>
   <div className="feedItem">
-    <div className="feedItemMain">
-      {status==="recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i> }
-      <i className="fas fa-hamburger"></i>
-      <img
-        src={profileImageUrl || DefaultProfileImg}
-        alt={username}
-        height="100"
-        width="100"
-        className="timeline-image"
-      />
-
-      <span>{username} {
+    <MealItemMenu
+    removeMeal={removeMeal}
+    updateMeal={updateMeal}
+    isCorrectUser={isCorrectUser}
+    name={name}
+    restaurant={restaurant}
+    impressions={impressions}
+    status={status}
+    mealId={mealId}
+    userId={userId}
+    category={category}
+    currentUser={currentUser}
+    imageUrl={imageUrl}
+    />
+    <div>
+      <div className="post-header">
+        <span className="recbookicon">{status==="recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i> }</span>
+        <span className="caticon"><i className=" fas fa-hamburger"></i></span>
+        <img
+          src={profileImageUrl || DefaultProfileImg}
+          alt={username}
+          height="100"
+          width="100"
+          className="timeline-image"
+        />
+      </div>
+      <div class="post-title">{username} {
         status === "recommendation"? "recommends trying the " : "wants to try the "} {name}
-      </span>
+      </div>
       <span> at {restaurant}</span>
-      {impressionsjsx}
+      <div>{impressionsjsx}</div>
 
-      {imageUrl ?  <img
+      <div>{imageUrl ?  <img
         src={imageUrl || "#"}
         alt={username}
         className="mealImage"
       />
       : null
       }
+      </div>
     </div>
 
-    <div className="feedItemRight">
-      <MealItemMenu
-      removeMeal={removeMeal}
-      updateMeal={updateMeal}
-      isCorrectUser={isCorrectUser}
-      name={name}
-      restaurant={restaurant}
-      impressions={impressions}
-      status={status}
-      mealId={mealId}
-      userId={userId}
-      category={category}
-      currentUser={currentUser}
-      imageUrl={imageUrl}
-      />
-
+    <div>
       <Moment className="text-muted itemDate" format="D MMM YYYY">
         {date}
       </Moment>

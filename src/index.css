@@ -7,14 +7,18 @@ html, .main {
   background-color: #efefef;
 }
 
+.app {
+
+}
+
 .layout {
   height: 100vh;
   text-align: center;
   padding: 1rem;
   color: #232323;
-  /* display: flex; */
-  /* justify-content: center; */
-  background-image: url("images/cover.jpg")
+  background-image: url("images/cover.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .hide-background {
@@ -39,7 +43,7 @@ html, .main {
   padding: 25px;
   border-radius: 25px;
   border: 10px solid #cbcbcb;
-  margin: 20vh auto 0 auto;
+  margin: 50px auto 0 auto;
 }
 
 .logged-out-message h1 {
@@ -89,8 +93,6 @@ ul.nav.navbar-nav li {
 }
 
 .feedItem {
-  display: grid;
-  grid-template-columns: 75% 25%;
   padding: 10px;
     background-color: rgba(255, 255, 255, 0.75);
   border-radius: 5px;
@@ -223,7 +225,17 @@ a.btn.btn-danger:hover {
 .restaurantImage,
 .destinationImage {
   width: 400px;
-  display: block;
+  border: 1px solid #dddddd;
+  border-radius: 15px;
+}
+
+@media (max-width: 600px) {
+  .mealImage,
+  .restaurantImage,
+  .destinationImage {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 
 .btn-primary {
@@ -439,8 +451,14 @@ a.btn.btn-danger:hover {
   padding: 10px;
 }
 
+@media (max-width: 900px) {
+  .welcomeMessage {
+    width: 90vw;
+  }
+}
+
 .auth {
-  padding-top: 15vh;
+  padding-top: 50px;
 }
 
 .authForm {
@@ -641,3 +659,11 @@ a.btn.btn-danger:hover {
 .btn {
     border-radius: 25px !important;
 }
+
+.post-header {
+  display: flex;M
+}
+
+/* .recbookicon {
+  align-self: left;
+} */

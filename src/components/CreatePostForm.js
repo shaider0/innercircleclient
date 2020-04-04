@@ -100,7 +100,7 @@ class PostForm extends Component {
           <div className="alert alert-danger">{this.props.errors.message}</div>
         )}
 
-        <h5>What do you want to share?</h5>
+        <h5>Share something with your friends:</h5>
 
         <textarea
           required
@@ -111,7 +111,7 @@ class PostForm extends Component {
           onChange={e => this.setState({ content: e.target.value })}
         />
 
-        <h5>Upload a Photo: </h5>
+        <p>Optional - Upload a Photo:</p>
 
         <input
           type="file"

@@ -188,6 +188,11 @@ ul.nav.navbar-nav li {
   border-radius: 5px;
   background-color: rgb(253, 253, 254);
   width: 500px;
+  text-align: left;
+}
+
+.createItemForm * {
+  margin-bottom: 20px;
 }
 
 @media (max-width: 500px) {
@@ -530,4 +535,9 @@ a.btn.btn-danger:hover {
 
 .postContent {
   font-style: italic;
+}
+
+.postForm button {
+  display: block;
+  margin: 0 auto;
 }

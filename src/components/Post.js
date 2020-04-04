@@ -25,35 +25,49 @@ const Post = ({
     <li>
 
       <div className="post">
-        <p>{username}</p>
-        <p>{content}</p>
-        <img
-          src={profileImageUrl || DefaultProfileImg}
-          alt={username}
-          className="timeline-image"
-        />
-        {imageUrl ?  <img
-          src={imageUrl || "#"}
-          alt={username}
-          className="postImage"
-        /> : null
-        }
-        <PostMenu
-        removePost={removePost}
-        updatePost={updatePost}
-        isCorrectUser={isCorrectUser}
-        posts={posts}
-        postId={postId}
-        userId={userId}
-        currentUser={currentUser}
-        imageUrl={imageUrl}
-        />
 
-        <Moment className="text-muted itemDate" format="D MMM YYYY">
-          {date}
-        </Moment>
+        <div className="post-header">
+
+          <div>
+            <img
+              src={profileImageUrl || DefaultProfileImg}
+              alt={username}
+              className="timeline-image"
+            />
+            <span className="postUsername">{username}</span>
+          </div>
+
+          <div></div>
+
+          <div>
+            <PostMenu
+            removePost={removePost}
+            updatePost={updatePost}
+            isCorrectUser={isCorrectUser}
+            posts={posts}
+            postId={postId}
+            userId={userId}
+            currentUser={currentUser}
+            imageUrl={imageUrl}
+            />
+            <Moment className="postDate" format="D MMM YYYY">
+              {date}
+            </Moment>
+          </div>
+
+        </div>
+
+        <p className="postContent">"{content}"</p>
+
+        {imageUrl ?  <img
+        src={imageUrl || "#"}
+        alt={username}
+        className="postImage"
+      /> : null
+      }
 
       </div>
+
     </li>
   )
 }

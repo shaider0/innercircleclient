@@ -8,9 +8,6 @@ const Homepage = ({ currentUser }) => {
   if (!currentUser.isAuthenticated) {
     return (
       <div>
-        <div>
-          <img className="cover-image" src={require('../images/cover.jpg')}/>
-        </div>
 
         <div class="logged-out-message">
           <h1>Welcome to InnerCircle!</h1>

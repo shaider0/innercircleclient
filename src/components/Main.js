@@ -15,7 +15,7 @@ import Settings from "./Settings"
 const Main = props => {
   const { authUser, errors, removeError, currentUser } = props;
   return (
-    <div className={`main layout ${currentUser.isAuthenticated ? 'hide-background' : null} `}>
+    <div className={`layout ${currentUser.isAuthenticated ? 'hide-background' : null} `}>
       <Switch>
         <Route
           exact

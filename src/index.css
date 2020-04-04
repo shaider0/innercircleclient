@@ -7,6 +7,7 @@
 
 html {
   background-color: #efefef;
+  /* background-color: red; */
 }
 
 .layout {
@@ -22,7 +23,7 @@ html {
 .hide-background {
   background-image: none;
   height: 100vh;
-  background-color: #cdcdcd;
+  background-color: #efefef;
 }
 
 .logo {

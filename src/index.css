@@ -20,6 +20,12 @@ html {
   background-size: cover;
 }
 
+@media (max-width 500px) {
+  .layout {
+    width: 100%;
+  }
+}
+
 .hide-background {
   background-image: none;
   height: 100vh;
@@ -84,7 +90,6 @@ html {
 }
 
 .navbar {
-  width: !important 100%;
   display: flex;
   background-color: black;
   background-size: 100%;
@@ -94,6 +99,15 @@ html {
   font-weight: bold;
   color: white;
   font-size: 16px;
+}
+
+.navbar-right i {
+  font-size: 16px;
+  padding-right: 10px;
+}
+
+.fa-sign-out-alt {
+  color: white;
 }
 
 .navbar a:hover {
@@ -123,6 +137,7 @@ ul.nav.navbar-nav li {
 }
 
 /* Feed */
+
 .feed {
   margin: 0 auto;
 }
@@ -500,6 +515,9 @@ a.btn.btn-danger:hover {
 
 @media (max-width: 600px) {
   .postImage {
+    width: 85%;
+  }
+  .post {
     width: 90%;
   }
 }

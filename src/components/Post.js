@@ -43,10 +43,10 @@ const Post = ({
             removePost={removePost}
             updatePost={updatePost}
             isCorrectUser={isCorrectUser}
-            posts={posts}
             postId={postId}
             userId={userId}
             currentUser={currentUser}
+            content={content}
             imageUrl={imageUrl}
             />
             <Moment className="postDate" format="D MMM YYYY">

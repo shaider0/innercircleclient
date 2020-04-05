@@ -54,45 +54,13 @@ class PostForm extends Component {
 
     const { posts } = this.props
 
-    const cities = posts.map(post => {
-      return post.content
-    })
-    let sortedCities = cities.sort((a, b) => (a > b) ? -1 : 1)
-    let uniqueCities = [...new Set(sortedCities)]
-    const citiesDataList = (
-      uniqueCities.map(city => {
-        return <option value={city} key={city}/>
-      })
-    )
-
-    const states = posts.map(post => {
-      return post.state
-    })
-    let sortedStates = states.sort((a, b) => (a > b) ? -1 : 1)
-    let uniqueStates = [...new Set(sortedStates)]
-    const statesDataList = (
-      uniqueStates.map(state => {
-        return <option value={state} key={state}/>
-      })
-    )
-
-    const countries = posts.map(post => {
-      return post.country
-    })
-    let sortedCountries = countries.sort((a, b) => (a > b) ? -1 : 1)
-    let uniqueCountries = [...new Set(sortedCountries)]
-    const countriesDataList = (
-      uniqueCountries.map(country => {
-        return <option value={country} key={country}/>
-      })
-    )
-
     let handler = this.handleNewPost
     let buttonText = "Add Post"
     if(this.props.type === "update") {
       buttonText = "Save Updates"
       handler = this.handleUpdatedPost
     }
+
     return (
       <form className="postForm" onSubmit={handler}>
 

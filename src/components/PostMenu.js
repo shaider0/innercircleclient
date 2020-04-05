@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 
-class DestinationItemMenu extends Component {
+class PostMenu extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -41,9 +41,7 @@ class DestinationItemMenu extends Component {
   }
 
   render() {
-    const { removeDestination, updateDestination, isCorrectUser, availableOn, impressions, status, destinationId, userId, category, currentUser, city, state, country, destination, imageUrl } = this.props
-
-    const personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
+    const { removePost, updatePost, isCorrectUser, availableOn, impressions, status, postId, userId, currentUser, post, content, imageUrl } = this.props
 
     const shown = "dropdown-content showMenu"
     const hidden = "dropdown-content"
@@ -52,30 +50,17 @@ class DestinationItemMenu extends Component {
         <button onClick={this.toggleMenu} className="dropbtn"><i className="ellipsis fas fa-ellipsis-h"></i></button>
         <div className={this.state.showMenu ? shown : hidden}>
           <Link to={{
-            pathname: `/users/${userId}/destinations/${destinationId}/update`,
+            pathname: `/users/${userId}/posts/${postId}/update`,
             state: {
-              city,
-              state,
-              country,
+              content,
               imageUrl,
-              impressions,
-              status,
               userId,
-              destinationId
+              postId
             }
           }}>
-            Update
+            Update Post
           </Link>
-          <Link to="#" onClick={removeDestination}>Delete</Link>
-        <Link to={{
-          pathname: personalRecommendationUrl,
-          state: {
-            city,
-            state,
-            country,
-            category,
-            destinationId
-          }}}>Recommend To A Friend</Link>
+          <Link to="#" onClick={removePost}>Delete Post</Link>
         </div>
       </div>
     )
@@ -83,4 +68,4 @@ class DestinationItemMenu extends Component {
   }
 }
 
-export default DestinationItemMenu
+export default PostMenu

@@ -23,7 +23,6 @@ const Post = ({
   let impressionsjsx = null;
   return (
     <li>
-
       <div className="post">
 
         <div className="post-header">

@@ -40,6 +40,9 @@ class Feed extends Component{
   render() {
     const { posts, removePost, updatePost, currentUser } = this.props;
     let items = [ ...posts]
+    if (this.state.singleUserContent) {
+      items = items.filter(item => item.user.username === this.state.singleUserContent)
+    }
     let sortedItems = items.sort((a, b) => (a.updatedAt > b.updatedAt) ? -1 : 1)
     let feedList = sortedItems.map(m => {
       return (
@@ -62,8 +65,9 @@ class Feed extends Component{
     const filterMenu = (
       <div className="filterMenu">
           <div className="friendFilter">
-            <h5>Username: </h5>
+            <p>Filter By User: </p>
             <input
+              placeholder="Enter Username"
               type="text"
               onChange={this.handleInputChange}
               name="singleUserContent"

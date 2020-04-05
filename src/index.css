@@ -397,6 +397,10 @@ a.btn.btn-danger:hover {
   padding: 10px;
 }
 
+.welcome-message-li {
+  text-align: left;
+}
+
 @media (max-width: 900px) {
   .welcomeMessage {
     width: 90vw;

@@ -20,12 +20,12 @@ class WelcomeMessage extends Component {
         <h4>Welcome to InnerCircle!</h4>
         <p>To get started:</p>
         <ol>
-          <li>Add a profile picture</li>
-          <li>Search for friends by username and send friend requests</li>
-          <li>Accept incoming friend requests</li>
-          <li>Add a new post to share what's on your mind. Include an image if you'd like!</li>
-          <li>Send messages to your friends</li>
-          <li>Have fun!</li>
+          <li className="welcome-msg-li">Add a profile picture</li>
+          <li className="welcome-msg-li">Search for friends by username and send friend requests</li>
+          <li className="welcome-msg-li">Accept incoming friend requests</li>
+          <li className="welcome-msg-li">Add a new post to share what's on your mind. Include an image if you'd like!</li>
+          <li className="welcome-msg-li">Send messages to your friends</li>
+          <li className="welcome-msg-li">Have fun!</li>
         </ol>
       </em>
       </div>

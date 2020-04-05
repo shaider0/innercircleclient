@@ -1,3 +1,4 @@
+
 /* Home, Background, and Logged Out */
 
 * {
@@ -544,4 +545,41 @@ a.btn.btn-danger:hover {
 
 .form-control {
   margin-bottom: 10px;
+}
+
+.message {
+  background-color: white;
+  margin: 10px auto 10px auto;
+  width: 600px;
+  border-radius: 15px;
+  border: 1px solid #dedbdb;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .message {
+    width: 99%;
+  }
+}
+
+.message-list-item {
+  list-style: none;
+}
+
+.messages-ul {
+  padding: 0;
+}
+
+.message * {
+  text-align: left;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.messageDate {
+  text-align: left;
+}
+
+.inbox-title {
+  margin-top: 10px;
 }

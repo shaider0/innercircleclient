@@ -55,7 +55,8 @@ class Messages extends Component{
         <Link to="/users/:id/create-message-form" className="btn btn-primary">
             Create New Message
         </Link>
-        <ul>
+        <h5 className="inbox-title">Inbox</h5>
+        <ul className="messages-ul">
           {messagesList}
         </ul>
       </div>

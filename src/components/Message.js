@@ -19,10 +19,13 @@ const Message = ({
 }) => {
   let impressionsjsx = null;
   return (
-    <li>
+    <li className="message-list-item">
       <div className="message">
-        <Moment className="messageDate" format="D MMM YYYY">{date}</Moment>
-        <div className="messageContent">{content}</div>
+        <p className="messageDate">
+          <strong>Date: </strong><Moment format="D MMM YYYY">{date}</Moment>
+        </p>
+        <p><strong>From:</strong> {sender.username}</p>
+        <p className="messageContent"><strong>Message:</strong> {content}</p>
       </div>
     </li>
   )

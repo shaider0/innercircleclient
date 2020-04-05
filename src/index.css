@@ -203,14 +203,26 @@ ul.nav.navbar-nav li {
 
 
 /* Friends */
-.friendsSearch,
-.friendRequests,
-.friendsList {
-  margin: 10px auto;
+.friendsSearch {
+  margin: 0 auto;
   padding: 35px;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.75);
   width: 500px;
+}
+
+.friendRequestsReceived,
+.friendRequestsSent,
+.friendsList {
+  margin: 0 auto 20px auto;
+  padding: 35px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 500px;
+}
+
+.frendsSearch {
+  margin-bottom: 0 !important;
 }
 
 .centered-title {
@@ -220,7 +232,8 @@ ul.nav.navbar-nav li {
 
 @media (max-width: 500px) {
   .friendsSearch,
-  .friendRequests,
+  .friendRequestsReceived,
+  .friendRequestsSent,
   .friendsList {
     width: 100%;
   }
@@ -311,7 +324,7 @@ a.btn.btn-danger:hover {
 }
 
 .btn-danger {
-  background-color: #451562 !important;
+  background-color: #e87029 !important;
   border: 1px solid white !important;
   width: 150px;
 }
@@ -527,4 +540,8 @@ a.btn.btn-danger:hover {
 
 .postDate {
   color: #a9a7a7;
+}
+
+.form-control {
+  margin-bottom: 10px;
 }

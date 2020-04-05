@@ -37,7 +37,7 @@ class Navbar extends Component {
               </li>
               <li>
                 <Link
-                  to={`/users/${this.props.currentUser.user.id}/personalRecommendations`}
+                  to={`/users/${this.props.currentUser.user.id}/messages`}
                 >
                   <i className="far fa-envelope"></i>
                 </Link>

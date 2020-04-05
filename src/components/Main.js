@@ -10,6 +10,8 @@ import CreateItem from "./CreateItem"
 import UpdatePostForm from "./UpdatePostForm";
 import FriendRequests from "./FriendRequests"
 import Friends from "./Friends"
+import Messages from "./Messages"
+import CreateMessageForm from "./CreateMessageForm"
 import Settings from "./Settings"
 
 const Main = props => {
@@ -74,6 +76,14 @@ const Main = props => {
         <Route
           path="/users/:id/friends"
           component={Friends}
+        />
+        <Route
+          path="/users/:id/messages"
+          component={Messages}
+        />
+        <Route
+          path="/users/:id/create-message-form"
+          component={CreateMessageForm}
         />
       </Switch>
     </div>

@@ -397,8 +397,14 @@ a.btn.btn-danger:hover {
   padding: 10px;
 }
 
-.welcome-message-li {
-  text-align: left;
+.getstarted {
+  margin-top: 10px;
+  padding-bottom: 10px;   
+}
+
+.welcomeMessage p,
+.welcomeMessage h5 {
+  text-align: left !important;
 }
 
 @media (max-width: 900px) {

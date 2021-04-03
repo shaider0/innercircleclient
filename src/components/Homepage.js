@@ -9,24 +9,23 @@ const Homepage = ({ currentUser }) => {
     return (
       <div>
         <div>
-          <img className="cover-image" src={require('../images/cover.jpg')}/>
+          <img className="cover-image" src={require('../images/cover.png')} />
         </div>
 
-        <div class="logged-out-message">
-          <h1>Welcome to InnerCircle!</h1>
-          <p>Use InnerCircle to share recommendations for movies, shows, books, and more with your closest friends.</p>
-          <br/>
-          <h4>Have an account?</h4>
-          <Link to="/signin" className="btn btn-primary sign-up-button">
-            Sign In
+        <div className="auth">
+          <div class="logged-out-message">
+            <h4>Have an account?</h4>
+            <Link to="/signin" className="btn btn-primary sign-up-button">
+              Sign In
           </Link>
-          <br/>
-          <h4>First time? </h4>
-          <Link to="/signup" className="btn btn-primary sign-up-button">
-            Sign Up
+            <br />
+            <br />
+            <h4>First time here? </h4>
+            <Link to="/signup" className="btn btn-primary sign-up-button">
+              Sign Up
           </Link>
+          </div>
         </div>
-
       </div>
     );
   }

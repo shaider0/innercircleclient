@@ -39,7 +39,7 @@ const Main = props => {
                 errors={errors}
                 onAuth={authUser}
                 buttonText="Sign in"
-                heading="Welcome Back!"
+                heading="Already signed up?"
                 {...props}
               />
             );

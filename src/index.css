@@ -16,15 +16,15 @@ html, .main {
   text-align: center;
   padding: 1rem;
   color: #232323;
-  background-image: url("images/cover.jpg");
-  background-position: center;
+  background-image: url("images/cover.png");
+  background-position: right;
   background-size: cover;
 }
 
 .hide-background {
   background-image: none;
   height: 100vh;
-  background-color: #cdcdcd;
+  background-color: #efefef;
 }
 
 .cover-image {
@@ -35,15 +35,6 @@ html, .main {
 
 .logo {
   width: 70px;
-}
-
-.logged-out-message {
-  background-color: rgba(245, 245, 245, 0.95);
-  width: 400px;
-  padding: 25px;
-  border-radius: 25px;
-  border: 10px solid #cbcbcb;
-  margin: 50px auto 0 auto;
 }
 
 .logged-out-message h1 {
@@ -239,7 +230,7 @@ a.btn.btn-danger:hover {
 }
 
 .btn-primary {
-  background-color: #18366d !important;
+  background-color: #08005c !important;
   border: 1px solid white !important;
   width: 150px;
 }
@@ -256,7 +247,7 @@ a.btn.btn-danger:hover {
 }
 
 .btn-danger {
-  background-color: #451562 !important;
+  background-color: #1dae5e !important;
   border: 1px solid white !important;
   width: 150px;
 }
@@ -449,6 +440,7 @@ a.btn.btn-danger:hover {
   background-color: white;
   margin: 0 auto;
   padding: 10px;
+  text-align: left;
 }
 
 @media (max-width: 900px) {
@@ -458,16 +450,18 @@ a.btn.btn-danger:hover {
 }
 
 .auth {
-  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 80vh;
 }
 
-.authForm {
-  width: 500px;
-  margin: 0 auto;
-  background-color: rgba(245, 245, 245, 0.95);
+.authForm, .logged-out-message {
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 40px;
   border-radius: 25px;
-  border: 10px solid #cbcbcb;
+  border: 2px solid #cbcbcb;
 }
 
 @media (max-width: 500px) {

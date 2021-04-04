@@ -93,7 +93,6 @@ ul.nav.navbar-nav li {
 }
 
 .feedItemMain {
-  margin-bottom: 40px;
 }
 
 .feedItemMain i {
@@ -104,6 +103,12 @@ ul.nav.navbar-nav li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.feedItemTop {
+  padding: 0px;
+  padding-left: 0px !important;
+  display: inline;
 }
 
 
@@ -433,7 +438,7 @@ a.btn.btn-danger:hover {
 }
 
 .impressions {
-  margin-left: 118px;
+  /* margin-left: 118px; */
 }
 
 .createItemForm * {

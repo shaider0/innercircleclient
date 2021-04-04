@@ -32,18 +32,21 @@ const TvshowItem = ({
     <li>
       <div className="feedItem">
         <div className="feedItemMain">
-          {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
-          <i className="fas fa-tv"></i>
-          <img
-            src={profileImageUrl || DefaultProfileImg}
-            alt={username}
-            height="100"
-            width="100"
-            className="timeline-image"
-          />
-          <span>
-            {username} {status === "recommendation" ? "recommends watching the show " : "wants to watch the show "} {title}
-          </span>
+          <div className="feedItemTop container">
+            <img
+              src={profileImageUrl || DefaultProfileImg}
+              alt={username}
+              height="100"
+              width="100"
+              className="timeline-image"
+            />
+            {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
+            <i className="fas fa-tv"></i>
+
+            <span>
+              {username} {status === "recommendation" ? "recommends watching the show " : "wants to watch the show "} {title}
+            </span>
+          </div>
           {impressionsjsx}
           {!!availableOn ? <p className="availableOn">Available On {availableOn}</p> : null}
         </div>

@@ -34,8 +34,6 @@ const RestaurantItem = ({
     <li>
       <div className="feedItem">
         <div className="feedItemMain">
-          {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
-          <i className="fas fa-utensils"></i>
           <img
             src={profileImageUrl || DefaultProfileImg}
             alt={username}
@@ -43,6 +41,9 @@ const RestaurantItem = ({
             width="100"
             className="timeline-image"
           />
+          {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
+          <i className="fas fa-utensils"></i>
+
 
           <span>{username} {
             status === "recommendation" ? "recommends eating at the " : "wants to try the "} restaurant {name}

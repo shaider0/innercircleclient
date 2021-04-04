@@ -30,9 +30,10 @@ const TvshowItem = ({
   let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
   return (
     <li>
-      <div className="feedItem">
-        <div className="feedItemMain">
-          <div className="feedItemTop container">
+      <div className="container post">
+
+        <div className="row top">
+          <div className="col-xs-4">
             <img
               src={profileImageUrl || DefaultProfileImg}
               alt={username}
@@ -40,39 +41,42 @@ const TvshowItem = ({
               width="100"
               className="timeline-image"
             />
+          </div>
+          <div className="col-xs-4 top-middle">
             {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
             <i className="fas fa-tv"></i>
-
-            <span>
-              {username} {status === "recommendation" ? "recommends watching the show " : "wants to watch the show "} {title}
-            </span>
           </div>
-          {impressionsjsx}
-          {!!availableOn ? <p className="availableOn">Available On {availableOn}</p> : null}
+          <div className="col-xs-4">
+            <TvshowItemMenu
+              removeTvshow={removeTvshow}
+              updateTvshow={updateTvshow}
+              isCorrectUser={isCorrectUser}
+              title={title}
+              availableOn={availableOn}
+              impressions={impressions}
+              status={status}
+              tvshowId={tvshowId}
+              userId={userId}
+              category={category}
+              currentUser={currentUser}
+            />
+          </div>
+        </div>
+        <div className="row date">
+          <div>
+            <Moment className="text-muted itemDate" format="D MMM YYYY">
+              {date}
+            </Moment>
+          </div>
         </div>
 
-        <div className="feedItemRight">
-          <TvshowItemMenu
-            removeTvshow={removeTvshow}
-            updateTvshow={updateTvshow}
-            isCorrectUser={isCorrectUser}
-            title={title}
-            availableOn={availableOn}
-            impressions={impressions}
-            status={status}
-            tvshowId={tvshowId}
-            userId={userId}
-            category={category}
-            currentUser={currentUser}
-          />
+        {username} {
+          status === "recommendation" ? "recommends watching the movie" : "wants to watch the movie "} {title}
+        {impressionsjsx}
+        {!!availableOn ? <p className="availableOn">Available On {availableOn}</p> : null}
 
-          <Moment className="text-muted itemDate" format="D MMM YYYY">
-            {date}
-          </Moment>
-
-        </div>
       </div>
-    </li>
+    </li >
   );
 }
 

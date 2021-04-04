@@ -1,7 +1,7 @@
 import React from "react";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
-import DefaultProfileImg from "../images/default-profile-image.jpg";
+import DefaultProfileImg from "../images/default.png";
 import TvshowItemMenu from "./TvshowItemMenu"
 
 const TvshowItem = ({
@@ -21,18 +21,18 @@ const TvshowItem = ({
   category
 }) => {
 
-let impressionsjsx = null;
+  let impressionsjsx = null;
 
-if (status === "recommendation" && !!impressions) {
-  impressionsjsx = (<p className="impressions"><em>"{impressions}"</em></p>)
-}
+  if (status === "recommendation" && !!impressions) {
+    impressionsjsx = (<p className="impressions"><em>"{impressions}"</em></p>)
+  }
 
-let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
-return (
-      <li>
+  let personalRecommendationUrl = `/users/${currentUser}/personalRecommendation`
+  return (
+    <li>
       <div className="feedItem">
         <div className="feedItemMain">
-          {status==="recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i> }
+          {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
           <i className="fas fa-tv"></i>
           <img
             src={profileImageUrl || DefaultProfileImg}
@@ -41,26 +41,26 @@ return (
             width="100"
             className="timeline-image"
           />
-            <span>
-            {username} {status === "recommendation"? "recommends watching the show " : "wants to watch the show "} {title}
-            </span>
-            {impressionsjsx}
-            {!!availableOn? <p className="availableOn">Available On {availableOn}</p> : null}
+          <span>
+            {username} {status === "recommendation" ? "recommends watching the show " : "wants to watch the show "} {title}
+          </span>
+          {impressionsjsx}
+          {!!availableOn ? <p className="availableOn">Available On {availableOn}</p> : null}
         </div>
 
         <div className="feedItemRight">
           <TvshowItemMenu
-          removeTvshow={removeTvshow}
-          updateTvshow={updateTvshow}
-          isCorrectUser={isCorrectUser}
-          title={title}
-          availableOn={availableOn}
-          impressions={impressions}
-          status={status}
-          tvshowId={tvshowId}
-          userId={userId}
-          category={category}
-          currentUser={currentUser}
+            removeTvshow={removeTvshow}
+            updateTvshow={updateTvshow}
+            isCorrectUser={isCorrectUser}
+            title={title}
+            availableOn={availableOn}
+            impressions={impressions}
+            status={status}
+            tvshowId={tvshowId}
+            userId={userId}
+            category={category}
+            currentUser={currentUser}
           />
 
           <Moment className="text-muted itemDate" format="D MMM YYYY">
@@ -70,7 +70,7 @@ return (
         </div>
       </div>
     </li>
-);
+  );
 }
 
 export default TvshowItem;

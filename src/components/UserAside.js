@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import DefaultProfileImg from "../images/default-profile-image.jpg";
+import DefaultProfileImg from "../images/default.png";
 
 class UserAside extends Component {
   constructor(props) {

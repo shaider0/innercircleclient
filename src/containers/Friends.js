@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import DefaultProfileImg from "../images/default-profile-image.jpg";
+import DefaultProfileImg from "../images/default.png";
 import { getFriends, deleteFriend } from "../store/actions/friends"
 import FriendRequests from "./FriendRequests"
 import SearchForUserForm from "./SearchForUserForm"
@@ -37,21 +37,21 @@ class Friends extends Component {
             alt={friend.username}
             height="100"
             width="100"
-            className="timeline-image"/>
-            {friend.username}
+            className="timeline-image" />
+          {friend.username}
         </p>
         <button className="btn btn-danger" id={friend.id} onClick={this.handleRemoveFriend}>Remove Friend</button>
       </div>
-      ))
+    ))
 
     return (
       <div className="friends">
-        <SearchForUserForm/>
+        <SearchForUserForm />
         <FriendRequests />
         <div className="friendsList">
           <h5 className="centered-title">Friends List</h5>
           {friends.length === 0 ? <p>Get started by adding friends using the search tool above </p> : friendsList}
-          </div>
+        </div>
       </div>
     )
   }

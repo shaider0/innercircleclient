@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import DefaultProfileImg from "../images/default-profile-image.jpg";
+import DefaultProfileImg from "../images/default.png";
 import { getFriendRequests, acceptFriendRequest, rejectFriendRequest } from "../store/actions/friendRequests"
 import { getFriendRequestsSent, cancelFriendRequestSent } from "../store/actions/friendRequestsSent"
 
@@ -56,16 +56,16 @@ class FriendRequests extends Component {
           return (
             <div key={request._id}>
               <p>
-              <img
-                src={request.requestor.profileImageUrl || DefaultProfileImg}
-                alt={request.requestor.username}
-                height="100"
-                width="100"
-                className="timeline-image"/>
-              {request.requestor.username}
+                <img
+                  src={request.requestor.profileImageUrl || DefaultProfileImg}
+                  alt={request.requestor.username}
+                  height="100"
+                  width="100"
+                  className="timeline-image" />
+                {request.requestor.username}
               </p>
               <button id={request._id} onClick={this.handleAccept} className="btn btn-primary">Accept</button>
-              <button id={request._id} onClick={this.handleReject}className="btn btn-danger">Ignore</button>
+              <button id={request._id} onClick={this.handleReject} className="btn btn-danger">Ignore</button>
             </div>
           )
         })
@@ -77,13 +77,13 @@ class FriendRequests extends Component {
         return (
           <div key={request._id}>
             <p>
-            <img
-              src={request.recipient.profileImageUrl || DefaultProfileImg}
-              alt={request.recipient.username}
-              height="100"
-              width="100"
-              className="timeline-image"/>
-            {request.recipient.username}
+              <img
+                src={request.recipient.profileImageUrl || DefaultProfileImg}
+                alt={request.recipient.username}
+                height="100"
+                width="100"
+                className="timeline-image" />
+              {request.recipient.username}
             </p>
             <button id={request._id} onClick={this.handleCancel} className="btn btn-primary">Cancel Request</button>
           </div>
@@ -95,7 +95,7 @@ class FriendRequests extends Component {
     return (
       <div className="friendRequests">
         <h5 className="centered-title">Friend Requests</h5>
-        <br/>
+        <br />
         <div>
           <div>
             <h5>Received</h5>

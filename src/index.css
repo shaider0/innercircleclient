@@ -86,10 +86,14 @@ ul.nav.navbar-nav li {
 .feedItem {
   padding: 10px;
     background-color: rgba(255, 255, 255, 0.75);
-  border-radius: 5px;
-  border: 2px solid #b8b8b8;
+  border-radius: 10px;
+  border: 1px solid #b8b8b8;
   width: 600px;
-  margin: 0 auto;
+  margin: 10px auto;
+}
+
+.feedItemMain {
+  margin-bottom: 40px;
 }
 
 .feedItemMain i {
@@ -214,7 +218,8 @@ a.btn.btn-danger:hover {
 
 .mealImage,
 .restaurantImage,
-.destinationImage {
+.destinationImage, 
+.discoveryImage {
   width: 400px;
   border: 1px solid #dddddd;
   border-radius: 15px;
@@ -223,7 +228,8 @@ a.btn.btn-danger:hover {
 @media (max-width: 600px) {
   .mealImage,
   .restaurantImage,
-  .destinationImage {
+  .destinationImage, 
+  .discoveryImage {
     width: 90%;
     margin: 0 auto;
   }

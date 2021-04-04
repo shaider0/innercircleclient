@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux";
 import Moment from "react-moment"
 import { Link } from "react-router-dom"
-import DefaultProfileImg from "../images/default-profile-image.jpg"
+import DefaultProfileImg from "../images/default.png"
 import { withRouter } from "react-router-dom"
 import { postNewMovie } from "../store/actions/movies"
 import { postNewTvshow } from "../store/actions/tvshows"
@@ -15,34 +15,34 @@ import { deletePersonalRecommendation } from "../store/actions/personalRecommend
 class PersonalRecommendationItem extends Component {
   constructor(props) {
     super(props)
-      this.state = {
-        message: "",
-        icon: ""
-      }
+    this.state = {
+      message: "",
+      icon: ""
     }
+  }
 
   handleAddToWatchList = event => {
     event.preventDefault()
-    const { postNewMovie, postNewTvshow, postNewMeal, postNewRestaurant, postNewDestination, postNewDiscovery, sender, item} = this.props
+    const { postNewMovie, postNewTvshow, postNewMeal, postNewRestaurant, postNewDestination, postNewDiscovery, sender, item } = this.props
     const category = item.category
 
     if (category === "movie") {
-      postNewMovie({title: item.title, status: "bookmark" })
+      postNewMovie({ title: item.title, status: "bookmark" })
     }
     else if (category === "tv show") {
-      postNewTvshow({title: item.title, status: "bookmark" })
+      postNewTvshow({ title: item.title, status: "bookmark" })
     }
     else if (category === "meal") {
-      postNewMeal({name: item.name, restaurant: item.restaurant, status: "bookmark" })
+      postNewMeal({ name: item.name, restaurant: item.restaurant, status: "bookmark" })
     }
     else if (category === "restaurant") {
-      postNewRestaurant({name: item.name, status: "bookmark" })
+      postNewRestaurant({ name: item.name, status: "bookmark" })
     }
     else if (category === "destination") {
-      postNewDestination({city: item.city, state: item.state, country: item.country, status: "bookmark" })
+      postNewDestination({ city: item.city, state: item.state, country: item.country, status: "bookmark" })
     }
     else if (category === "discovery") {
-      postNewDiscovery({description: item.description, status: "bookmark" })
+      postNewDiscovery({ description: item.description, status: "bookmark" })
     }
     this.handleDelete()
   }
@@ -53,7 +53,7 @@ class PersonalRecommendationItem extends Component {
     deletePersonalRecommendation(currentUser, id)
   };
 
-  componentDidMount(){
+  componentDidMount() {
     const { sender, item, customMessage } = this.props
     const category = item.category
     if (category === "movie") {
@@ -101,18 +101,18 @@ class PersonalRecommendationItem extends Component {
   }
 
   render() {
-    let message=""
+    let message = ""
     const { date, sender, item } = this.props
     const category = item.category
     return (
       <div className="personalRecommendationItem">
         <p>
           <Moment className="text-muted" format="D MMM YYYY">
-          {date}
+            {date}
           </Moment>
         </p>
         <i className={this.state.icon}></i>
-        {sender.profileImageUrl ? <img className="timeline-image" src={sender.profileImageUrl}/> : null}
+        {sender.profileImageUrl ? <img className="timeline-image" src={sender.profileImageUrl} /> : null}
         <p>{this.state.message}</p>
         {this.state.customMessage ? <p>message: <em>{this.state.customMessage}</em></p> : null}
 

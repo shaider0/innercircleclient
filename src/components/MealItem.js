@@ -33,23 +33,9 @@ const MealItem = ({
 
   return (
     <li>
-      <div className="feedItem">
-        <MealItemMenu
-          removeMeal={removeMeal}
-          updateMeal={updateMeal}
-          isCorrectUser={isCorrectUser}
-          name={name}
-          restaurant={restaurant}
-          impressions={impressions}
-          status={status}
-          mealId={mealId}
-          userId={userId}
-          category={category}
-          currentUser={currentUser}
-          imageUrl={imageUrl}
-        />
-        <div>
-          <div className="post-header">
+      <div className="container post">
+        <div className="row top">
+          <div className="col-xs-4">
             <img
               src={profileImageUrl || DefaultProfileImg}
               alt={username}
@@ -57,33 +43,55 @@ const MealItem = ({
               width="100"
               className="timeline-image"
             />
+          </div>
+          <div className="col-xs-4 top-middle">
             <span className="recbookicon">{status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}</span>
             <span className="caticon"><i className=" fas fa-hamburger"></i></span>
-
           </div>
-          <div class="post-title">{username} {
-            status === "recommendation" ? "recommends trying the " : "wants to try the "} {name}
-          </div>
-          <span> at {restaurant}</span>
-          <div>{impressionsjsx}</div>
-
-          <div>{imageUrl ? <img
-            src={imageUrl || "#"}
-            alt={username}
-            className="mealImage"
-          />
-            : null
-          }
+          <div className="col-xs-4">
+            <MealItemMenu
+              removeMeal={removeMeal}
+              updateMeal={updateMeal}
+              isCorrectUser={isCorrectUser}
+              name={name}
+              restaurant={restaurant}
+              impressions={impressions}
+              status={status}
+              mealId={mealId}
+              userId={userId}
+              category={category}
+              currentUser={currentUser}
+              imageUrl={imageUrl}
+            />
           </div>
         </div>
 
-        <div>
+        <div className="date">
           <Moment className="text-muted itemDate" format="D MMM YYYY">
             {date}
           </Moment>
         </div>
+
+        <div>
+          {username} {
+            status === "recommendation" ? "recommends trying the " : "wants to try the "} {name}
+        </div>
+
+        <span> at {restaurant}</span>
+
+        <div>{impressionsjsx}</div>
+
+        <div>{imageUrl ? <img
+          src={imageUrl || "#"}
+          alt={username}
+          className="mealImage"
+        />
+          : null
+        }
+        </div>
+
       </div>
-    </li>
+    </li >
   );
 }
 

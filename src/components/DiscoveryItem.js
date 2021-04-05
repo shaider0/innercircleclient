@@ -27,50 +27,54 @@ const DiscoveryItem = ({
 
   return (
     <li>
-      <div className="feedItem">
-        <div className="feedItemMain">
-          <img
-            src={profileImageUrl || DefaultProfileImg}
-            alt={username}
-            height="100"
-            width="100"
-            className="timeline-image"
-          />
-          {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
-          <i className="fas fa-lightbulb"></i>
-          <span>{username} recently discovered:
-      </span>
-          {description}
-          {imageUrl ? <img
-            src={imageUrl || "#"}
-            alt={username}
-            className="discoveryImage"
-          />
-            : null
-          }
+      <div className="container post">
+        <div className="row top">
+          <div className="col-xs-4">
+            <img
+              src={profileImageUrl || DefaultProfileImg}
+              alt={username}
+              height="100"
+              width="100"
+              className="timeline-image"
+            />
+          </div>
+          <div className="col-xs-4 top-middle">
+            {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
+            <i className="fas fa-lightbulb"></i>
+          </div>
+          <div className="col-xs-4">
+            <DiscoveryItemMenu
+              removeDiscovery={removeDiscovery}
+              updateDiscovery={updateDiscovery}
+              isCorrectUser={isCorrectUser}
+              title={title}
+              description={description}
+              status={status}
+              discoveryId={discoveryId}
+              userId={userId}
+              category={category}
+              currentUser={currentUser}
+              imageUrl={imageUrl}
+            />
+          </div>
         </div>
-
-        <div className="feedItemRight">
-          <DiscoveryItemMenu
-            removeDiscovery={removeDiscovery}
-            updateDiscovery={updateDiscovery}
-            isCorrectUser={isCorrectUser}
-            title={title}
-            description={description}
-            status={status}
-            discoveryId={discoveryId}
-            userId={userId}
-            category={category}
-            currentUser={currentUser}
-            imageUrl={imageUrl}
-          />
-
+        <div className="date">
           <Moment className="text-muted itemDate" format="D MMM YYYY">
             {date}
           </Moment>
         </div>
+        <span>{username} recently discovered:
+      </span>
+        {description}
+        {imageUrl ? <img
+          src={imageUrl || "#"}
+          alt={username}
+          className="discoveryImage"
+        />
+          : null
+        }
       </div>
-    </li>
+    </li >
   );
 }
 

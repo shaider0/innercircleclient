@@ -456,7 +456,7 @@ a.btn.btn-danger:hover {
 }
 
 .authForm, .logged-out-message {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.7);
   padding: 40px;
   border-radius: 25px;
   border: 2px solid #cbcbcb;

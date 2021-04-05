@@ -71,7 +71,7 @@ const TvshowItem = ({
         </div>
 
         {username} {
-          status === "recommendation" ? "recommends watching the movie" : "wants to watch the movie "} {title}
+          status === "recommendation" ? "recommends watching the show" : "wants to watch the movie "} {title}
         {impressionsjsx}
         {!!availableOn ? <p className="availableOn">Available On {availableOn}</p> : null}
 

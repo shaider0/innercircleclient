@@ -618,6 +618,7 @@ a.btn.btn-danger:hover {
 
 .likeCount {
   text-align: right;
+  padding-bottom: 10px;
 }
 
 .liked {
@@ -660,6 +661,7 @@ a.btn.btn-danger:hover {
   border-radius: 1em;
   background-color: white;
   width: 500px !important;
+  margin-bottom: 10px;
 }
 
 @media(max-width: 538px) {
@@ -695,4 +697,8 @@ a.btn.btn-danger:hover {
   justify-content: space-evenly;
   align-items: center;
   width: 60px;
+}
+
+.post img {
+  margin-bottom: 15px;
 }

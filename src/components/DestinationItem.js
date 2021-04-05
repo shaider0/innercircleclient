@@ -34,56 +34,60 @@ const DestinationItem = ({
 
   return (
     <li>
-      <div className="feedItem">
-        <div className="feedItemMain">
-          <img
-            src={profileImageUrl || DefaultProfileImg}
-            alt={username}
-            height="100"
-            width="100"
-            className="timeline-image"
-          />
-          {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
-          <i className="fas fa-plane"></i>
+      <div className="container post">
+        <div className="row top">
+          <div className="col-xs-4">
+            <img
+              src={profileImageUrl || DefaultProfileImg}
+              alt={username}
+              height="100"
+              width="100"
+              className="timeline-image"
+            />
+          </div>
+          <div className="col-xs-4 top-middle">
+            {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
+            <i className="fas fa-plane"></i>
+          </div>
 
-          <span>{username} {
-            status === "recommendation" ? "recommends visiting " : "wants to visit "}
-            {city} {state} {country}
-          </span>
-          {impressionsjsx}
-
-          {imageUrl ? <img
-            src={imageUrl || "#"}
-            alt={username}
-            className="destinationImage"
-          />
-            : null
-          }
+          <div className="col-xs-4">
+            <DestinationItemMenu
+              removeDestination={removeDestination}
+              updateDestination={updateDestination}
+              isCorrectUser={isCorrectUser}
+              city={city}
+              state={state}
+              country={country}
+              impressions={impressions}
+              status={status}
+              destinationId={destinationId}
+              userId={userId}
+              category={category}
+              currentUser={currentUser}
+              imageUrl={imageUrl}
+            />
+          </div>
         </div>
-
-        <div className="feedItemRight">
-          <DestinationItemMenu
-            removeDestination={removeDestination}
-            updateDestination={updateDestination}
-            isCorrectUser={isCorrectUser}
-            city={city}
-            state={state}
-            country={country}
-            impressions={impressions}
-            status={status}
-            destinationId={destinationId}
-            userId={userId}
-            category={category}
-            currentUser={currentUser}
-            imageUrl={imageUrl}
-          />
-
-          <Moment className="text-muted itemDate" format="D MMM YYYY">
+        <div className="date">
+          <Moment className="text-muted" format="D MMM YYYY">
             {date}
           </Moment>
         </div>
+
+        {username} {
+          status === "recommendation" ? "recommends visiting " : "wants to visit "}
+        {city} {state} {country}
+        {impressionsjsx}
+
+        {imageUrl ? <img
+          src={imageUrl || "#"}
+          alt={username}
+          className="destinationImage"
+        />
+          : null
+        }
       </div>
-    </li>
+    </li >
   );
 }
 

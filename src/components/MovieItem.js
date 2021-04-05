@@ -59,46 +59,52 @@ class MovieItem extends Component {
     return (
       <li>
 
-        <div className="feedItem">
-          <div className="feedItemMain">
-            <img
-              src={profileImageUrl || DefaultProfileImg}
-              alt={username}
-              height="100"
-              width="100"
-              className="timeline-image"
-            />
-            {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
-            <i className="fas fa-film"></i>
-            <span>{username} {
-              status === "recommendation" ? "recommends watching the movie" : "wants to watch the movie "} {title}
-            </span>
-            {!!availableOn ? <p>Available On: {availableOn}</p> : null}
-            {impressionsjsx}
-          </div>
+        <div className="container post">
+          <div className="row top">
+            <div className="col-xs-4">
+              <img
+                src={profileImageUrl || DefaultProfileImg}
+                alt={username}
+                height="100"
+                width="100"
+                className="timeline-image"
+              />
+            </div>
 
-          <div className="feedItemRight">
-            <MovieItemMenu
-              movie={movie}
-              removeMovie={removeMovie}
-              updateMovie={updateMovie}
-              isCorrectUser={isCorrectUser}
-              title={title}
-              availableOn={availableOn}
-              impressions={impressions}
-              status={status}
-              movieId={movieId}
-              userId={userId}
-              category={category}
-              currentUser={currentUser}
-            />
-            <Moment className="text-muted itemDate" format="D MMM YYYY">
+            <div className="col-xs-4 top-middle">
+              {status === "recommendation" ? <i className="fas fa-heart"></i> : <i className="fas fa-bookmark"></i>}
+              <i className="fas fa-film"></i>
+            </div>
+            <div className="col-xs-4">
+              <MovieItemMenu
+                movie={movie}
+                removeMovie={removeMovie}
+                updateMovie={updateMovie}
+                isCorrectUser={isCorrectUser}
+                title={title}
+                availableOn={availableOn}
+                impressions={impressions}
+                status={status}
+                movieId={movieId}
+                userId={userId}
+                category={category}
+                currentUser={currentUser}
+              />
+            </div>
+          </div>
+          <div className="date">
+            <Moment className="text-muted" format="D MMM YYYY">
               {date}
             </Moment>
+          </div>
+
+          {username} {
+            status === "recommendation" ? "recommends watching the movie" : "wants to watch the movie "} {title}
+          {!!availableOn ? <p>Available On: {availableOn}</p> : null}
+          {impressionsjsx}
+          <div className="likeCount">
             <i id={movieId} className={"fas fa-hands-helping " + (likedStatus ? "liked" : null)} onClick={this.toggleLike}></i>
-            <div className="likeCount">
-              {likeCount > 0 ? likeCount : null}
-            </div>
+            {likeCount > 0 ? likeCount : null}
           </div>
         </div>
       </li>

@@ -569,6 +569,12 @@ a.btn.btn-danger:hover {
   padding: 10px;
 }
 
+@media(max-width: 538px) {
+  .personalRecommendationForm {
+    width: 100%;
+  }
+}
+
 .settings {
   text-align: center;
 }
